@@ -248,53 +248,11 @@ if ($usuario["fecha_contrato"] != null) {
 
 <div class="row">
 	<div class="col-sm-8">
-		<!-- <div class="col col-sm-6 col-lg-11">
-			<div class="card card-info card-outline">
-				<div class="card-body box-profile">
-					<div class="row justify-content-around">
-						<div class="col-sm-4 align-self-center">
-							<?php if ($usuario["foto"] == "") : ?>
-								<img class="profile-user-img img-fluid img-circle" src="vistas/img/usuarios/default/default.png">
-							<?php else : ?>
-								<img class="profile-user-img img-fluid img-circle" src="<?php echo $usuario["foto"] ?>">
-							<?php endif ?>
-						</div>
-						<div class="col-sm-8">
-							<h3 class="profile-username text-center">
-								<strong><?php echo $usuario["nombre"] ?></strong>
-							</h3>
-							<p class="profile-username  text-center">
-								<?php echo $usuario["email"] ?>
-							</p>
-							<h3 class="profile-username text-center">
-								<?php echo $usuario["doc_usuario"] ?>
-							</h3>
-							<h3 class="profile-username text-center">
-								<?php echo $usuario["usuario"] ?>
-							</h3>
-							<div class="input-group profile-username text-center">
-								<div class="input-group-prepend">
-									<span class="bg-info rounded-left copiarLink" style="cursor:pointer">Copiar</span>
-								</div>
-								<input type="text" class="form-control" id="linkAfiliado" value="<?php echo $ruta . $usuario["enlace_afiliado"]; ?>" readonly>
-							</div>
-							<div class="text-center">
-								<?php if ($usuario["perfil"] != "admin") : ?>
-									<button class="btn btn-primary btn-sm" data-toggle="modal" id="actualizarDatos" data-target="#modalActualizarDatos" idUsuario="<?php echo $usuario["id_usuario"] ?>">Actualizar datos</button>
-								<?php endif ?>
-								<button class="btn btn-purple btn-sm" data-toggle="modal" data-target="#cambiarPassword">Cambiar contraseña</button>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div> -->
 		<!-- Jerson Arnual -->
 		<div class="col col-sm-6 col-lg-12">
 			<div class="card bg-light d-flex flex-fill">
 				<div class="card-header text-muted border-bottom-0">
-					Digital Strategist
+					Plata
 				</div>
 				<div class="card-body pt-0">
 					<div class="row">
@@ -306,40 +264,49 @@ if ($usuario["fecha_contrato"] != null) {
 							<?php endif ?>
 						</div>
 						<div class="col-7">
-							<h1 class="lead"><b>Nicole Pearsons</b></h1>
-							<p class="text-muted"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-							<ul class="ml-4 mb-0 fa-ul text-muted">
-								<li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-								<li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+							<h1 class="lead"><b><?php echo $usuario["nombre"] ?></b></h1>
+							<p class="text-muted"><b>Correo: </b> <?php echo $usuario["email"] ?> </p>
+							<p class="text-muted"><b>Documento: </b> <?php echo $usuario["doc_usuario"] ?> </p>
+							<p class="text-muted"><b>Usuario: </b> <?php echo $usuario["usuario"] ?> </p>
+							<span class="fa-li"></span> Telefono: <?php echo $usuario["telefono_movil"] ?>
+
+							<div class="input-group profile-username input-link span-item-group">
+								<input type="text" class="form-control" id="linkAfiliado" value="<?php echo $ruta . $usuario["enlace_afiliado"]; ?>" readonly>
+								<div class="input-group-prepend bg-info" style="width: 3vh;">
+									<span class=" rounded-center  fa fa-link copiarLink" style="cursor:pointer;margin-top: 40%; margin-left: 15%;"></span>
+								</div>
+							</div>
+
 							</ul>
 						</div>
-
 					</div>
 				</div>
 				<div class="card-footer">
 					<div class="text-right">
-						<a href="#" class="btn btn-sm bg-teal">
-							<i class="fas fa-comments"></i>
-						</a>
-						<a href="#" class="btn btn-sm btn-primary">
-							<i class="fas fa-user"></i> View Profile
-						</a>
+						<?php if ($usuario["perfil"] != "admin") : ?>
+							<button class="btn btn-primary btn-sm" data-toggle="modal" id="actualizarDatos" data-target="#modalActualizarDatos" idUsuario="<?php echo $usuario["id_usuario"] ?>">Actualizar datos</button>
+						<?php endif ?>
+						<button class="btn btn-purple btn-sm" data-toggle="modal" data-target="#cambiarPassword">Cambiar contraseña</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="row justify-content-between">
-			<div class="content-button">
-				<a class="btn btn-app bg-info">
-					<i class="fas fa-heart"></i>
-					<h2>Pagos</h2>
+			<div class="col content-button">
+				<a class="btn btn-app bg-info card">
+					<div class="card-body">
+						<img src="vistas/img/inicio/hucha.png" class="card-img-top img-position" alt="Pagos" />
+						<h2>Pagos</h2>
+					</div>
 				</a>
 			</div>
-			<div class="content-button">
-				<a class="btn btn-app bg-info">
-					<i class="fas fa-heart"></i>
-					<h2>Historial</h2>
+			<div class="col content-button">
+				<a class="btn btn-app bg-info card">
+					<div class="card-body">
+						<img src="vistas/img/inicio/factura.png" class="card-img-top img-position" alt="Pagos" />
+						<h2>Historial</h2>
+					</div>
 				</a>
 			</div>
 		</div>
@@ -350,16 +317,26 @@ if ($usuario["fecha_contrato"] != null) {
 			<div class="card custom-bg">
 				<div class="card-body">
 					<div class="row">
-						<div class="col-6">
-							<h2 class="card-text">$100.000.00</h2>
-							<h2 class="card-text">$100.000.00</h2>
+						<div class="col-8">
+							<div class="input-group profile-username input-link span-item-group">
+								<div class="input-group-prepend" style="width: 9vh;">
+								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/peso.png">
+								</div>
+								<h2 class="card-text coin-text">$100.000</h2>
+							</div>
+							<div class="input-group profile-username input-link span-item-group">
+								<div class="input-group-prepend" style="width: 9vh;">
+								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/bitcoin.png">
+								</div>
+								<h2 class="card-text coin-text">$100.000</h2>
+							</div>
 							<br>
 							<button class="btn btn-menu-mineria d-flex align-items-center">
 								<span class="text-center">Billetera</span>
 							</button>
 						</div>
-						<div class="col-5 align-self-end">
-							<img src="../../../img/Inicio/billetera.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+						<div class="col-4 align-self-end">
+							<img src="vistas/img/inicio/billetera.png" class="card-img-top w-1000" alt="billetera" />
 						</div>
 					</div>
 
@@ -370,16 +347,21 @@ if ($usuario["fecha_contrato"] != null) {
 			<div class="card custom-bg">
 				<div class="card-body">
 					<div class="row">
-						<div class="col-6">
-							<h2 class="card-text">$20.000.00</h2>
+						<div class="col-8">
+							<div class="input-group profile-username input-link span-item-group">
+								<div class="input-group-prepend" style="width: 9vh;">
+									<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/peso.png">
+								</div>
+								<h2 class="card-text coin-text">$100.000</h2>
+							</div>
 							<br>
 							<br>
 							<button class="btn btn-menu-mineria d-flex align-items-center">
 								<span class="text-center">Minar</span>
 							</button>
 						</div>
-						<div class="col-5">
-							<img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+						<div class="col-4">
+							<img src="vistas/img/inicio/ahorra-dinero.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
 						</div>
 					</div>
 
@@ -452,6 +434,8 @@ if ($usuario["fecha_contrato"] != null) {
 		<i class="fas fa-users"></i>
 	</div>
 	<a href="uninivel" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+
+
 </div>
 </div> -->
 	<?php
@@ -624,4 +608,88 @@ if ($usuario["fecha_contrato"] != null) {
 		<!-- ./col ->
 
 	<?php endif ?> -->
+</div>
+
+
+<!--=====================================
+Cambiar Contraseña
+======================================-->
+
+<!-- The Modal -->
+<div class="modal" id="cambiarPassword">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form method="post">
+				<div class="modal-header">
+					<h4 class="modal-title">Cambiar contraseña</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="idUsuarioPassword" value="<?php echo $usuario["id_usuario"] ?>">
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="Nueva contraseña" name="editarPassword" required>
+					</div>
+				</div>
+				<div class="modal-footer d-flex justify-content-between">
+					<div>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</div>
+				</div>
+				<?php
+				$cambiarPassword = new ControladorUsuarios();
+				$cambiarPassword->ctrCambiarPassword();
+				?>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--=====================================
+Actualizar Datos nombre y telefono
+======================================-->
+
+<!-- The Modal -->
+<div class="modal" id="modalActualizarDatos">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form method="post">
+				<div class="modal-header">
+					<h4 class="modal-title">Actualizar mis datos</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="idUsuario" value="<?php echo $usuario["id_usuario"] ?>">
+					<div class="form-group">
+						<label for="editarNombre">Nombre Completo:</label>
+						<input type="text" class="form-control" id="editarNombre" name="editarNombre" required>
+					</div>
+					<div class="form-group">
+						<label for="editarMovil" class="control-label">Teléfono Móvil</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="p-2 bg-info rounded-left dialCode"></span>
+								<input id="indicativo" type="hidden" name="indicativo">
+							</div>
+							<input type="text" name="editarMovil" class="form-control" required id="editarMovil" data-inputmask="'mask':'(999) 999-9999'" data-mask>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer d-flex justify-content-between">
+					<div>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</div>
+				</div>
+				<?php
+				$actualizarDatos = new ControladorUsuarios();
+				$actualizarDatos->ctrActualizarDatos();
+				?>
+			</form>
+		</div>
+	</div>
 </div>
