@@ -2152,32 +2152,32 @@ fieldset:disabled a.btn {
 
 /* BOTON PERSONALIZADO PARA MENU Y DEMAS - FERNANDO */
 .btn-menu-mineria {
-    color: rgb(5, 150, 242);
-    font-weight: bold;
-    font-size: 20px;
-    background-color: white;
-    border-color: white;
-    border-radius: 25px;
-    box-shadow: 0 1px 1px rgba(0,0,0,.075);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  color: rgb(5, 150, 242);
+  font-weight: bold;
+  font-size: 20px;
+  background-color: white;
+  border-color: white;
+  border-radius: 25px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .btn-menu-mineria i {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .btn-menu-mineria span {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 .custom-bg {
   background: rgb(5, 150, 242) !important;
-   border-color: rgb(5, 150, 242) !important
+  border-color: rgb(5, 150, 242) !important;
 }
 
 /* FERNANDO FIN MODIFICACION  */
@@ -9445,7 +9445,7 @@ html {
 }
 /* PERSONALIZACION DISENO MENU PRINCIPAL */
 .sidebar-dark-primary {
-    background-color: rgb(5, 150, 242);
+  background-color: rgb(5, 150, 242);
 }
 .sidebar-dark-primary .user-panel a:hover {
   color: #fff;
@@ -13657,7 +13657,7 @@ html.maximized-card {
 }
 .profile-user-img {
   margin: 0 auto;
-  width: 100px;
+  width: 50%;
   padding: 3px;
   border: 3px solid #adb5bd;
 }
