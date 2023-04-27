@@ -23,12 +23,7 @@
           <img src="<?php echo $usuario["foto"] ?>" class="img-circle elevation-2" alt="User Image">
 
         <?php endif ?>
-
-      </div>
-      <div class="info">
-        <a href="perfil" class="d-block"><?php echo $usuario["usuario"] ?></a>
-      </div>
-    </div> -->
+ -->
 
 
     <nav class="mt-2">
@@ -56,33 +51,15 @@
 
             <li class="nav-item">
               <a href="inicio" class="nav-link">
-
-                <!-- <p>Inicio</p> -->
                 <button class="btn btn-menu-mineria d-flex align-items-center">
-                    <i class="nav-icon fas fa-home mr-2"></i>
+                    <img src="vistas/img/menu/hogar.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                     <span class="text-center">Inicio</span>
                 </button>
               </a>
             </li>
-
-
           <?php endif ?>
         <?php endif ?>
 
-        <!--=====================================
-      Botón Mi Perfil
-      ======================================-->
-
-        <!-- <?php if (!$inhabilitado_sin_cuenta) : ?> -->
-
-        <!-- <li class="nav-item">
-        <button class="submit-button">Inicio</button> -->
-        <!-- <a href="perfil" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>Mi perfil</p>
-          </a> -->
-        <!-- </li>
-        <?php endif ?> -->
         <!--=====================================
       Botón Usuarios
       ======================================-->
@@ -91,8 +68,6 @@
 
           <li class="nav-item">
             <a href="usuarios" class="nav-link">
-
-              <!-- <p>Usuarios</p> -->
               <button class="btn btn-menu-mineria"><i class="nav-icon fas fa-users"></i>Usuarios</button>
             </a>
           </li>
@@ -109,21 +84,6 @@
 
             <?php if (!$inhabilitado_sin_cuenta) : ?>
 
-
-              <!-- <li class="nav-item">
-          <a href="campanas" class="nav-link">
-            <i class="nav-icon fas fa-money-bill"></i>
-            <p>Campañas</p>
-          </a>
-        </li> -->
-
-              <!-- FERNANDO MODIFICADO - NO NECESARIO EN EL MENU MINERIA -->
-              <!-- <li class="nav-item">
-          <a href="campanas-publicidad" class="nav-link">
-            <i class="nav-icon fas fa-money-bill"></i>
-            <p>Publicidad</p>
-          </a>
-        </li> -->
 
             <?php endif ?>
 
@@ -194,14 +154,10 @@
               <!--=====================================
        Botón Inversiones
        ======================================-->
-
-
               <li class="nav-item">
                 <a href="inversiones" class="nav-link">
-
-                  <!-- <p>Suscripciones</p> -->
                   <button class="btn btn-menu-mineria d-flex align-items-center">
-                    <i class="nav-icon fas fa-money-bill mr-2"></i>
+                    <img src="vistas/img/menu/beneficios.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                     <span class="text-center">Suscripciones</span>
                   </button>
                 </a>
@@ -209,10 +165,8 @@
 
               <li class="nav-item">
                 <a href="campanas" class="nav-link">
-                  <!-- <i class="nav-icon fas fa-money-bill"></i>
-            <p>Campañas</p> -->
                   <button class="btn btn-menu-mineria d-flex align-items-center">
-                    <i class="nav-icon fas fa-money-bill mr-2"></i>
+                    <img src="vistas/img/menu/mina.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                     <span class="text-center">Campañas</span>
                   </button>
                 </a>
@@ -229,7 +183,7 @@
           <li class="nav-item">
             <a href="cuentas-bancarias" class="nav-link">
               <button class="btn btn-menu-mineria d-flex align-items-center">
-                <i class="nav-icon fa fa-university mr-2"></i>
+                <img src="vistas/img/menu/banco.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                 <span class="text-center">Canal de pago</span>
               </button>
             </a>
@@ -242,13 +196,8 @@
 
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <!-- <i class="nav-icon fa fa-file-invoice"></i>
-              <p>
-              Comprobantes
-                <i class="right fas fa-angle-left"></i>
-              </p> -->
                 <button class="btn btn-menu-mineria d-flex align-items-center">
-                  <i class="nav-icon fa fa-file-invoice mr-2"></i>
+                  <img src="vistas/img/menu/comprobar.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                   <span class="text-center">Comprobantes</span>
                 </button>
               </a>
@@ -259,22 +208,8 @@
                     <p>Suscripciones</p>
                   </a>
                 </li>
-                <!-- <li class="nav-item">
-                <a href="comprobantes-publicidad" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Publicidad</p>
-                </a>
-              </li> -->
               </ul>
             </li>
-
-            <!-- <li class="nav-item">
-            <a href="comprobantes" class="nav-link">
-              <i class="nav-icon fa fa-file-invoice"></i>
-              <p>Comprobantes</p>
-            </a>
-          </li> -->
-
 
             <!--=====================================
        Botón Redes Multinivel
@@ -318,7 +253,7 @@
                 <i class="right fas fa-angle-left"></i>
               </p> -->
                   <button class="btn btn-menu-mineria d-flex align-items-center">
-                    <i class="nav-icon fas fa-money-check-alt mr-2"></i>
+                    <img src="vistas/img/menu/grafico.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                     <span class="text-center">Ingresos</span>
                   </button>
                 </a>
@@ -432,7 +367,8 @@
 
               <!-- <p>Plan de compensación</p> -->
               <button class="btn btn-menu-mineria d-flex align-items-center">
-                <i class="nav-icon fas fa-gem mr-2"></i>
+                <!-- <i class="nav-icon fas fa-gem mr-2"></i> -->
+                <img src="vistas/img/menu/equipo.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                 <span class="text-center">Compensación</span>
               </button>
             </a>
@@ -452,7 +388,8 @@
 
                 <!-- <p>Soporte</p> -->
                 <button class="btn btn-menu-mineria d-flex align-items-center">
-                  <i class="nav-icon fas fa-comments mr-2"></i>
+                  <!-- <i class="nav-icon fas fa-comments mr-2"></i> -->
+                  <img src="vistas/img/menu/soporte.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                   <span class="text-center">Soporte</span>
                 </button>
               </a>
@@ -470,7 +407,8 @@
 
             <!-- <p>Cerrar sesión</p> -->
             <button class="btn btn-menu-mineria d-flex align-items-center">
-              <i class="nav-icon fas fa-sign-out-alt mr-2"></i>
+              <!-- <i class="nav-icon fas fa-sign-out-alt mr-2"></i> -->
+              <img src="vistas/img/menu/subir.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
               <span class="text-center">Cerrar sesión</span>
             </button>
           </a>

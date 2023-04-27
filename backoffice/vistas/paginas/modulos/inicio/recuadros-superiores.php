@@ -292,24 +292,28 @@ if ($usuario["fecha_contrato"] != null) {
 			</div>
 		</div>
 
-		<div class="row justify-content-between">
-			<div class="col content-button">
-				<a class="btn btn-app bg-info card">
-					<div class="card-body">
-						<img src="vistas/img/inicio/hucha.png" class="card-img-top img-position" alt="Pagos" />
-						<h2>Pagos</h2>
-					</div>
-				</a>
+<div class="row justify-content-between">
+	<div class="col content-button">
+		<a class="btn btn-app bg-cajas-menu card">
+			<div class="card-body">
+				<img src="vistas/img/inicio/hucha.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
+				<br>
+				<h2>Pagos</h2>
 			</div>
-			<div class="col content-button">
-				<a class="btn btn-app bg-info card">
-					<div class="card-body">
-						<img src="vistas/img/inicio/factura.png" class="card-img-top img-position" alt="Pagos" />
-						<h2>Historial</h2>
-					</div>
-				</a>
+		</a>
+	</div>
+	<div class="col content-button">
+		<a class="btn btn-app bg-cajas-menu card">
+			<div class="card-body">
+			    <img src="vistas/img/inicio/factura.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
+				<br>
+				<h2>Historial</h2>
 			</div>
-		</div>
+		</a>
+	</div>
+</div>
+
+
 
 	</div>
 	<div class="col-sm-4 align-self-start">
@@ -331,9 +335,11 @@ if ($usuario["fecha_contrato"] != null) {
 								<h2 class="card-text coin-text">$100.000</h2>
 							</div>
 							<br>
+							<a href="inversiones" class="nav-link">
 							<button class="btn btn-menu-mineria d-flex align-items-center">
 								<span class="text-center">Billetera</span>
 							</button>
+							</a>
 						</div>
 						<div class="col-4 align-self-end">
 							<img src="vistas/img/inicio/billetera.png" class="card-img-top w-1000" alt="billetera" />
@@ -356,9 +362,11 @@ if ($usuario["fecha_contrato"] != null) {
 							</div>
 							<br>
 							<br>
+							<a href="campanas" class="nav-link">
 							<button class="btn btn-menu-mineria d-flex align-items-center">
 								<span class="text-center">Minar</span>
 							</button>
+							</a>
 						</div>
 						<div class="col-4">
 							<img src="vistas/img/inicio/ahorra-dinero.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />

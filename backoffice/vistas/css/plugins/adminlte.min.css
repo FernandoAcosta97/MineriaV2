@@ -5823,6 +5823,13 @@ button.label-success:focus,
 button.label-success:hover {
   background-color: #1e7e34 !important;
 }
+
+/* INICIO CAJAS MENU PAGOS E HISTORIAL - FERNANDO */
+.bg-cajas-menu{
+  background-color: #f4f4f5 !important;
+}
+/* FIN CAJAS */
+
 .alert-info,
 .bg-info,
 .label-info {
