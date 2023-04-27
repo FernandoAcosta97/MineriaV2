@@ -329,20 +329,28 @@ if ($usuario["fecha_contrato"] != null) {
 			</div>
 		</div>
 
-		<div class="row justify-content-between">
-			<div class="content-button">
-				<a class="btn btn-app bg-info">
-					<i class="fas fa-heart"></i>
-					<h2>Pagos</h2>
-				</a>
+<div class="row justify-content-between">
+	<div class="col content-button">
+		<a class="btn btn-app bg-cajas-menu card">
+			<div class="card-body">
+				<img src="vistas/img/inicio/hucha.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
+				<br>
+				<h2>Pagos</h2>
 			</div>
-			<div class="content-button">
-				<a class="btn btn-app bg-info">
-					<i class="fas fa-heart"></i>
-					<h2>Historial</h2>
-				</a>
+		</a>
+	</div>
+	<div class="col content-button">
+		<a class="btn btn-app bg-cajas-menu card">
+			<div class="card-body">
+			    <img src="vistas/img/inicio/factura.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
+				<br>
+				<h2>Historial</h2>
 			</div>
-		</div>
+		</a>
+	</div>
+</div>
+
+
 
 	</div>
 	<div class="col-sm-4 align-self-start">
@@ -351,15 +359,19 @@ if ($usuario["fecha_contrato"] != null) {
 				<div class="card-body">
 					<div class="row">
 						<div class="col-6">
-							<h2 class="card-text">$100.000.00</h2>
-							<h2 class="card-text">$100.000.00</h2>
+							<h2 class="card-text"></h2>
+							<h2 class="card-text"></h2>
 							<br>
+							<a href="inversiones" class="nav-link">
 							<button class="btn btn-menu-mineria d-flex align-items-center">
 								<span class="text-center">Billetera</span>
 							</button>
+							</a>
 						</div>
 						<div class="col-5 align-self-end">
-							<img src="../../../img/Inicio/billetera.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+						<a href="inversiones" class="nav-link">
+							<img src="vistas/img/inicio/bill.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+							</a>
 						</div>
 					</div>
 
@@ -371,15 +383,19 @@ if ($usuario["fecha_contrato"] != null) {
 				<div class="card-body">
 					<div class="row">
 						<div class="col-6">
-							<h2 class="card-text">$20.000.00</h2>
+							<h2 class="card-text"></h2>
 							<br>
 							<br>
+							<a href="campanas" class="nav-link">
 							<button class="btn btn-menu-mineria d-flex align-items-center">
 								<span class="text-center">Minar</span>
 							</button>
+							</a>
 						</div>
 						<div class="col-5">
-							<img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+						<a href="campanas" class="nav-link">
+							<img src="vistas/img/inicio/ahorrar-dinero.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+							</a>
 						</div>
 					</div>
 
