@@ -61,7 +61,7 @@
                 <button class="btn btn-menu-mineria d-flex align-items-center">
                     <i class="nav-icon fas fa-home mr-2"></i>
                     <span class="text-center">Inicio</span>
-                  </button>
+                </button>
               </a>
             </li>
 

@@ -2175,6 +2175,13 @@ fieldset:disabled a.btn {
     width: 100%;
 }
 
+.custom-bg {
+  background: rgb(5, 150, 242) !important;
+   border-color: rgb(5, 150, 242) !important
+}
+
+/* FERNANDO FIN MODIFICACION  */
+
 .btn-primary {
   color: #fff;
   background-color: #007bff;

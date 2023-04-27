@@ -4,7 +4,7 @@ class ControladorRuta{
 
 	static public function ctrRuta(){
 
-		return "http://localhost/www/trading/";
+		return "http://localhost/www/MineriaV2/";
 
 	}
 

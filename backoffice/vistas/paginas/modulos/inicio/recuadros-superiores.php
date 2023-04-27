@@ -291,7 +291,7 @@ if ($usuario["fecha_contrato"] != null) {
 			</div>
 		</div> -->
 		<!-- Jerson Arnual -->
-		<div class="col col-sm-6 col-lg-11">
+		<div class="col col-sm-6 col-lg-12">
 			<div class="card bg-light d-flex flex-fill">
 				<div class="card-header text-muted border-bottom-0">
 					Digital Strategist
@@ -306,7 +306,7 @@ if ($usuario["fecha_contrato"] != null) {
 							<?php endif ?>
 						</div>
 						<div class="col-7">
-							<h1 class="lead"><b>Nicole Pearson</b></h1>
+							<h1 class="lead"><b>Nicole Pearsons</b></h1>
 							<p class="text-muted"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
 							<ul class="ml-4 mb-0 fa-ul text-muted">
 								<li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
@@ -329,48 +329,37 @@ if ($usuario["fecha_contrato"] != null) {
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col">
-				<div class="col-10">
-					<div class="small-box bg-info">
-						<div class="inner">
-							<h4>Pagos</h4>
-						</div>
-						<div class="icon">
-							<i class="fas fa-dollar-sign"></i>
-						</div>
-						<a href="ingresos-uninivel" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
+		<div class="row justify-content-between">
+			<div class="content-button">
+				<a class="btn btn-app bg-info">
+					<i class="fas fa-heart"></i>
+					<h2>Pagos</h2>
+				</a>
 			</div>
-			<div class="col-4">
-				<div class="card bg-info">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-6">
-							</div>
-							<div class="col-5 align-self-end">
-							</div>
-						</div>
-
-					</div>
-				</div>
+			<div class="content-button">
+				<a class="btn btn-app bg-info">
+					<i class="fas fa-heart"></i>
+					<h2>Historial</h2>
+				</a>
 			</div>
 		</div>
+
 	</div>
 	<div class="col-sm-4 align-self-start">
 		<div class="col-12 col-sm-12 col-lg-12 ">
-			<div class="card bg-info">
+			<div class="card custom-bg">
 				<div class="card-body">
 					<div class="row">
 						<div class="col-6">
 							<h2 class="card-text">$100.000.00</h2>
 							<h2 class="card-text">$100.000.00</h2>
 							<br>
-							<a href="#!" class="btn btn-primary">Billetera</a>
+							<button class="btn btn-menu-mineria d-flex align-items-center">
+								<span class="text-center">Billetera</span>
+							</button>
 						</div>
 						<div class="col-5 align-self-end">
-							<img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+							<img src="../../../img/Inicio/billetera.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
 						</div>
 					</div>
 
@@ -378,14 +367,16 @@ if ($usuario["fecha_contrato"] != null) {
 			</div>
 		</div>
 		<div class="col-12 col-sm-12 col-lg-12 ">
-			<div class="card bg-info">
+			<div class="card custom-bg">
 				<div class="card-body">
 					<div class="row">
 						<div class="col-6">
 							<h2 class="card-text">$20.000.00</h2>
 							<br>
 							<br>
-							<a href="#!" class="btn btn-primary">Invertir</a>
+							<button class="btn btn-menu-mineria d-flex align-items-center">
+								<span class="text-center">Minar</span>
+							</button>
 						</div>
 						<div class="col-5">
 							<img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top w-1000" alt="Fissure in Sandstone" />
