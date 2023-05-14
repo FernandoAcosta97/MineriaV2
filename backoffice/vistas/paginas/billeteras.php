@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Pagos</h1>
+          <h1>Movimientos Billetera</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -25,9 +25,7 @@
 
       <?php  
 
-      include "modulos/uninivel/analitica-sin-liquidar.php"; 
-
-      // include "modulos/uninivel/graficos-ingresos-uninivel.php"; 
+      include "modulos/billetera/cajas-pagos-y-retiros.php"; 
 
       include "modulos/uninivel/tabla-ingresos-uninivel.php"; 
 

@@ -44,7 +44,7 @@
           }
           ?>
 
-          <!--=====================================
+     <!--=====================================
       Botón Inicio
       ======================================-->
           <?php if (!$inhabilitado_sin_cuenta) : ?>
@@ -68,7 +68,10 @@
 
           <li class="nav-item">
             <a href="usuarios" class="nav-link">
-              <button class="btn btn-menu-mineria"><i class="nav-icon fas fa-users"></i>Usuarios</button>
+            <button class="btn btn-menu-mineria d-flex align-items-center">
+                    <img src="vistas/img/menu/personas.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
+                    <span class="text-center">Usuarios</span>
+                </button>
             </a>
           </li>
 
@@ -92,26 +95,35 @@
 
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-money-bill"></i>
+              <button class="btn btn-menu-mineria d-flex align-items-center">
+                    <img src="vistas/img/menu/mina.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
+                    <span class="text-center">Campañas</span>
+                    <i class="right fas fa-angle-left"></i>
+              </button>
+                <!-- <i class="nav-icon fas fa-money-bill"></i>
                 <p>
                   Campañas
                   <i class="right fas fa-angle-left"></i>
-                </p>
+                </p> -->
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="campanas" class="nav-link">
+                    <button class="btn btn-submenu-mineria d-flex align-items-center">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>SUSCRIPCIONES</p>
+                     <span class="text-center">Planes de inversión</span>
+                    </button>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="bonos-extras" class="nav-link">
+                  <button class="btn btn-submenu-mineria d-flex align-items-center">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Bonos extra s</p>
+                     <span class="text-center">Bonos extra</span>
+                  </button>
                   </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a href="campanas-publicidad" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Publicidad</p>
@@ -134,11 +146,13 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>Bonos afiliados</p>
                   </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                   <a href="bonos-bienvenida" class="nav-link">
+                  <button class="btn btn-submenu-mineria d-flex align-items-center">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Bonos bienvenida</p>
+                     <span class="text-center">Bonos bienvenida</span>
+                    </button>
                   </a>
                 </li>
               </ul>
@@ -199,13 +213,16 @@
                 <button class="btn btn-menu-mineria d-flex align-items-center">
                   <img src="vistas/img/menu/comprobar.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                   <span class="text-center">Comprobantes</span>
+                  <i class="right fas fa-angle-left"></i>
                 </button>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="comprobantes" class="nav-link">
+                  <button class="btn btn-submenu-mineria d-flex align-items-center">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Suscripciones</p>
+                     <span class="text-center">Suscripciones</span>
+                    </button>
                   </a>
                 </li>
               </ul>
@@ -255,25 +272,30 @@
                   <button class="btn btn-menu-mineria d-flex align-items-center">
                     <img src="vistas/img/menu/grafico.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
                     <span class="text-center">Ingresos</span>
+                    <i class="right fas fa-angle-left"></i>
                   </button>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="ingresos-uninivel" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Ingresos inversiones</p>
+                    <button class="btn btn-submenu-mineria d-flex align-items-center">
+                    <i class="far fa-circle nav-icon"></i>
+                     <span class="text-center">Ingresos minado</span>
+                    </button>
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a href="ingresos-binaria" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Ingresos comisiones</p>
                     </a>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                     <a href="ingresos-extras" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Ingresos extras</p>
+                    <button class="btn btn-submenu-mineria d-flex align-items-center">
+                    <i class="far fa-circle nav-icon"></i>
+                     <span class="text-center">Ingresos extra</span>
+                    </button>
                     </a>
                   </li>
                 </ul>
@@ -289,32 +311,36 @@
 
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-money-check-alt"></i>
-                <p>
-                  Pagos
-                  <i class="right fas fa-angle-left"></i>
-                </p>
+                <button class="btn btn-menu-mineria d-flex align-items-center">
+                    <img src="vistas/img/menu/obtener-dinero.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
+                    <span class="text-center">Pagos</span>
+                    <i class="right fas fa-angle-left"></i>
+                  </button>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a href="pagos-comisiones" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pagar comisiones</p>
                   </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                  <a href="pagos-inversiones" class="nav-link">
+                <a href="pagos-comisiones" class="nav-link">
+                <button class="btn btn-submenu-mineria d-flex align-items-center">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Pagar inversiones</p>
-                  </a>
+                     <span class="text-center">Pagar suscripciones</span>
+                    </button>
+                    </a>
                 </li>
                 <li class="nav-item">
                   <a href="pagos-extras" class="nav-link">
+                  <button class="btn btn-submenu-mineria d-flex align-items-center">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Pagar extras</p>
+                     <span class="text-center">Pagar bonos extra</span>
+                    </button>
                   </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a href="pagos-publicidad" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pagar publicidad</p>
@@ -331,11 +357,13 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pagar afiliados</p>
                   </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                   <a href="pagos-bienvenida" class="nav-link">
+                  <button class="btn btn-submenu-mineria d-flex align-items-center">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Pagar bienvenida</p>
+                     <span class="text-center">Pagar bonos bienvenida</span>
+                    </button>
                   </a>
                 </li>
               </ul>
@@ -347,9 +375,14 @@
 
             <li class="nav-item">
               <a href="cambiar-patrocinador" class="nav-link">
-                <i class="nav-icon fas fa-wrench"></i>
-                <p>Cambio patrocinador</p>
+                <!-- <i class="nav-icon fas fa-wrench"></i>
+                <p>Cambio patrocinador</p> -->
+              <button class="btn btn-menu-mineria d-flex align-items-center">
+                    <img src="vistas/img/menu/intercambiar.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
+                    <span class="text-center">Admin patrocinio</span>
+              </button>
               </a>
+
             </li>
 
           <?php endif ?>

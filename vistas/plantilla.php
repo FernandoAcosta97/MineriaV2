@@ -31,7 +31,7 @@ Enlace de afiliado
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Inversiones Trading</title>
+	<title>Mineria</title>
 
 	<base href="vistas/">
 

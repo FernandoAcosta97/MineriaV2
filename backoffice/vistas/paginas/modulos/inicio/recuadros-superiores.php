@@ -252,19 +252,23 @@ if ($usuario["fecha_contrato"] != null) {
 		<div class="col col-sm-6 col-lg-12">
 			<div class="card bg-light d-flex flex-fill">
 				<div class="card-header text-muted border-bottom-0">
-					Plata
+					
 				</div>
 				<div class="card-body pt-0">
 					<div class="row">
 						<div class="col-5 text-center">
 							<?php if ($usuario["foto"] == "") : ?>
-								<img class="profile-user-img img-fluid img-circle" src="vistas/img/usuarios/default/default.png">
+								<img class="profile-user-img img-fluid img-circle" src="vistas/img/usuarios/default/empre.jpg">
 							<?php else : ?>
 								<img class="profile-user-img img-fluid img-circle" src="<?php echo $usuario["foto"] ?>">
 							<?php endif ?>
 						</div>
 						<div class="col-7">
-							<h1 class="lead"><b><?php echo $usuario["nombre"] ?></b></h1>
+							<div class="input-group-prepend" style="width: 9vh; display: flex; align-items: center; margin-bottom: 10px;">
+    								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/diamante.png" style="margin-right: 10px;">
+    								<h1 class="lead" style="margin: 0 auto;">Diamante</h1>
+							</div>
+							<h1 class="lead"><b>Nombre: <?php echo $usuario["nombre"] ?></b></h1>
 							<p class="text-muted"><b>Correo: </b> <?php echo $usuario["email"] ?> </p>
 							<p class="text-muted"><b>Documento: </b> <?php echo $usuario["doc_usuario"] ?> </p>
 							<p class="text-muted"><b>Usuario: </b> <?php echo $usuario["usuario"] ?> </p>
@@ -294,16 +298,16 @@ if ($usuario["fecha_contrato"] != null) {
 
 <div class="row justify-content-between">
 	<div class="col content-button">
-		<a class="btn btn-app bg-cajas-menu card">
+		<a href="ingresos-uninivel" class="btn btn-app bg-cajas-menu card">
 			<div class="card-body">
 				<img src="vistas/img/inicio/hucha.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
-				<br>
+				<br>			
 				<h2>Pagos</h2>
 			</div>
 		</a>
 	</div>
 	<div class="col content-button">
-		<a class="btn btn-app bg-cajas-menu card">
+		<a href="inversiones" class="btn btn-app bg-cajas-menu card">
 			<div class="card-body">
 			    <img src="vistas/img/inicio/factura.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
 				<br>
@@ -312,8 +316,6 @@ if ($usuario["fecha_contrato"] != null) {
 		</a>
 	</div>
 </div>
-
-
 
 	</div>
 	<div class="col-sm-4 align-self-start">
@@ -332,10 +334,10 @@ if ($usuario["fecha_contrato"] != null) {
 								<div class="input-group-prepend" style="width: 9vh;">
 								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/bitcoin.png">
 								</div>
-								<h2 class="card-text coin-text">$100.000</h2>
+								<h2 class="card-text coin-text">$0.50</h2>
 							</div>
 							<br>
-							<a href="inversiones" class="nav-link">
+							<a href="billeteras" class="nav-link">
 							<button class="btn btn-menu-mineria d-flex align-items-center">
 								<span class="text-center">Billetera</span>
 							</button>

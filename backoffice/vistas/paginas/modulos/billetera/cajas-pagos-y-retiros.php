@@ -37,7 +37,7 @@ foreach ($pagos as $key => $value) {
 
 				<h3>$ <span></span><?php echo number_format($total_a_pagar); ?></h3>
 
-				<p class="text-uppercase">Pagos pendientes</p>
+				<p class="text-uppercase">Salidas</p>
 
 			</div>
 
@@ -61,7 +61,7 @@ foreach ($pagos as $key => $value) {
 
 				<h3>$ <span><?php echo number_format($total_pagos); ?></span></h3>
 
-				<p class="text-uppercase">Pagos efectuados</p>
+				<p class="text-uppercase">Entradas</p>
 
 			</div>
 
@@ -76,6 +76,54 @@ foreach ($pagos as $key => $value) {
 		</div>
 
 	</div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+
+<div class="small-box bg-purple">
+
+    <div class="inner">
+
+        <h3>$ <span><?php echo number_format($total_pagos); ?></span></h3>
+
+        <p class="text-uppercase">Envia</p>
+
+    </div>
+
+    <div class="icon">
+
+        <i class="fas fa-wallet"></i>
+
+    </div>
+
+    <a href="ingresos-uninivel" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+    
+</div>
+</div>
+
+<div class="col-12 col-sm-6 col-lg-3">
+
+<div class="small-box bg-purple">
+
+    <div class="inner">
+
+        <h3>$ <span><?php echo number_format($total_pagos); ?></span></h3>
+
+        <p class="text-uppercase">Retira</p>
+
+    </div>
+
+    <div class="icon">
+
+        <i class="fas fa-wallet"></i>
+
+    </div>
+
+    <a href="ingresos-uninivel" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+    
+</div>
+</div>
+
+</div>
 
 
 
