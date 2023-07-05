@@ -7,6 +7,14 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1>Movimientos Billetera</h1>
+
+        </div>
+        <div class="col-sm-6">        
+          <a href="billeteras-crypto" class="nav-link">
+							<button class="btn btn-menu-mineria d-flex align-items-center">
+								<span class="text-center">Billetera Crypto</span>
+							</button>
+					</a>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -36,3 +44,5 @@
   </section>
 
 </div>
+
+

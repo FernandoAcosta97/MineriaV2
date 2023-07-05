@@ -377,7 +377,7 @@ REGISTRAR COMPROBANTE
 
 	      <!-- Modal Header -->
 	      <div class="modal-header">
-	        <h4 class="modal-title">Registrar comprobante</h4>
+	        <h4 class="modal-title">Realizar Inversión</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -390,11 +390,30 @@ REGISTRAR COMPROBANTE
 
               <div class="form-group">
 
-                  <label for="registrarValor" class="control-label">Valor</label>
+                  <label for="billeteras" class="control-label">Billetera</label>
+
+               <div>
+
+                <select class="form-control" id="billeteras" name="billeteras" required>
+
+                  <option value="">SELECCIONAR</option>
+                  <option value="1">COP</option>
+                  <option value="2">CRYPTO</option>
+                  <option value="3">TRANSFERENCIA</option>
+
+                </select>
+
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label for="registrarValor" class="control-label">Valor</label>
 
                 <div>
 
-                  <input type="number" class="form-control" id="registrarValor" name="registrarValor" placeholder="Valor comprobante" required>
+                <input type="number" class="form-control" id="registrarValor" name="registrarValor" placeholder="Valor" required>
 
                 </div>
 
@@ -415,18 +434,9 @@ REGISTRAR COMPROBANTE
 
               </div>
 
-      <!-- ENTRADA PARA LA FOTO DEL COMPROBANTE -->
-      <div class="form-group">
+            <div class="invertir_transferencia"></div>
 
-				<input id="registrarFotoComprobante" type="file" class="form-control-file border registrarFotoComprobante" name="registrarFotoComprobante" required>
-
-        <img id="previsualizarRegistrar" src="" class="img-thumbnail previsualizarRegistrar" width="100px">
-
-
-			</div>
-
-
-	      </div>
+	    </div>
 
 	      <!-- Modal footer -->
 	      <div class="modal-footer d-flex justify-content-between">

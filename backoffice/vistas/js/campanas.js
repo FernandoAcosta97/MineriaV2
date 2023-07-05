@@ -1,4 +1,21 @@
 
+
+/*=============================================
+Invertir seleccioanr transferencia y valor disponible
+=============================================*/
+$("#billeteras").on("change",function () {
+	var seleccionado = $(this).val();
+  
+	if(seleccionado==3 && seleccionado!=""){
+	$(".invertir_transferencia").html('<div class="form-group"><input id="registrarFotoComprobante" type="file" class="form-control-file border registrarFotoComprobante" name="registrarFotoComprobante" required><img id="previsualizarRegistrar" src="" class="img-thumbnail previsualizarRegistrar" width="100px"></div>');
+	}else{
+	  $(".invertir_transferencia").html("");
+	}
+	
+
+  
+  })
+  
 /*=============================================
 TABLA CAMPAÑAS
 =============================================*/

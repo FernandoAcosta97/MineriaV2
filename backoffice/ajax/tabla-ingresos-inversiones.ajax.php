@@ -35,7 +35,7 @@ class TablaPagos{
 
 		$usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario",$_GET["usuario"]);
 
-		$pagos = ControladorPagos::ctrMostrarPagosInversionesxUsuario("doc_usuario",$usuario["doc_usuario"],"estado",1);
+		$pagos = ControladorPagos::ctrMostrarPagosInversionesxUsuario("doc_usuario",$usuario["doc_usuario"],"estado",0);
 
 		$periodo_comision = 0;
 		$periodo_venta = 0;
@@ -137,7 +137,14 @@ class TablaPagos{
 				$tipo_cuenta = $cuentaBancaria["tipo"];
 			}
 
-			$acciones = "<h5><span class='badge badge-success'>Pago $".number_format($total)."</span></h5>";
+			if($value["id"]!=50){
+				$acciones = "<small class='text-success mr-1'><i class='fas fa-arrow-up'></i></small>$ ".number_format($total)."";
+			}else{
+				$acciones = "<small class='text-danger mr-1'><i class='fas fa-arrow-down'></i></small>$ ".number_format($total)."";
+
+			}
+
+
 
 
 			$datosJson	 .= '[
@@ -147,8 +154,7 @@ class TablaPagos{
 					"'.$entidad_cuenta.'",
 					"'.$numero_cuenta.'",
 					"'.$tipo_cuenta.'",
-					"'.$value["fecha_inversion"].'",
-					"'.$value["fecha_pago"].'"
+					"'.$value["fecha_inversion"].'"
 
 			],';
 

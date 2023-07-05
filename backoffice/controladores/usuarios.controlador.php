@@ -7,6 +7,8 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
+require_once 'vendor/autoload.php';
+
 
 Class ControladorUsuarios{
 
@@ -657,6 +659,54 @@ Class ControladorUsuarios{
 
 	}
 
+
+	static public function binance(){
+		$key="L6nIDXZkbfcvQ59LKvWhbgBIpE6VfH3y07QYvfKAa153YAKppro7gnY2V2V7ix07";
+		$secret="JnKnQqq4iOZm2wjml56aHQhLnWFYzPcBtA4swVWeghj8XbPWDhqVnIU4YWF4OTdY";
+
+		$client = new \Binance\Spot(['key' => $key, 'secret' => $secret]);
+		$tiempo = $client->time();
+		// echo json_encode($tiempo);
+		$response = $client->account();
+		// echo json_encode($response);
+
+		$estimate=0;
+
+if (isset($response['balances'])) {
+    foreach ($response['balances'] as $balance) {
+        $symbol = $balance['asset'];
+        $free = $balance['free'];
+        $locked = $balance['locked'];
+
+        if($symbol!="USDT" && ($free>0 || $locked>0)){
+            
+        $usdtValue = $client->avgPrice($symbol . 'USDT');
+        // echo $usdtValue["price"];
+
+        // echo $symbol." ".$free."=".$usdtValue["price"];
+        
+        $freeUsdt = number_format(floatval($free)*floatval($usdtValue["price"]),10);
+        $lockedUsdt = number_format(floatval($locked)*floatval($usdtValue["price"]),10);
+
+        // echo $symbol;
+        // echo "freeusdt ".$freeUsdt;
+
+        // Calcular el valor estimado del saldo
+        $estimate = $estimate+($freeUsdt + $lockedUsdt);
+        // echo " estimate".number_format(floatval($estimate),10);
+
+        }else if(($free>0 || $locked>0)){
+            $estimate =$estimate+ (number_format(floatval($free),10) + number_format(floatval($locked),10));
+            // echo $symbol;
+        }
+        
+
+    }
+}
+
+return $estimate;
+	}
+
 	/*=============================================
 	Ingreso Usuario
 	=============================================*/
@@ -675,7 +725,7 @@ Class ControladorUsuarios{
 
 			 	$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
-			 	if($respuesta["email"] == $_POST["ingresoEmail"] && $respuesta["password"] == $encriptar){
+			 	if($respuesta && $respuesta["email"] == $_POST["ingresoEmail"] && $respuesta["password"] == $encriptar){
 
 			 		if($respuesta["verificacion"] == 0){
 

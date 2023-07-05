@@ -12,13 +12,14 @@ class ModeloComprobantes
     public static function mdlRegistrarComprobantes($tabla, $datos)
     {
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(valor, foto, estado, doc_usuario, campana) VALUES (:valor, :foto, :estado, :doc_usuario, :campana)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(valor, foto, estado, doc_usuario, campana, billetera) VALUES (:valor, :foto, :estado, :doc_usuario, :campana, :billetera)");
 
         $stmt->bindParam(":valor", $datos["valor"], PDO::PARAM_INT);
         $stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
         $stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_INT);
         $stmt->bindParam(":doc_usuario", $datos["doc_usuario"], PDO::PARAM_INT);
         $stmt->bindParam(":campana", $datos["campana"], PDO::PARAM_INT);
+        $stmt->bindParam(":billetera", $datos["billetera"], PDO::PARAM_INT);
 
         if ($stmt->execute()) {
 
@@ -41,7 +42,7 @@ class ModeloComprobantes
 
         if ($item != null && $valor != null) {
             
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY 'fecha'");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
 
@@ -73,7 +74,7 @@ class ModeloComprobantes
 
         if ($item != null && $valor != null) {
             
-        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item = :$item AND $item2 = :$item2 ORDER BY 'fecha'");
+        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.billetera, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item = :$item AND $item2 = :$item2 ORDER BY 'fecha'");
 
         $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
 
@@ -85,7 +86,7 @@ class ModeloComprobantes
 
         }else{
             
-            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item2 = :$item2 ORDER BY 'fecha'");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.billetera ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item2 = :$item2 ORDER BY 'fecha'");
         
             $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
         

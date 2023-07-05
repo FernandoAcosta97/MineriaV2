@@ -73,6 +73,12 @@ class TablaComprobantes {
             }else{
                 $valor_total = $value["valor"];
             }
+
+            if($value["billetera"]==2){
+                $val=number_format($valor_total).' BTC';
+            }else{
+                $val='$ '.number_format($valor_total).' COP';
+            }
             // print_r($campana);
 
             //FOTO COMPROBANTES
@@ -103,7 +109,7 @@ class TablaComprobantes {
                     "'.$acciones.'",
                     "'.$foto.'",
                     "'.$estado.'",
-                    "$ '.number_format($valor_total).' COP",
+                    "'.$val.'",
                     "'.$value[ 'fecha' ].'",
                     "'.$campana[ 'nombre' ].'"
              ],';
@@ -180,16 +186,18 @@ class TablaComprobantes {
                 
             $acciones = "<div class='btn-group'><button class='btn btn-warning btn-xs btnEditarComprobante' idComprobante='".$value["comprobanteId"]."' data-toggle='modal' data-target='#modalEditarComprobante'><i class='fa fa-pen' style='color:white'></i></button><button type='button' class='btn btn-danger btn-xs btnEliminarComprobante' idComprobante='".$value["comprobanteId"]."'><i class='fa fa-times'></i></button></div>";
 
+
             $datosJson .= '[
                 "'.$acciones.'",
                 "'.$foto.'",
                 "'.$estado.'",
-                "$ '.number_format($valor_total).' COP",
+                "'.$val.'",
                 "'.$documento.'",
                 "'.$nombre.'",
                 "'.$value[ 'fecha' ].'",
                 "'.$selectCampanas.'"
          ],';
+
 
         }
 

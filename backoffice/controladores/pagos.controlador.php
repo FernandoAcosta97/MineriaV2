@@ -2,6 +2,62 @@
 
 class ControladorPagos
 {
+
+
+    /*=============================================
+    Registro solicitud de retiro
+    =============================================*/
+
+    public static function ctrSolicitudRetiro($id_usuario, $tipo)
+    {
+
+        if(isset($_POST["telefono"])){
+
+        $tabla = "retiros";
+        $datos = array("usuario" => $id_usuario,
+                       "tipo" => $tipo,
+                       "valor" => $_POST["valor"]);
+
+        $respuesta = ModeloPagos::mdlSolicitudRetiro($tabla, $datos);  
+        
+        if($respuesta=="ok"){
+
+            echo '<script>
+
+                        swal({
+                              type: "success",
+                              title: "Se ha generado su solicitud con éxito!",
+                              showConfirmButton: true,
+                              confirmButtonText: "Cerrar"
+                              }).then(function(result){
+                                        if (result.value) {
+    
+                                        window.location="billeteras"
+                                        }
+                                    })
+    
+                        </script>';
+
+        }
+        }
+
+    }
+
+
+    /*=============================================
+    Mostrar solicitudes retiro
+    =============================================*/
+
+    public static function ctrMostrarSolicitudesRetiro($item, $valor,$item2,$valor2)
+    {
+
+        $tabla = "retiros";
+
+        $respuesta = ModeloPagos::mdlMostrarSolicitudesRetiro($tabla, $item, $valor,$item2,$valor2);
+
+        return $respuesta;
+
+    }
  
     /*=============================================
     Registro de Pagos

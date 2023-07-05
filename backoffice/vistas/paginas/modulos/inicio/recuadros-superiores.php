@@ -317,6 +317,8 @@ if ($usuario["fecha_contrato"] != null) {
 	</div>
 </div>
 
+<?php $estimado_binance=ControladorUsuarios::binance(); ?>
+
 	</div>
 	<div class="col-sm-4 align-self-start">
 		<div class="col-12 col-sm-12 col-lg-12 ">
@@ -334,11 +336,11 @@ if ($usuario["fecha_contrato"] != null) {
 								<div class="input-group-prepend" style="width: 9vh;">
 								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/bitcoin.png">
 								</div>
-								<h2 class="card-text coin-text">$0.50</h2>
+								<h2 class="card-text coin-text"><?php echo number_format($estimado_binance,1) ?></h2>
 							</div>
 							<br>
-							<a href="billeteras" class="nav-link">
-							<button class="btn btn-menu-mineria d-flex align-items-center">
+							<a href="#" class="nav-link">
+							<button class="btn btn-menu-mineria d-flex align-items-center" data-toggle="modal" data-target="#modalBilletera">
 								<span class="text-center">Billetera</span>
 							</button>
 							</a>
@@ -702,4 +704,82 @@ Actualizar Datos nombre y telefono
 			</form>
 		</div>
 	</div>
+</div>
+
+
+
+<!--=====================================
+MODAL SELECCIONAR BILLETERA
+======================================-->
+
+<!-- The Modal -->
+<div class="modal" id="modalBilletera">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+    	<form method="post">
+
+	      <!-- Modal Header -->
+	      <div class="modal-header">
+	        <h4 class="modal-title">Billetera</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+
+	      <!-- Modal body -->
+	      <div class="modal-body">
+
+        <input type="hidden" id="id_usuario" name="id_usuario">
+
+                <!-- ENTRADA  -->
+                <div class="form-group">
+
+                <label for="seleccionar" class="control-label">Seleccionar</label>
+
+                <div class="card offset-1 col-10">
+				<a href="billeteras-crypto">
+				<img style="width: 50%;margin:auto;
+		    display:block;" src="vistas/img/inicio/bitcoin.png" class="card-img-top w-1000" alt="billetera">
+				  <center>
+                  <h2>Criptomoneda</h2>
+                  <p>-------------------</p>
+				  </center>
+				</a>
+              </div>
+
+              <div class="card offset-1 col-10">
+				<a href="billeteras">
+				<img style="width: 50%;margin:auto;
+		    display:block;" src="vistas/img/inicio/billetera.png" class="card-img-top w-1000" alt="billetera">
+                  <center><h2>Billetera</h2>
+                  <p>-------------------</p></center>
+				  <a>
+              </div>
+               
+
+                </div>
+
+
+	      </div>
+
+	      <!-- Modal footer -->
+	      <div class="modal-footer d-flex justify-content-between">
+
+	      	<div>
+
+	        	<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+
+	        </div>
+
+        	<div>
+
+	        	<button type="submit" class="btn btn-primary">Enviar</button>
+
+	        </div>
+
+	      </div>
+
+      </form>
+
+    </div>
+  </div>
 </div>

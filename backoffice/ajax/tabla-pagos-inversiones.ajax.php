@@ -94,6 +94,8 @@ class TablaPagos{
 		$cuentaBancaria="";
 		$red="";
 
+		// var_dumop($pagos);
+
 		foreach ($pagos as $key => $value) {
 			
 			$comprobante=ControladorComprobantes::ctrMostrarComprobantes("id",$value["id_comprobante"]);

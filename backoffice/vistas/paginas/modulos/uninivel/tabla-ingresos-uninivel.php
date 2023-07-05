@@ -15,20 +15,19 @@
 
 	<div class="card-body">
 		
-		<table class="table table-bordered table-striped dt-responsive tabla-ingresos-inversiones" width="100%">
+		<table class="table table-bordered table-striped dt-responsive tabla-ingresos-retiros" width="100%">
 			
 			<thead>
 
 				<tr>
 
 					<th style="width:10px">#</th> 
-					<th>Estado</th>
 					<th>ID</th>
+					<th>Tipo Movimiento/Valor</th>
 					<th>Entidad cuenta</th>
 					<th>Número cuenta</th>
-					<th>Tipo cuenta</th>	
-					<th>Fecha inversion</th>				   
-					<th>Fecha pago</th>					
+					<th>Tipo cuenta</th>					   
+					<th>Fecha</th>					
 
 				</tr>   
 

@@ -9,6 +9,8 @@ if (count($cuentas) == 0) {
     return;
   }
 }
+
+
 ?>
 
 <div class="content-wrapper" style="min-height: 1058.31px;">

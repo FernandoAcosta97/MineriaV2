@@ -32,6 +32,76 @@ class ModeloPagos
 
 
 
+      /*=============================================
+    Registro de Pagos
+    =============================================*/
+
+    public static function mdlSolicitudRetiro($tabla, $datos)
+    {
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(usuario, tipo, valor) VALUES (:usuario, :tipo, :valor)");
+
+        $stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_INT);
+        $stmt->bindParam(":tipo", $datos["tipo"], PDO::PARAM_INT);
+        $stmt->bindParam(":valor", $datos["valor"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+        $stmt = null;
+    }
+
+
+    /*=============================================
+    Mostrar Solicitudes Retiro
+    =============================================*/
+
+    public static function mdlMostrarSolicitudesRetiro($tabla, $item, $valor,$item2,$valor2)
+    {
+
+        if ($item != null && $valor !=null && $item2 != null && $valor2 !=null) {
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item AND $item2 = :$item2 ORDER BY fecha DESC");
+
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+            
+            $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+
+        }if ($item != null && $valor !=null) {
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY fecha DESC");
+
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+
+        } else {
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY fecha DESC");
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
     /*=============================================
     Registro de Pagos Publicidad
     =============================================*/

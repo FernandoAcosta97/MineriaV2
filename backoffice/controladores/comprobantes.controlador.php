@@ -100,7 +100,8 @@ class ControladorComprobantes
                     "estado" => $_POST["registrarEstado"],
                     "foto" => $ruta,
                     "doc_usuario" => $_POST["doc_usuario"],
-                    "campana" => $_POST["id_campana"]);
+                    "campana" => $_POST["id_campana"],
+                    "billetera" => $_POST["billeteras"]);
 
                 $respuesta = ModeloComprobantes::mdlRegistrarComprobantes($tabla, $datos);
 
