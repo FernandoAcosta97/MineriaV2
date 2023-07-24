@@ -1,0 +1,27 @@
+name: Despliegue Mineria a cPanel
+
+on:
+  push:
+    branches:
+      - produccion
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "FernandoAcosta97"
+          git config --global user.email "teamtareadigital@gmail.com"
+
+      - name: Desplegar a cPanel
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER_CUBELAB }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          remote-dir: nutrifeel.cubelabcolombia.com
