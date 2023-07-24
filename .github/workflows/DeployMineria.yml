@@ -15,9 +15,10 @@ jobs:
           git config --global user.name "FernandoAcosta97"
           git config --global user.email "teamtareadigital@gmail.com"
       - name: Desplegar a cPanel
-        uses: SamKirkland/FTP-Deploy-Action@v4.2.2  # O utiliza una versión disponible
+        uses: SamKirkland/FTP-Deploy-Action  # Utiliza la versión más reciente disponible
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: prueba.com
+
