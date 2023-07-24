@@ -1,14 +1,11 @@
 name: Despliegue Mineria a cPanel
-
 on:
   push:
     branches:
       - produccion
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,4 +21,4 @@ jobs:
           ftp-server: ${{ secrets.FTP_SERVER }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          remote-dir: prueba.com
+          remote-dir: prueba.cubelabcolombia.com
