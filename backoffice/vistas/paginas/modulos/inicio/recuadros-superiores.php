@@ -263,7 +263,7 @@ if ($usuario["fecha_contrato"] != null) {
                 </div>
                 <div class="col-12 col-sm-7">
                     <div class="d-flex align-items-center mb-2">
-                        <img class="profile-user-img img-fluid img-circle mr-2" src="vistas/img/inicio/d.jpg">
+                        <img class="profile-user-img img-fluid img-circle mr-2" src="vistas/img/Inicio/d.jpg">
                         <h1 class="lead mb-0">Diamante</h1>
                     </div>
                     <h1 class="lead mb-1"><b>Nombre: <?php echo $usuario["nombre"] ?></b></h1>
@@ -298,7 +298,7 @@ if ($usuario["fecha_contrato"] != null) {
 	<div class="col content-button">
 		<a href="ingresos-uninivel" class="btn btn-app bg-cajas-menu card">
 			<div class="card-body">
-				<img src="vistas/img/inicio/hucha.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
+				<img src="vistas/img/Inicio/hucha.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
 				<br>			
 				<h2>Pagos</h2>
 			</div>
@@ -307,7 +307,7 @@ if ($usuario["fecha_contrato"] != null) {
 	<div class="col content-button">
 		<a href="inversiones" class="btn btn-app bg-cajas-menu card">
 			<div class="card-body">
-			    <img src="vistas/img/inicio/factura.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
+			    <img src="vistas/img/Inicio/factura.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 20%;" />
 				<br>
 				<h2>Historial</h2>
 			</div>
@@ -324,13 +324,13 @@ if ($usuario["fecha_contrato"] != null) {
 						<div class="col-8">
 							<div class="input-group profile-username input-link span-item-group">
 								<div class="input-group-prepend" style="width: 9vh;">
-								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/peso.png">
+								<img class="profile-user-img img-fluid img-circle" src="vistas/img/Inicio/peso.png">
 								</div>
 								<h2 class="card-text coin-text">$100</h2>
 							</div>
 							<div class="input-group profile-username input-link span-item-group">
 								<div class="input-group-prepend" style="width: 9vh;">
-								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/bitcoin.png">
+								<img class="profile-user-img img-fluid img-circle" src="vistas/img/Inicio/bitcoin.png">
 								</div>
 								<h2 class="card-text coin-text">$0.05</h2>
 							</div>
@@ -343,7 +343,7 @@ if ($usuario["fecha_contrato"] != null) {
 							</a>
 						</div>
 						<div class="col-4 align-self-end">
-							<img src="vistas/img/inicio/billetera.png" class="card-img-top w-1000" alt="billetera" />
+							<img src="vistas/img/Inicio/billetera.png" class="card-img-top w-1000" alt="billetera" />
 						</div>
 					</div>
 
@@ -357,7 +357,7 @@ if ($usuario["fecha_contrato"] != null) {
 						<div class="col-8">
 							<div class="input-group profile-username input-link span-item-group">
 								<div class="input-group-prepend" style="width: 9vh;">
-									<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/peso.png">
+									<img class="profile-user-img img-fluid img-circle" src="vistas/img/Inicio/peso.png">
 								</div>
 								<h2 class="card-text coin-text">$100.000</h2>
 							</div>
@@ -370,7 +370,7 @@ if ($usuario["fecha_contrato"] != null) {
 							</a>
 						</div>
 						<div class="col-4">
-							<img src="vistas/img/inicio/ahorra-dinero.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+							<img src="vistas/img/Inicio/ahorra-dinero.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
 						</div>
 					</div>
 
@@ -722,7 +722,7 @@ SELECCIONAR BILLETERAS
 						<div class="text-center">
 							<div class="d-flex flex-column align-items-center">
 							<a href="billeteras" class="d-flex flex-column align-items-center">
-								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/cripto.png">
+								<img class="profile-user-img img-fluid img-circle" src="vistas/img/Inicio/cripto.png">
 								<label>CRIPTOMONEDA</label>
 							</a>
 							</div>
@@ -730,7 +730,7 @@ SELECCIONAR BILLETERAS
 						<div class="text-center">
 							<div class="d-flex flex-column align-items-center">
 							<a href="billcop" class="d-flex flex-column align-items-center">
-								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/cop.png">
+								<img class="profile-user-img img-fluid img-circle" src="vistas/img/Inicio/cop.png">
 								<label>PESOS</label>
 						    </a>
 							</div>

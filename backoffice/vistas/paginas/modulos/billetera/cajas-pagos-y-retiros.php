@@ -43,7 +43,7 @@ foreach ($pagos as $key => $value) {
 				</div>
 				<div class="d-flex flex-column align-items-center">
 					<a href="billeteras" class="d-flex flex-column align-items-center">
-						<img class="profile-user-img img-fluid" src="vistas/img/inicio/reti.png">
+						<img class="profile-user-img img-fluid" src="vistas/img/Inicio/reti.png">
 					</a>
 				</div>
 			</div>
@@ -66,7 +66,7 @@ foreach ($pagos as $key => $value) {
 				</div>
 				<div class="d-flex flex-column align-items-center">
 					<a href="billeteras" class="d-flex flex-column align-items-center">
-						<img class="profile-user-img img-fluid" src="vistas/img/inicio/ingresos.png">
+						<img class="profile-user-img img-fluid" src="vistas/img/Inicio/ingresos.png">
 					</a>
 				</div>
 			</div>
@@ -87,7 +87,7 @@ foreach ($pagos as $key => $value) {
 				</div>
 				<div class="d-flex flex-column align-items-center">
 					<a href="billeteras" class="d-flex flex-column align-items-center">
-						<img class="profile-user-img img-fluid" src="vistas/img/inicio/egresos.png">
+						<img class="profile-user-img img-fluid" src="vistas/img/Inicio/egresos.png">
 					</a>
 				</div>
 			</div>
@@ -107,7 +107,7 @@ foreach ($pagos as $key => $value) {
 				</div>
 				<div class="d-flex flex-column align-items-center">
 					<a href="billeteras" class="d-flex flex-column align-items-center">
-						<img class="profile-user-img img-fluid" src="vistas/img/inicio/reinver.png">
+						<img class="profile-user-img img-fluid" src="vistas/img/Inicio/reinver.png">
 					</a>
 				</div>
 			</div>
