@@ -2207,6 +2207,16 @@ fieldset:disabled a.btn {
 
 /* FERNANDO FIN MODIFICACION  */
 
+.btn-modallFer {
+  border-radius: 20px;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  background-color: rgb(5, 150, 242);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
 .btn-primary {
   color: #fff;
   background-color: #007bff;
@@ -5210,12 +5220,16 @@ a.disabled.mailbox-attachment-close {
 .modal-backdrop.show {
   opacity: 0.5;
 }
+
+/* cabecera de los modales azules personalizados - fernando */
 .modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid #e9ecef;
+  background-color: #0596F2; /* Color de fondo azul */
+  color: white; /* Color de letra blanco */
+  border-bottom: 1px solid #0080ff;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
 }
@@ -5857,8 +5871,9 @@ button.label-success:hover {
 
 .alert-info,
 .bg-info,
+/* NOTIFICACION DEL INICIO COLOR Z| */
 .label-info {
-  background-color: #17a2b8 !important;
+  background-color: #0596F2 !important;
 }
 a.alert-info:focus,
 a.alert-info:hover,

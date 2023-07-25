@@ -3,7 +3,7 @@ Color personalizado
 =============================================*/
 .bg-purple,
 .btn-purple {
-  background-color: #727cb6;
+  background-color: #694ED9;
   color: white;
 }
 
@@ -337,3 +337,32 @@ margin-top: 2vh;
   color: #fff;
   font-weight: bold;
 }
+
+
+/*=============================================
+CAJAS BILLETERA - BLANCO
+=============================================*/
+.white-section {
+  background-color: white;
+  color: black;
+}
+
+
+/*=============================================
+CAJAS BILLETERA - MORADO CLARO
+=============================================*/
+.bg-purpleclar,
+.btn-purpleclar {
+  background-color: #B52AF6;
+  color: white;
+}
+
+/*=============================================
+CAJAS BILLETERA - ROSADO
+=============================================*/
+.bg-rosa,
+.btn-rosa {
+  background-color: #F22AF6;
+  color: white;
+}
+

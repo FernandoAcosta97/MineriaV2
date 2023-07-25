@@ -297,7 +297,7 @@ if($usuario["fecha_contrato"]!=null){
 					$_GET["pagina"] == "plan-compensacion" ||
 					$_GET["pagina"] == "soporte" ||
 					$_GET["pagina"] == "billeteras" ||
-					$_GET["pagina"] == "billeteras-crypto" ||
+					$_GET["pagina"] == "billcop" ||
 					$_GET["pagina"] == "salir") {
 			
 					include "paginas/" . $_GET["pagina"] . ".php";
@@ -363,7 +363,7 @@ if($usuario["fecha_contrato"]!=null){
 				$_GET["pagina"] == "plan-compensacion" ||
 				$_GET["pagina"] == "soporte" ||
 				$_GET["pagina"] == "billeteras" ||
-				$_GET["pagina"] == "billeteras-crypto" ||
+				$_GET["pagina"] == "billcop" ||
 				$_GET["pagina"] == "salir") {
 		
 				include "paginas/" . $_GET["pagina"] . ".php";

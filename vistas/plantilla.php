@@ -172,7 +172,7 @@ if(isset($_GET["pagina"])){
 			
 			}else{
 
-				include "paginas/ingreso_en.php";
+				include "paginas/ingreso.php";
 			}
 
 		}else{
@@ -193,7 +193,7 @@ if(isset($_GET["pagina"])){
 			
 			}else{
 
-				include "paginas/registro_en.php";
+				include "paginas/registro.php";
 			}
 
 		}else{
