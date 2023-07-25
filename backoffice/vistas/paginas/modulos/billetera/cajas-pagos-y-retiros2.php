@@ -61,7 +61,10 @@ foreach ($pagos as $key => $value) {
 
 	</div>
 
-	<?php $estimado_binance=ControladorUsuarios::binance(); ?>
+<?php 
+// $estimado_binance=ControladorUsuarios::binance();
+$estimado_binance=0;
+ ?>
 
 	<div class="col-12 col-sm-6 col-lg-3">
 

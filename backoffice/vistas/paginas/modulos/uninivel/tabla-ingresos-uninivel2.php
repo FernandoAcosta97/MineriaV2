@@ -13,7 +13,10 @@
 
 	</div>
 
-	<?php $estimado_binance=ControladorUsuarios::binance(); ?>
+<?php 
+// $estimado_binance=ControladorUsuarios::binance();
+$estimado_binance=0;
+ ?>
 
 	<div class="card-body">
 		

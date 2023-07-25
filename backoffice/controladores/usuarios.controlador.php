@@ -113,94 +113,6 @@ Class ControladorUsuarios{
 
 				if($respuesta == "ok"){
 
-					/*=============================================
-					Verificación Correo Electrónico
-					=============================================*/
-
-					date_default_timezone_set("America/Bogota");
-
-					$mail = new PHPMailer;
-
-					$mail->Charset = "UTF-8";
-
-					$mail->isMail();
-
-					$mail->setFrom("admin@trading.com", "Admin Trading");
-
-					$mail->addReplyTo("admin@trading.com", "Admin Trading");
-
-					$mail->Subject  = "Por favor verifique su dirección de correo electrónico";
-
-					$mail->addAddress($_POST["registroEmail"]);
-
-					$mail->msgHTML('<div style="width:100%; background:#eee; position:relative; font-family:sans-serif; padding-bottom:40px">
-	
-						<center>
-								
-							<img style="padding:20px; width:10%" src="'.$ruta.'vistas/img/logo.png">
-
-						</center>
-
-						<div style="position:relative; margin:auto; width:600px; background:white; padding:20px">
-							
-							<center>
-
-								<img style="padding:20px; width:15%" src="'.$ruta.'vistas/img/email.png">
-
-								<h3 style="font-weight:100; color:#999">VERIFIQUE SU DIRECCIÓN DE CORREO ELECTRÓNICO</h3>
-
-								<hr style="border:1px solid #ccc; width:80%">
-
-								<h4 style="font-weight:100; color:#999; padding:0 20px">Para comenzar a usar su cuenta, debe confirmar su dirección de correo electrónico</h4>
-
-								<a href="'.$ruta.$encriptarEmail.'" target="_blank" style="text-decoration:none">
-									
-									<div style="line-height:60px; background:#0aa; width:60%; color:white">Verifique su dirección de correo electrónico</div>
-
-								</a>
-
-								<br>
-
-								<hr style="border:1px solid #ccc; width:80%">
-
-								<h5 style="font-weight:100; color:#999">Si no se inscribió en esta cuenta, puede ignorar este correo electrónico.</h5>
-
-							</center>	
-
-						</div>
-
-					</div>');
-							
-					$envio = $mail->Send();
-
-					if(!$envio){
-
-						echo '<script>
-
-							swal({
-
-								type:"error",
-								title: "¡ERROR!",
-								text: "¡¡Ha ocurrido un problema enviando verificación de correo electrónico a '.$_POST["registroEmail"].' '.$mail->ErrorInfo.', por favor inténtelo nuevamente",
-								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
-
-							}).then(function(result){
-
-								if(result.value){
-
-									history.back();
-
-								}
-
-
-							});	
-
-						</script>';
-
-
-					}else{
-
 
 						echo '<script>
 
@@ -208,7 +120,6 @@ Class ControladorUsuarios{
 
 								type:"success",
 								title: "¡SU CUENTA HA SIDO CREADA CORRECTAMENTE!",
-								text: "¡Por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para verificar la cuenta!",
 								showConfirmButton: true,
 								confirmButtonText: "Cerrar"
 
@@ -226,8 +137,33 @@ Class ControladorUsuarios{
 						</script>';
 
 
-					}
 					
+					
+				}else{
+				    
+				    	echo '<script>
+
+							swal({
+
+								type:"error",
+								title: "¡ERROR!",
+								text: "¡¡Ha ocurrido un problema, por favor inténtelo nuevamente",
+								showConfirmButton: true,
+								confirmButtonText: "Cerrar"
+
+							}).then(function(result){
+
+								if(result.value){
+
+									window.location = "'.$ruta.'ingreso";
+
+								}
+
+
+							});	
+
+						</script>';
+						
 				}
 
 			}else{
