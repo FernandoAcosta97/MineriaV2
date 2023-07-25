@@ -249,52 +249,50 @@ if ($usuario["fecha_contrato"] != null) {
 <div class="row">
 	<div class="col-sm-8">
 		<!-- Jerson Arnual -->
-		<div class="col col-sm-6 col-lg-12">
-			<div class="card bg-light d-flex flex-fill">
-				<div class="card-header text-muted border-bottom-0">
-					
-				</div>
-				<div class="card-body pt-0">
-					<div class="row">
-						<div class="col-5 text-center">
-							<?php if ($usuario["foto"] == "") : ?>
-								<img class="profile-user-img img-fluid img-circle" src="vistas/img/usuarios/default/empre.jpg">
-							<?php else : ?>
-								<img class="profile-user-img img-fluid img-circle" src="<?php echo $usuario["foto"] ?>">
-							<?php endif ?>
-						</div>
-						<div class="col-7">
-							<div class="input-group-prepend" style="width: 9vh; display: flex; align-items: center; margin-bottom: 10px;">
-    								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/d.jpg" style="margin-right: 10px;">
-    								<h1 class="lead" style="margin: 0 auto;">Diamante</h1>
-							</div>
-							<h1 class="lead"><b>Nombre: <?php echo $usuario["nombre"] ?></b></h1>
-							<p class="text-muted"><b>Correo: </b> <?php echo $usuario["email"] ?> </p>
-							<p class="text-muted"><b>Documento: </b> <?php echo $usuario["doc_usuario"] ?> </p>
-							<p class="text-muted"><b>Usuario: </b> <?php echo $usuario["usuario"] ?> </p>
-							<span class="fa-li"></span> Telefono: <?php echo $usuario["telefono_movil"] ?>
+		<div class="col-12 col-sm-6 col-lg-12">
+    <div class="card bg-light d-flex flex-fill">
+        <div class="card-header text-muted border-bottom-0"></div>
+        <div class="card-body pt-0">
+            <div class="row">
+                <div class="col-12 col-sm-5 text-center">
+                    <?php if ($usuario["foto"] == "") : ?>
+                        <img class="profile-user-img img-fluid img-circle" src="vistas/img/usuarios/default/empre.jpg">
+                    <?php else : ?>
+                        <img class="profile-user-img img-fluid img-circle" src="<?php echo $usuario["foto"] ?>">
+                    <?php endif ?>
+                </div>
+                <div class="col-12 col-sm-7">
+                    <div class="d-flex align-items-center mb-2">
+                        <img class="profile-user-img img-fluid img-circle mr-2" src="vistas/img/inicio/d.jpg">
+                        <h1 class="lead mb-0">Diamante</h1>
+                    </div>
+                    <h1 class="lead mb-1"><b>Nombre: <?php echo $usuario["nombre"] ?></b></h1>
+                    <p class="text-muted mb-1"><b>Correo:</b> <?php echo $usuario["email"] ?></p>
+                    <p class="text-muted mb-1"><b>Documento:</b> <?php echo $usuario["doc_usuario"] ?></p>
+                    <p class="text-muted mb-1"><b>Usuario:</b> <?php echo $usuario["usuario"] ?></p>
+                    <span class="fa-li"></span>Telefono: <?php echo $usuario["telefono_movil"] ?>
 
-							<div class="input-group profile-username input-link span-item-group">
-								<input type="text" class="form-control" id="linkAfiliado" value="<?php echo $ruta . $usuario["enlace_afiliado"]; ?>" readonly>
-								<div class="input-group-prepend bg-info" style="width: 3vh;">
-									<span class=" rounded-center  fa fa-link copiarLink" style="cursor:pointer;margin-top: 40%; margin-left: 15%;"></span>
-								</div>
-							</div>
+                    <div class="input-group profile-username input-link span-item-group">
+                        <input type="text" class="form-control" id="linkAfiliado" value="<?php echo $ruta . $usuario["enlace_afiliado"]; ?>" readonly>
+                        <div class="input-group-prepend bg-info" style="width: 3vh;">
+                            <span class="rounded-center fa fa-link copiarLink" style="cursor:pointer;margin-top: 40%; margin-left: 15%;"></span>
+                        </div>
+                    </div>
 
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="card-footer">
-					<div class="text-right">
-						<?php if ($usuario["perfil"] != "admin") : ?>
-							<button class="btn btn-primary btn-sm" data-toggle="modal" id="actualizarDatos" data-target="#modalActualizarDatos" idUsuario="<?php echo $usuario["id_usuario"] ?>">Actualizar datos</button>
-						<?php endif ?>
-						<button class="btn btn-purple btn-sm" data-toggle="modal" data-target="#cambiarPassword">Cambiar contraseña</button>
-					</div>
-				</div>
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="text-right">
+                <?php if ($usuario["perfil"] != "admin") : ?>
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" id="actualizarDatos" data-target="#modalActualizarDatos" idUsuario="<?php echo $usuario["id_usuario"] ?>">Actualizar datos</button>
+                <?php endif ?>
+                <button class="btn btn-purple btn-sm" data-toggle="modal" data-target="#cambiarPassword">Cambiar contraseña</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="row justify-content-between">
 	<div class="col content-button">
