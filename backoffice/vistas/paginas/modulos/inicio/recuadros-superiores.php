@@ -260,7 +260,7 @@ if ($usuario["fecha_contrato"] != null) {
 							<?php if ($usuario["foto"] == "") : ?>
 								<img class="profile-user-img img-fluid img-circle" src="vistas/img/usuarios/default/empre.jpg">
 							<?php else : ?>
-								<img class="profile-user-img img-fluid img-circle" src="<?php echo $usuario["foto"] ?>">
+								<!-- <img class="profile-user-img img-fluid img-circle" src="<?php echo $usuario["foto"] ?>"> -->
 							<?php endif ?>
 						</div>
 						<div class="col-7">
