@@ -263,7 +263,7 @@ if ($usuario["fecha_contrato"] != null) {
                 </div>
                 <div class="col-12 col-sm-7">
                     <div class="d-flex align-items-center mb-2">
-                        <img class="profile-user-img img-fluid img-circle mr-2" src="vistas/img/Inicio/d.jpg">
+                        <img class="profile-user-img img-fluid img-circle mr-2" src="vistas/img/Inicio/diamante.png">
                         <h1 class="lead mb-0">Diamante</h1>
                     </div>
                     <h1 class="lead mb-1"><b>Nombre: <?php echo $usuario["nombre"] ?></b></h1>
