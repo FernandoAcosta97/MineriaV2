@@ -4,7 +4,7 @@ class ControladorRuta{
 
 	static public function ctrRuta(){
 
-		return "https://cubelabcolombia.com/";
+		return "http://localhost/www/MineriaV2/";
 
 	}
 
