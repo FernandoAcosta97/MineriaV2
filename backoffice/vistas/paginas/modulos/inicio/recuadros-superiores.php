@@ -715,7 +715,7 @@ SELECCIONAR BILLETERAS
 			<form method="post">
 				<div class="modal-header">
 					<h4 class="modal-title" style="text-align: center;">Seleccione la Billetera</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
 				</div>
 				<div class="modal-body">
 					<div class="d-flex justify-content-between">

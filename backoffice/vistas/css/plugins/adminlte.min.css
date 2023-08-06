@@ -5223,7 +5223,7 @@ a.disabled.mailbox-attachment-close {
 
 /* cabecera de los modales azules personalizados - fernando */
 .modal-header {
-  display: flex;
+  display: block;
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem;
