@@ -32,14 +32,14 @@ foreach ($pagos as $key => $value) {
 
 	<div class="col-12 col-sm-6 col-lg-3">
   <div class="small-box bg-info">
-     <div class="top-section">
+     <div class="top-section d-flex justify-content-end">
       <h3>$ <span><?php echo number_format($total_a_pagar); ?>
 					</span></h3>
 	 </div>
 			<div class="d-flex justify-content-center white-section align-items-center">
 				<div class="d-flex flex-column align-items-center">
 					<label class="text-uppercase">Retirar</label>
-					<label>$ 0,00</label>
+					<label style="font-size: 25px;">$ 0,00</label>
 				</div>
 				<div class="d-flex flex-column align-items-center">
 					<a href="billeteras" class="d-flex flex-column align-items-center">
@@ -55,14 +55,14 @@ foreach ($pagos as $key => $value) {
 
 	<div class="col-12 col-sm-6 col-lg-3">
   <div class="small-box bg-purple">
-     <div class="top-section">
+     <div class="top-section d-flex justify-content-end">
       <h3>$ <span><?php echo number_format($total_a_pagar); ?>
 					</span></h3>
 	 </div>
 			<div class="d-flex justify-content-center white-section align-items-center">
 				<div class="d-flex flex-column align-items-center">
 					<label class="text-uppercase">Ingresos</label>
-					<label>$ 0,00</label>
+					<label style="font-size: 25px;">$ 0,00</label>
 				</div>
 				<div class="d-flex flex-column align-items-center">
 					<a href="billeteras" class="d-flex flex-column align-items-center">
@@ -76,14 +76,14 @@ foreach ($pagos as $key => $value) {
 
 	<div class="col-12 col-sm-6 col-lg-3">
   <div class="small-box bg-purpleclar">
-     <div class="top-section">
+     <div class="top-section d-flex justify-content-end">
       <h3>$ <span><?php echo number_format($total_a_pagar); ?>
 					</span></h3>
 	 </div>
 			<div class="d-flex justify-content-center white-section align-items-center">
 				<div class="d-flex flex-column align-items-center">
 					<label class="text-uppercase">Egresos</label>
-					<label>$ 0,00</label>
+					<label style="font-size: 25px;">$ 0,00</label>
 				</div>
 				<div class="d-flex flex-column align-items-center">
 					<a href="billeteras" class="d-flex flex-column align-items-center">
@@ -96,14 +96,14 @@ foreach ($pagos as $key => $value) {
 
 	<div class="col-12 col-sm-6 col-lg-3">
   <div class="small-box bg-rosa">
-     <div class="top-section">
+     <div class=" d-flex justify-content-end">
       <h3>$ <span><?php echo number_format($total_a_pagar); ?>
 					</span></h3>
 	 </div>
 			<div class="d-flex justify-content-center white-section align-items-center">
 				<div class="d-flex flex-column align-items-center">
 					<label class="text-uppercase">Reinvertir</label>
-					<label>$ 0,00</label>
+					<label style="font-size: 25px;">$ 0,00</label>
 				</div>
 				<div class="d-flex flex-column align-items-center">
 					<a href="billeteras" class="d-flex flex-column align-items-center">

@@ -625,6 +625,7 @@ pre code {
   width: 100%;
   padding-right: 7.5px;
   padding-left: 7.5px;
+  align-self: center;
 }
 .col {
   flex-basis: 0;
@@ -794,8 +795,8 @@ pre code {
     max-width: 41.666667%;
   }
   .col-sm-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
   .col-sm-7 {
     flex: 0 0 58.333333%;
@@ -2211,7 +2212,7 @@ fieldset:disabled a.btn {
   border-radius: 20px;
   border: none;
   padding: 12px;
-  width: 100%;
+  width: 300px;
   background-color: rgb(5, 150, 242);
   color: white;
   font-size: 16px;
@@ -6309,7 +6310,7 @@ button.bg-dark:hover {
   justify-content: center !important;
 }
 .justify-content-between {
-  justify-content: space-between !important;
+  justify-content: center !important;
 }
 .justify-content-around {
   justify-content: space-around !important;
@@ -8776,6 +8777,7 @@ button.bg-dark:hover {
 }
 .text-uppercase {
   text-transform: uppercase !important;
+  margin: 0.5rem;
 }
 .text-capitalize {
   text-transform: capitalize !important;
@@ -10991,6 +10993,7 @@ html {
 }
 label:not(.form-check-label):not(.custom-file-label) {
   font-weight: 700;
+  padding: 0.2rem;
 }
 .warning-feedback {
   display: none;
@@ -11611,6 +11614,8 @@ textarea.form-control.is-warning {
   background: rgba(0, 0, 0, 0.15);
 }
 .small-box h3 {
+  display: flex;
+  align-items: flex-end;
   font-size: 38px;
   font-weight: 700;
   margin: 0 0 10px 0;
@@ -13697,7 +13702,7 @@ html.maximized-card {
 }
 .profile-user-img {
   margin: 0 auto;
-  width: 50%;
+  width: 30%;
   padding: 3px;
 }
 .profile-username {
