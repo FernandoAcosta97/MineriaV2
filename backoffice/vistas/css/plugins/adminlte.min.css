@@ -11618,7 +11618,7 @@ textarea.form-control.is-warning {
   align-items: flex-end;
   font-size: 38px;
   font-weight: 700;
-  margin: 0 0 10px 0;
+  margin: 0 20px 10px 0;
   white-space: nowrap;
   padding: 0;
 }
@@ -13702,7 +13702,7 @@ html.maximized-card {
 }
 .profile-user-img {
   margin: 0 auto;
-  width: 30%;
+  width: 40%;
   padding: 3px;
 }
 .profile-username {
