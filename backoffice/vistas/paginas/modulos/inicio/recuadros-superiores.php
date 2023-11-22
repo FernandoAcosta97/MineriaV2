@@ -317,7 +317,10 @@ if ($usuario["fecha_contrato"] != null) {
 	</div>
 </div>
 
-<?php $estimado_binance=ControladorUsuarios::binance(); ?>
+<?php 
+// $estimado_binance=ControladorUsuarios::binance();
+$estimado_binance=0;
+ ?>
 
 	</div>
 	<div class="col-sm-4 align-self-start">
