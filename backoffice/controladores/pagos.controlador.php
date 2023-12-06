@@ -1743,6 +1743,22 @@ class ControladorPagos
     }
 
 
+     /*=============================================
+    Actualizar Estado Pago Retiro
+    =============================================*/
+
+    public static function ctrActualizarPagoRetiro($datos)
+    {
+
+        $tabla = "retiros";
+
+        $respuesta = ModeloPagos::mdlActualizarPagoRetiro($tabla, $datos);
+
+        echo $respuesta;
+
+    }
+
+
     /*=============================================
     Actualizar Pago Recurrencia
     =============================================*/
@@ -2009,6 +2025,9 @@ class ControladorPagos
         }
         if($datos["tipoPago"] == "publicidad"){
             $tabla = "pagos_publicidad";
+        }
+        if($datos["tipoPago"] == "retiros"){
+            $tabla = "retiros";
         }
 
 

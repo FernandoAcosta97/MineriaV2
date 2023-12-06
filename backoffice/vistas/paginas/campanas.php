@@ -1,4 +1,52 @@
+<?php
 
+$pagos = ControladorPagos::ctrMostrarPagosAll("id_usuario",$usuario["id_usuario"]);
+$total_a_pagar=0;
+$total_pagos=0;
+
+$solicitudesRetiro=ControladorPagos::ctrMostrarSolicitudesRetiro("usuario", $usuario["id_usuario"], null,null);
+
+$egresos=0;
+$ingresos=0;
+
+foreach ($solicitudesRetiro as $key => $value) {
+
+	if($value["tipo"]==1){
+		$ingresos=$ingresos+$value["valor"];
+	}else{
+		$egresos=$egresos+$value["valor"];
+	}
+      
+}
+
+
+// var_dump($pagos);
+
+foreach ($pagos as $key => $value) {
+	$total=0;
+
+	$comprobante = ControladorComprobantes::ctrMostrarComprobantes("id", $value["id_comprobante"]);
+
+	if($comprobante){
+	
+	$campana = ControladorCampanas::ctrMostrarCampanas("id",$comprobante[0]["campana"]);
+
+	$ganancia = ($comprobante[0]['valor']*$campana['retorno'])/100;
+
+	$total=$comprobante[0]['valor']+$ganancia;
+
+	if($value["estado"]==0){
+		$total_a_pagar+=$total;
+	}else{
+		$total_pagos+=$total;
+	}
+}
+
+}
+
+$ingresos=$ingresos+$total_pagos;
+
+?>
 <div class="content-wrapper" style="min-height: 1058.31px;">
 <!-- <section class="content-header">
 
@@ -385,6 +433,8 @@ REGISTRAR COMPROBANTE
 	      <div class="modal-body">
 
         <input type="hidden" value="<?php echo $usuario["doc_usuario"]; ?>" name="doc_usuario">
+        
+        <input type="hidden" value="<?php echo $ingresos; ?>" id="saldo_cop">
 
         <input type="hidden" id="id_campana" name="id_campana">
 

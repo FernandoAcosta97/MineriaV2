@@ -369,7 +369,24 @@
               </ul>
             </li>
 
-            <!--=====================================
+
+       <!--=====================================
+        Botón Retiros
+        ======================================-->
+
+        <li class="nav-item">
+              <a href="pagos-retiros" class="nav-link">
+                <!-- <i class="nav-icon fas fa-wrench"></i>
+                <p>Cambio patrocinador</p> -->
+              <button class="btn btn-menu-mineria d-flex align-items-center">
+                    <img src="vistas/img/menu/grafico.png" class="card-img-top" alt="Fissure in Sandstone" style="max-width: 18%;" />
+                    <span class="text-center">Retiros</span>
+              </button>
+              </a>
+
+            </li>
+
+        <!--=====================================
         Botón Cambio patrocinador
         ======================================-->
 
@@ -384,6 +401,7 @@
               </a>
 
             </li>
+
 
           <?php endif ?>
 

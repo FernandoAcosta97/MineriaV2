@@ -12,14 +12,14 @@ class ModeloComprobantes
     public static function mdlRegistrarComprobantes($tabla, $datos)
     {
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(valor, foto, estado, doc_usuario, campana, billetera) VALUES (:valor, :foto, :estado, :doc_usuario, :campana, :billetera)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(valor, foto, fecha, estado, doc_usuario, campana) VALUES (:valor, :foto, :fecha, :estado, :doc_usuario, :campana)");
 
         $stmt->bindParam(":valor", $datos["valor"], PDO::PARAM_INT);
         $stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
         $stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_INT);
         $stmt->bindParam(":doc_usuario", $datos["doc_usuario"], PDO::PARAM_INT);
         $stmt->bindParam(":campana", $datos["campana"], PDO::PARAM_INT);
-        $stmt->bindParam(":billetera", $datos["billetera"], PDO::PARAM_INT);
 
         if ($stmt->execute()) {
 
@@ -33,6 +33,119 @@ class ModeloComprobantes
         $stmt = null;
     }
 
+      /*=============================================
+    Mostrar Comprobantes x tipo x usuario x campaña
+    =============================================*/
+
+    public static function mdlMostrarComprobantesPublicidadxUsuario($valor, $valor2)
+    {
+
+        $stmt = Conexion::conectar()->prepare("SELECT COUNT(*) as total FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id 
+        INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE us.doc_usuario = :$valor AND ca.id=:$valor2");
+
+        $stmt->bindParam(":" . $valor, $valor, PDO::PARAM_INT);
+        $stmt->bindParam(":" . $valor2, $valor2, PDO::PARAM_INT);
+            
+        $stmt->execute();
+
+        return $stmt->fetch();
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+     /*=============================================
+    Registro de COMPROBANTES Inversiones con ia
+    =============================================*/
+
+    public static function mdlRegistrarComprobantesInversion($tabla, $datos)
+    {
+
+        $con=Conexion::conectar();
+        $stmt = $con->prepare("INSERT INTO $tabla(valor, foto, fecha, estado, doc_usuario, campana) VALUES (:valor, :foto, :fecha, :estado, :doc_usuario, :campana)");
+
+        $stmt->bindParam(":valor", $datos["valor"], PDO::PARAM_INT);
+        $stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+        $stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_INT);
+        $stmt->bindParam(":doc_usuario", $datos["doc_usuario"], PDO::PARAM_INT);
+        $stmt->bindParam(":campana", $datos["campana"], PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            return $con->lastInsertId();
+        } else {
+
+            return "error";
+            // return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+        $stmt = null;
+    }
+
+
+
+     /*=============================================
+    Registro de datos ia COMPROBANTES
+    =============================================*/
+
+    public static function mdlRegistrarDatosComprobantes($tabla, $datos)
+    {
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(n_recibo, n_aprobado, n_cuenta, n_valor, fecha, id_comprobante, detalles) VALUES (:n_recibo, :n_aprobado, :n_cuenta, :n_valor, :fecha, :id_comprobante, :detalles)");
+
+        $stmt->bindParam(":n_recibo", $datos["n_recibo"], PDO::PARAM_STR);
+        $stmt->bindParam(":n_aprobado", $datos["n_aprobado"], PDO::PARAM_INT);
+        $stmt->bindParam(":n_cuenta", $datos["n_cuenta"], PDO::PARAM_INT);
+        $stmt->bindParam(":n_valor", $datos["n_valor"], PDO::PARAM_INT);
+        $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+        $stmt->bindParam(":id_comprobante", $datos["id_comprobante"], PDO::PARAM_INT);
+        $stmt->bindParam(":detalles", $datos["detalles"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+        $stmt = null;
+    }
+
+
+    /*=============================================
+    Registro de datos ia COMPROBANTES Publicidad
+    =============================================*/
+
+    public static function mdlRegistrarDatosComprobantesPublicidad($tabla, $datos)
+    {
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(vistas, mi_estado, fecha, id_comprobante, detalles) VALUES (:vistas, :mi_estado, :fecha, :id_comprobante, :detalles)");
+
+        $stmt->bindParam(":vistas", $datos["vistas"], PDO::PARAM_INT);
+        $stmt->bindParam(":mi_estado", $datos["mi_estado"], PDO::PARAM_STR);
+        $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+        $stmt->bindParam(":id_comprobante", $datos["id_comprobante"], PDO::PARAM_INT);
+        $stmt->bindParam(":detalles", $datos["detalles"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+        $stmt = null;
+    }
+
+
     /*=============================================
     Mostrar Comprobantes
     =============================================*/
@@ -41,8 +154,8 @@ class ModeloComprobantes
     {
 
         if ($item != null && $valor != null) {
-            
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.estado, co.valor, co.fecha, co.foto, co.campana, co.billetera, us.id_usuario, us.doc_usuario, us.estado as usu_estado FROM comprobantes as co INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE co.$item = :$item AND us.eliminado=0 ORDER BY 'fecha'");
 
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
 
@@ -52,7 +165,7 @@ class ModeloComprobantes
 
         } else {
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY 'fecha'");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.estado, co.valor, co.fecha, co.foto, co.campana, co.billetera, us.id_usuario, us.doc_usuario, us.estado as usu_estado FROM comprobantes as co INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE us.eliminado=0 ORDER BY 'fecha'");
 
             $stmt->execute();
 
@@ -65,6 +178,123 @@ class ModeloComprobantes
     }
 
 
+
+     /*=============================================
+    Mostrar Comprobantes
+    =============================================*/
+
+    public static function mdlMostrarDatosComprobantes($tabla, $item, $valor)
+    {
+
+        if ($item == null && $valor == null) {
+
+        $stmt = Conexion::conectar()->prepare("SELECT * from $tabla");
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+        }else{
+
+            $stmt = Conexion::conectar()->prepare("SELECT * from $tabla WHERE $item = :$item");
+
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+
+            $stmt->execute();
+    
+            return $stmt->fetch();
+
+        }
+ 
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+      /*=============================================
+    Mostrar Comprobantes
+    =============================================*/
+
+    public static function mdlMostrarDatosComprobantesFiltro($tabla, $item, $valor)
+    {
+
+        $stmt = Conexion::conectar()->prepare("SELECT * from rec_comprobantes as rc INNER JOIN comprobantes as c ON rc.id_comprobante=c.id WHERE c.$item = :$item");
+
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_INT);
+
+            $stmt->execute();
+    
+            return $stmt->fetchAll();
+ 
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+    /*=============================================
+    Mostrar Comprobantes
+    =============================================*/
+
+    public static function mdlMostrarDatosComprobantesPublicidad($tabla, $item, $valor)
+    {
+
+        if ($item == null && $valor == null) {
+
+        $stmt = Conexion::conectar()->prepare("SELECT * from $tabla");
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+        }else{
+
+            $stmt = Conexion::conectar()->prepare("SELECT * from $tabla WHERE $item = :$item");
+
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+
+            $stmt->execute();
+    
+            return $stmt->fetch();
+
+        }
+ 
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+    /*=============================================
+    Mostrar Comprobantes
+    =============================================*/
+
+    public static function mdlMostrarDatosComprobantesFiltroPublicidad($tabla, $item, $valor)
+    {
+
+        $stmt = Conexion::conectar()->prepare("SELECT * from rec_comprobantes_publicidad as rc INNER JOIN comprobantes as c ON rc.id_comprobante=c.id WHERE c.$item = :$item");
+
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_INT);
+
+            $stmt->execute();
+    
+            return $stmt->fetchAll();
+ 
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
     /*=============================================
     Mostrar Comprobantes x Tipo
     =============================================*/
@@ -74,7 +304,7 @@ class ModeloComprobantes
 
         if ($item != null && $valor != null) {
             
-        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.billetera, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item = :$item AND $item2 = :$item2 ORDER BY 'fecha'");
+        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.billetera, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE us.eliminado=0 AND co.$item = :$item AND ca.$item2 = :$item2 ORDER BY 'fecha'");
 
         $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
 
@@ -86,9 +316,91 @@ class ModeloComprobantes
 
         }else{
             
-            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.billetera ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item2 = :$item2 ORDER BY 'fecha'");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.billetera, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE us.eliminado=0 AND ca.$item2 = :$item2 ORDER BY 'fecha'");
         
             $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+        
+            $stmt->execute();
+        
+            return $stmt->fetchAll();
+
+        }
+
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+    /*=============================================
+    Mostrar Comprobantes x Tipo x Campana
+    =============================================*/
+
+    public static function mdlMostrarComprobantesxTipoxCampana($tabla, $tabla2, $item, $valor, $item2, $valor2, $campana)
+    {
+
+        if ($item != null && $valor != null) {
+            
+        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE us.eliminado=0 AND co.$item = :$item AND ca.$item2 = :$item2 ORDER BY 'fecha'");
+
+        $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+        }else{
+            
+            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE us.eliminado=0 AND ca.$item2 = :$item2 AND ca.id = :$campana ORDER BY 'fecha'");
+        
+            $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+
+            $stmt->bindParam(":" . $campana, $campana, PDO::PARAM_STR);
+        
+            $stmt->execute();
+        
+            return $stmt->fetchAll();
+
+        }
+
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+      /*=============================================
+    Mostrar Datos Ia Comprobantes x Tipo x Campana
+    =============================================*/
+
+    public static function mdlMostrarDatosComprobantesxTipoxCampana($tabla, $tabla2, $tabla3, $item, $valor, $item2, $valor2, $campana)
+    {
+
+        if ($item != null && $valor != null) {
+            
+        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana, rc.id, rc.id_comprobante, rc.n_recibo, rc.n_cuenta, rc.n_aprobado, rc.n_valor, rc.fecha, rc.detalles FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id INNER JOIN $tabla3 as rc ON rc.id_comprobante=co.id INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE us.eliminado=0 AND co.$item = :$item AND ca.$item2 = :$item2 ORDER BY 'fecha'");
+
+        $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+        }else{
+            
+            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana, rc.id, rc.id_comprobante, rc.n_recibo, rc.n_cuenta, rc.n_aprobado, rc.n_valor, rc.fecha, rc.detalles FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id INNER JOIN $tabla3 as rc ON rc.id_comprobante=co.id INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE us.eliminado=0 AND ca.$item2 = :$item2 AND ca.id = :$campana ORDER BY 'fecha'");
+        
+            $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+
+            $stmt->bindParam(":" . $campana, $campana, PDO::PARAM_STR);
         
             $stmt->execute();
         
@@ -112,6 +424,96 @@ class ModeloComprobantes
 
         if ($item != null && $valor != null) {
             
+        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.billetera, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item = :$item AND $item2 = :$item2 AND co.$item3 = :$item3 ORDER BY 'fecha'");
+
+        $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $item3, $valor3, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+        }else{
+
+            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.billetera, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item2 = :$item2 AND co.$item3 = :$item3 ORDER BY 'fecha'");
+    
+            $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+    
+            $stmt->bindParam(":" . $item3, $valor3, PDO::PARAM_STR);
+    
+            $stmt->execute();
+    
+            return $stmt->fetchAll();
+
+        }
+
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+    /*=============================================
+    Mostrar Comprobantes x tipo x estado x usuario
+    =============================================*/
+
+    public static function mdlMostrarComprobantesxTipoxEstadoxUsuario($tipo, $estado, $doc_usuario)
+    {
+        
+        if ($estado != null) {
+
+        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.fecha 
+        FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id
+        INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE ca.tipo = :$tipo AND co.estado = :$estado AND us.doc_usuario = :$doc_usuario ORDER BY 'fecha'");
+
+        $stmt->bindParam(":" . $tipo, $tipo, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $estado, $estado, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $doc_usuario, $doc_usuario, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }else{
+
+        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, co.fecha 
+        FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id
+        INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE ca.tipo = :$tipo AND us.doc_usuario = :$doc_usuario ORDER BY 'fecha'");
+
+        $stmt->bindParam(":" . $tipo, $tipo, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $doc_usuario, $doc_usuario, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+        
+    }
+
+        $stmt->close();
+
+        $stmt = null;
+
+}
+    
+
+
+
+    /*=============================================
+    Mostrar Comprobantes x tipo x estado x campana
+    =============================================*/
+
+    public static function mdlMostrarComprobantesxTipoxEstadoxCampana($tabla, $tabla2, $item, $valor, $item2, $valor2, $item3, $valor3, $campana)
+    {
+
+        if ($item != null && $valor != null) {
+            
         $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item = :$item AND $item2 = :$item2 AND co.$item3 = :$item3 ORDER BY 'fecha'");
 
         $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
@@ -126,11 +528,58 @@ class ModeloComprobantes
 
         }else{
 
-            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item2 = :$item2 AND co.$item3 = :$item3 ORDER BY 'fecha'");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id WHERE $item2 = :$item2 AND co.$item3 = :$item3 AND ca.id = :$campana ORDER BY 'fecha'");
     
             $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
     
             $stmt->bindParam(":" . $item3, $valor3, PDO::PARAM_STR);
+
+            $stmt->bindParam(":" . $campana, $campana, PDO::PARAM_STR);
+    
+            $stmt->execute();
+    
+            return $stmt->fetchAll();
+
+        }
+
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+    /*=============================================
+    Mostrar Datos Ia Comprobantes x tipo x estado x campana
+    =============================================*/
+
+    public static function mdlMostrarDatosComprobantesxTipoxEstadoxCampana($tabla, $tabla2, $tabla3, $item, $valor, $item2, $valor2, $item3, $valor3, $campana)
+    {
+
+        if ($item != null && $valor != null) {
+            
+        $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana, rc.id, rc.id_comprobante, rc.n_recibo, rc.n_cuenta, rc.n_aprobado, rc.n_valor, rc.fecha, rc.detalles FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id INNER JOIN $tabla3 as rc ON rc.id_comprobante=co.id WHERE $item = :$item AND $item2 = :$item2 AND co.$item3 = :$item3 ORDER BY 'fecha'");
+
+        $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+
+        $stmt->bindParam(":" . $item3, $valor3, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+        }else{
+
+            $stmt = Conexion::conectar()->prepare("SELECT co.id as comprobanteId, co.foto, co.fecha, co.estado as estadoComprobante, co.valor, co.doc_usuario, co.campana, ca.id as campanaId, ca.retorno, ca.nombre, ca.tipo, ca.estado as estadoCampana, rc.id, rc.id_comprobante, rc.n_recibo, rc.n_cuenta, rc.n_aprobado, rc.n_valor, rc.fecha, rc.detalles FROM $tabla as co INNER JOIN $tabla2 as ca ON co.campana=ca.id INNER JOIN $tabla3 as rc ON rc.id_comprobante=co.id WHERE $item2 = :$item2 AND co.$item3 = :$item3 AND ca.id = :$campana ORDER BY 'fecha'");
+    
+            $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+    
+            $stmt->bindParam(":" . $item3, $valor3, PDO::PARAM_STR);
+
+            $stmt->bindParam(":" . $campana, $campana, PDO::PARAM_STR);
     
             $stmt->execute();
     
@@ -180,10 +629,9 @@ class ModeloComprobantes
 
     public static function mdlMostrarComprobantesxEstado($tabla, $item, $valor,$item2, $valor2)
     {
-
         if ($item != null && $valor != null && $item2 != null && $valor2 != null) {
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item AND $item2 = :$item2 limit 2");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.estado, co.valor, co.fecha, co.doc_usuario, co.campana, co.foto FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id WHERE co.$item = :$item AND co.$item2 = :$item2 AND ca.tipo=1");
 
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
@@ -194,7 +642,7 @@ class ModeloComprobantes
 
         } else if($item2 != null && $valor2 != null){
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item2 = :$item2");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.estado, co.valor, co.fecha, co.doc_usuario, co.campana, co.foto FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id WHERE co.$item2 = :$item2 AND ca.tipo=1");
 
             $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
         
@@ -209,20 +657,22 @@ class ModeloComprobantes
 
         $stmt = null;
     }
+
 
     /*=============================================
-    Mostrar Comprobantes X Estado sin Limit  -- FERNANDO - REQ01
+    Mostrar Comprobantes
     =============================================*/
 
-    public static function mdlMostrarComprobantesxEstadoSinLimit($tabla, $item, $valor,$item2, $valor2)
+    public static function mdlMostrarComprobantesxEstadoxTipo($tabla, $item, $valor,$item2, $valor2, $item3, $valor3)
     {
 
-        if ($item != null && $valor != null && $item2 != null && $valor2 != null) {
+        if ($item != null && $valor != null && $item2 != null && $valor2 != null && $item3 != null && $valor3 != null) {
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item AND $item2 = :$item2");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.valor, co.fecha, co.estado, co.doc_usuario, co.foto FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id WHERE co.$item = :$item AND co.$item2 = :$item2 AND ca.$item3 = :$item3");
 
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->bindParam(":" . $item2, $valor2, PDO::PARAM_STR);
+            $stmt->bindParam(":" . $item3, $valor3, PDO::PARAM_STR);
             
         $stmt->execute();
 
@@ -245,6 +695,7 @@ class ModeloComprobantes
 
         $stmt = null;
     }
+
 
 
      /*=============================================
@@ -300,6 +751,28 @@ class ModeloComprobantes
         $stmt->execute();
 
         return $stmt->fetchAll();
+
+        $stmt->close();
+        $stmt = null;
+    }
+
+
+
+     /*=============================================
+    Mostrar Comprobantes Inversiones x Estado Comprobante x Estado campaña x Condicion inversiones
+    =============================================*/
+
+    public static function mdlMostrarInversionesxEstadoxCampanaxCondicion($doc_usuario, $condicion)
+    {
+
+        $stmt = Conexion::conectar()->prepare("SELECT count(*) as inversiones FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id INNER JOIN usuarios as us ON co.doc_usuario=us.doc_usuario WHERE ca.tipo=1 AND ca.condicion = :$condicion AND co.estado=1 AND us.doc_usuario = :$doc_usuario");
+
+        $stmt->bindParam(":" . $doc_usuario, $doc_usuario, PDO::PARAM_INT);
+        $stmt->bindParam(":" . $condicion, $condicion, PDO::PARAM_INT);
+            
+        $stmt->execute();
+
+        return $stmt->fetch();
 
         $stmt->close();
         $stmt = null;
@@ -363,7 +836,7 @@ class ModeloComprobantes
 
         if ($item != null && $valor != null && $fechaInicio != null && $fechaFin != null) {
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $tabla.$item = :$item AND $tabla.fecha >= :fechaInicio AND $tabla.fecha <= :fechaFin");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.estado, co.valor, co.fecha, co.doc_usuario, co.campana, co.foto FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id WHERE co.$item = :$item AND co.fecha >= :fechaInicio AND co.fecha <= :fechaFin AND ca.tipo=1 AND co.estado=1");
 
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_INT);
             $stmt->bindParam(":fechaInicio",$fechaInicio, PDO::PARAM_STR);
@@ -375,7 +848,7 @@ class ModeloComprobantes
 
         } else if($fechaInicio != null && $fechaFin != null){
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $tabla.fecha >= :fechaInicio AND $tabla.fecha <= :fechaFin");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.estado, co.valor, co.fecha, co.doc_usuario, co.campana, co.foto FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id WHERE co.fecha >= :fechaInicio AND co.fecha <= :fechaFin AND ca.tipo=1 AND co.estado=1");
 
             $stmt->bindParam(":fechaInicio", $fechaInicio, PDO::PARAM_STR);
             $stmt->bindParam(":fechaFin", $fechaFin,  PDO::PARAM_STR);
@@ -401,7 +874,7 @@ class ModeloComprobantes
 
         if ($item != null && $valor != null && $fechaInicio != null && $fechaFin != null) {
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $tabla.$item = :$item AND $tabla.fecha >= :fechaInicio AND $tabla.fecha <= :fechaFin AND $tabla.estado=1");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.estado, co.valor, co.fecha, co.doc_usuario, co.campana, co.foto FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id WHERE co.$item = :$item AND co.fecha >= :fechaInicio AND co.fecha <= :fechaFin AND ca.tipo=1 AND co.estado=1 AND ca.estado=1");
 
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_INT);
             $stmt->bindParam(":fechaInicio",$fechaInicio, PDO::PARAM_STR);
@@ -413,7 +886,7 @@ class ModeloComprobantes
 
         } else if($fechaInicio != null && $fechaFin != null){
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $tabla.fecha >= :fechaInicio AND $tabla.fecha <= :fechaFin AND $tabla.estado=1");
+            $stmt = Conexion::conectar()->prepare("SELECT co.id, co.estado, co.valor, co.fecha, co.doc_usuario, co.campana, co.foto FROM comprobantes as co INNER JOIN campanas as ca ON co.campana=ca.id WHERE co.fecha >= :fechaInicio AND co.fecha <= :fechaFin AND ca.tipo=1 AND co.estado=1 AND ca.estado=1");
 
             $stmt->bindParam(":fechaInicio", $fechaInicio, PDO::PARAM_STR);
             $stmt->bindParam(":fechaFin", $fechaFin,  PDO::PARAM_STR);
@@ -536,6 +1009,138 @@ class ModeloComprobantes
 
         $stmt = null;
     }
+
+
+      /*=============================================
+    Editar comprobantes
+    =============================================*/
+
+    public static function mdlEditarComprobanteValor($tabla, $datos)
+    {
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET valor = :valor WHERE id = :id");
+
+
+        $stmt->bindParam(":valor", $datos["valor"], PDO::PARAM_STR);
+        $stmt->bindParam(":id", $datos["id"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+    /*=============================================
+    Eliminar Datos Comprobante Ia
+    =============================================*/
+
+    public static function mdlEliminarDatosComprobante($tabla, $id)
+    {
+
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_comprobante = :id");
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+      /*=============================================
+    Eliminar Datos Comprobante Ia Publicidad
+    =============================================*/
+
+    public static function mdlEliminarDatosComprobantePublicidad($tabla, $id)
+    {
+
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_comprobante = :id");
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+         /*=============================================
+    Editar comprobantes
+    =============================================*/
+
+    public static function mdlEditarComprobanteValorDatos($tabla, $datos)
+    {
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET n_valor = :valor WHERE id = :id");
+
+
+        $stmt->bindParam(":valor", $datos["valor"], PDO::PARAM_STR);
+        $stmt->bindParam(":id", $datos["id"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+          /*=============================================
+    Editar comprobantes
+    =============================================*/
+
+    public static function mdlEditarComprobanteValorDatosPublicidad($tabla, $datos)
+    {
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET vistas = :valor WHERE id = :id");
+
+
+        $stmt->bindParam(":valor", $datos["vistas"], PDO::PARAM_INT);
+        $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
 
     /*=============================================
     Eliminar usuario

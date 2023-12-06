@@ -6,9 +6,9 @@ $total_pagos=0;
 
 $solicitudesRetiro=ControladorPagos::ctrMostrarSolicitudesRetiro("usuario", $usuario["id_usuario"], null,null);
 
-
 $egresos=0;
 $ingresos=0;
+
 foreach ($solicitudesRetiro as $key => $value) {
 
 	if($value["tipo"]==1){
@@ -43,6 +43,8 @@ foreach ($pagos as $key => $value) {
 }
 
 }
+
+$ingresos=$ingresos+$total_pagos;
 
 ?>
 

@@ -22,7 +22,7 @@
 				<tr>
 
 					<th style="width:10px">#</th> 
-					<th>ID</th>
+					<th>Estado</th>
 					<th>Tipo Movimiento/Valor</th>
 					<th>Entidad cuenta</th>
 					<th>Número cuenta</th>

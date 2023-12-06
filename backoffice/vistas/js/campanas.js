@@ -1,13 +1,21 @@
 
 
 /*=============================================
-Invertir seleccioanr transferencia y valor disponible
+Invertir seleccionar transferencia y valor disponible
 =============================================*/
 $("#billeteras").on("change",function () {
 	var seleccionado = $(this).val();
-  
-	if(seleccionado==3 && seleccionado!=""){
+
+	var saldo_cop = $("#saldo_cop").val();
+
+	if(seleccionado==1){
+
+	$(".invertir_transferencia").html('<div class="form-group"><h3>Disponible - $'+saldo_cop+'</h3></h2></div>');
+
+	}else if(seleccionado==3 && seleccionado!=""){
+
 	$(".invertir_transferencia").html('<div class="form-group"><input id="registrarFotoComprobante" type="file" class="form-control-file border registrarFotoComprobante" name="registrarFotoComprobante" required><img id="previsualizarRegistrar" src="" class="img-thumbnail previsualizarRegistrar" width="100px"></div>');
+
 	}else{
 	  $(".invertir_transferencia").html("");
 	}

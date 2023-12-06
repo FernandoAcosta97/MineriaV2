@@ -23,22 +23,16 @@ require_once "../modelos/campanas.modelo.php";
 class TablaPagos{
 
 	/*=============================================
-	ACTIVAR TABLA COMISIONES
+	ACTIVAR TABLA PAGOS
 	=============================================*/ 
 
 	public function mostrarTabla(){
 
 		date_default_timezone_set('America/Bogota');
 
-		$ruta = ControladorGeneral::ctrRuta();
-		$patrocinador = ControladorGeneral::ctrPatrocinador();
+		$pagos = ControladorPagos::ctrMostrarSolicitudesRetiro(null, null, "estado", "2");
 
-		$usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario",$_GET["usuario"]);
-
-		$retiros = ControladorPagos::ctrMostrarSolicitudesRetiro("usuario", $_GET["usuario"],null,null);
-
-
-		if($retiros=="" || count($retiros) < 1){
+		if(count($pagos) < 1 ){
 
 			echo '{ "data":[]}';
 
@@ -48,16 +42,7 @@ class TablaPagos{
 
  		$datosJson = '{
 
-	 	"data": [ ';
-
-	 	// if(count($red) != 0){
-
- 	
-		// 	$periodo_venta =0; 
-		
-		// 	$usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario", "43");
-
-			
+	 	"data": [ ';	
 
 		// 		$fechaPago = date('Y-m-d');
 			
@@ -84,69 +69,66 @@ class TablaPagos{
 
 		// }
 
-		foreach ($retiros as $key => $value) {
-			
-  			$usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario", $value ["usuario"]);
+		$documento="xxx";
+		$nombre="Usuario Eliminado";
+		$pais="xxx";
+		$telefono="xxx";
+		$cuentaBancaria="";
 
-			$cuentaBancaria = ControladorCuentas::ctrMostrarCuentas("usuario",$usuario["id_usuario"]);
-	
-			/*=============================================
-			NOTAS
-			=============================================*/
+		// var_dump($pagos);
 
-			// if($_GET["enlace_afiliado"] != $patrocinador){			
+		foreach ($pagos as $key => $value) {
 
-			// 	$notas = "<h5><span class='badge badge-success'>Pagada</span></h5>";
+  			$usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario", $value["usuario"]);
 
-			// }else{
+			if(is_array($usuario)){
 
-			// 	$notas = "<h5><span class='badge badge-success'>Pagada $".number_format($value["periodo_comision"])."</span></h5>";
-			// }	
-			$total=0;
+				$documento=$usuario["doc_usuario"];
+				$nombre=$usuario["nombre"];
+				$pais=$usuario["pais"];
+				$telefono=$usuario["telefono_movil"];
+
+				$cuentaBancaria = ControladorCuentas::ctrMostrarCuentasxEstado("usuario",$usuario["id_usuario"],"estado",1);
+
+			}
+
+            $retorno_total = $value["valor"];
 
 			if($cuentaBancaria==""){
                 $numero_cuenta = "X";
 				$entidad_cuenta = "X";
 				$tipo_cuenta = "X";
 
+				$acciones = "<button class='btn btn-info' disabled>PAGAR</button>";
+				$seleccionar = "";
             }else{
 				$numero_cuenta = $cuentaBancaria["numero"];
 				$entidad_cuenta = $cuentaBancaria["entidad"];
 				$tipo_cuenta = $cuentaBancaria["tipo"];
+
+				$acciones = "<button class='btn btn-info btnPagarRetiro' idPagoRetiro='".$value["id"]."'>PAGAR</button>";
+
+				$seleccionar = "<center><input type='checkbox' class='seleccionarPago' idPago='".$value["id"]."'></input></center>";
 			}
 
-			if($value["tipo"]==1){
-				$acciones = "<small class='text-success mr-1'><i class='fas fa-arrow-up'></i></small>$ ".number_format($value["valor"])."";
-			}else{
-				$acciones = "<small class='text-danger mr-1'><i class='fas fa-arrow-down'></i></small>$ ".number_format($value["valor"])."";
-
-			}
-
-			$estado=0;
-
-			if($value["estado"]==1){
-				
-				$estado = "<span class='badge badge-success'>Aprobado</span>";
-			}else if($value["estado"]==2){
-
-				$estado = "<span class='badge badge-warning'>Pendiente</span>";
-			}else{
-				$estado = "<span class='badge badge-danger'>Rechazado</span>";
-			}
 
 
 			$datosJson	 .= '[
 				    "'.($key+1).'",
-					"'.$estado.'",
-					"'.$acciones.'",
+					"'.$seleccionar.'",
+				    "'.$acciones.'",
+					"'.$value["id"].'",
+					"$ '.number_format($retorno_total).'",
+					"'.$documento.'",
+					"'.$nombre.'",
+					"'.$pais.'",
+					"'.$telefono.'",
 					"'.$entidad_cuenta.'",
 					"'.$numero_cuenta.'",
 					"'.$tipo_cuenta.'",
 					"'.$value["fecha"].'"
 
 			],';
-
-			$totalAfiliadosActivos=0;
 
 		}
 

@@ -246,6 +246,41 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
   });
 
 
+  $(".tabla-pagar-retiros").DataTable({
+    "ajax":"ajax/tabla-pagos-retiros.ajax.php",
+    "deferRender": true,
+    "retrieve": true,
+    "processing": true,
+    "language": {
+  
+       "sProcessing":     "Procesando...",
+      "sLengthMenu":     "Mostrar _MENU_ registros",
+      "sZeroRecords":    "No se encontraron resultados",
+      "sEmptyTable":     "Ningún dato disponible en esta tabla",
+      "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+      "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
+      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+      "sInfoPostFix":    "",
+      "sSearch":         "Buscar:",
+      "sUrl":            "",
+      "sInfoThousands":  ",",
+      "sLoadingRecords": "Cargando...",
+      "oPaginate": {
+        "sFirst":    "Primero",
+        "sLast":     "Último",
+        "sNext":     "Siguiente",
+        "sPrevious": "Anterior"
+      },
+      "oAria": {
+          "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+      }
+  
+     }
+  
+  });
+
+
   $(".tabla-pagar-inversiones").DataTable({
     "ajax":"ajax/tabla-pagos-inversiones.ajax.php",
     "deferRender": true,
@@ -846,6 +881,45 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
   	})
   
     });
+
+
+
+    $(".tabla-pagar-retiros tbody").on("click", "button.btnPagarRetiro", function () {
+
+      var idPagoRetiro= $(this).attr("idPagoRetiro");
+    
+      var datos = new FormData();
+      datos.append("idPagoRetiro", idPagoRetiro);
+    
+        $.ajax({
+    
+        url:"ajax/pagos.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+    
+            if (respuesta == "ok") {
+    
+              alerta("success", "¡El pago se ha realizado correctamente!", null, "pagos-retiros", false);
+          
+            }else if(respuesta == "pagado"){
+    
+              alerta("info", "¡Información!", "¡El pago ya se ha realizado!", "pagos-retiros", false);
+    
+            }else{
+    
+              alerta("error", "¡Ha ocurrido un error!", "¡Contacte con el administrador o vuelve a intentarlo mas tarde!", null, true);
+    
+            }
+    
+          }
+    
+        })
+      
+        });
 
 
     $(".tabla-pagar-recurrencia tbody").on("click", "button.btnPagarRecurrencia", function () {
@@ -1490,6 +1564,107 @@ $(".tabla-pagar-publicidad").on("draw.dt", function(){
 
 
 $(".checkbox-toggle5").click(function(){
+
+	var clicks = $(this).data('clicks');
+
+	if(clicks){
+
+		$(".seleccionarPagos input[type='checkbox']").iCheck("uncheck");
+		$(".far", this).removeClass("fa-check-square").addClass("fa-square");
+
+	}else{
+
+		$(".seleccionarPagos input[type='checkbox']").iCheck("check");
+		$(".far", this).removeClass("fa-square").addClass("fa-check-square");
+
+	}
+
+	$(this).data("clicks", !clicks);
+
+})
+
+
+
+
+/*=============================================
+PLUGIN ICHECK
+=============================================*/
+
+$(".tabla-pagar-retiros").on("draw.dt", function(){
+
+	$(".seleccionarPagos input[type='checkbox']").iCheck({
+		checkboxClass: "icheckbox_flat-blue",
+		radioClass: "iradio_flat-blue"
+	});
+
+  
+
+	/*=============================================
+	ENVIAR TICKETS DE FORMA MASIVA A LA PAPELERA
+	=============================================*/
+
+	var pagoCheckbox = $(".seleccionarPago");
+
+	var idPagos = [];
+
+	for(var i = 0; i < pagoCheckbox.length; i++){
+
+    	/*=============================================
+    	Checkear para realizar pago
+    	=============================================*/
+
+    	$(pagoCheckbox[i]).on("ifChecked", function(event){
+
+    		idPagos.push($(this).attr("idPago"));
+
+    		if($(".btnPagos").attr("idPagos") != ""){
+
+    			pagos = $(".btnPagos").attr("idPagos").split(",");
+
+    			pagos.push($(this).attr("idPago"));
+
+    			$(".btnPagos").attr("idPagos", pagos.toString());
+
+    		}else{
+
+    			$(".btnPagos").attr("idPagos", idPagos.toString());
+
+    		}
+
+    	})
+
+    	/*=============================================
+    	Quitar el Check para enviar a la papelera
+    	=============================================*/
+
+    	$(pagoCheckbox[i]).on("ifUnchecked", function(event){
+
+    		var quitarPagos = $(".btnPagos").attr("idPagos").split(",");
+
+    		for(var f = 0; f < quitarPagos.length; f++){
+
+    			if(quitarPagos[f] == $(this).attr("idPago")){
+
+    				quitarPagos.splice(f, 1);
+
+    				idPagos.splice(f, 1);
+
+    				$(".btnPagos").attr("idPagos", quitarPagos.toString());
+
+    			}
+
+    		}
+
+    	})
+		
+
+	}
+
+
+})
+
+
+$(".checkbox-toggle6").click(function(){
 
 	var clicks = $(this).data('clicks');
 

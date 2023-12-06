@@ -71,6 +71,42 @@ class AjaxPagos{
 
 
 	/*=============================================
+	Cambiar estado pago retiro
+	=============================================*/	
+
+	public $idPagoRetiro;
+
+	public function ajaxEstadoPagoRetiro(){
+
+		$estado = 1;
+
+		$id = $this->idPagoRetiro;
+
+		$pago = ControladorPagos::ctrMostrarSolicitudesRetiro("id", $id, null, null);
+
+		if($pago[0]["estado"]!=1){
+
+		$usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario", $pago[0]["usuario"]);
+
+		$cuenta = ControladorCuentas::ctrMostrarCuentasxEstado("usuario",$usuario["id_usuario"],"estado",1);
+
+		$id_cuenta = $cuenta["id"];
+
+		$datos = array("id" => $id,
+		"estado" => $estado,
+		"id_cuenta" => $cuenta["id"]);
+
+		return $respuesta = ControladorPagos::ctrActualizarPagoRetiro($datos);
+
+		}else{
+			echo "pagado";
+		}
+
+	}
+
+
+
+	/*=============================================
 	Cambiar estado pago Recurrencia
 	=============================================*/	
 
@@ -307,6 +343,12 @@ class AjaxPagos{
 				$id_usuario=$pago["id_usuario"];
 				$referidos_obtenidos=count($bonos);
 
+			}else if($tipoPago=="retiros"){
+
+				$pago = ControladorPagos::ctrMostrarSolicitudesRetiro("id", $arrayPagos[$i],null,null);
+				$total=$pago[0]["valor"];
+
+				$id_usuario=$pago[0]["usuario"];
 			}
 
 			$cuenta = ControladorCuentas::ctrMostrarCuentasxEstado("usuario",$id_usuario,"estado",1);
@@ -415,6 +457,19 @@ if(isset($_POST["idPagoInversion"])){
 	$pagoInversion = new AjaxPagos();
 	$pagoInversion -> idPagoInversion = $_POST["idPagoInversion"];
 	$pagoInversion -> ajaxEstadoPagoInversion();
+
+}
+
+
+/*=============================================
+Cambiar estado pago retiro
+=============================================*/	
+
+if(isset($_POST["idPagoRetiro"])){
+
+	$pagoRetiro = new AjaxPagos();
+	$pagoRetiro -> idPagoRetiro = $_POST["idPagoRetiro"];
+	$pagoRetiro -> ajaxEstadoPagoRetiro();
 
 }
 
