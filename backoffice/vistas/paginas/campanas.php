@@ -504,15 +504,13 @@ REGISTRAR COMPROBANTE
 	        </div>
 
 	      </div>
-
-		  <?php
-
-      $registrarComprobantes = new ControladorComprobantes();
-      $registrarComprobantes->ctrRegistrarComprobantes();
-
-      ?>
+        
       
+<?php
 
+     $registrarComprobantes = new ControladorComprobantes();
+      $registrarComprobantes->ctrRegistrarComprobantes();
+?>
       </form>
 
     </div>
