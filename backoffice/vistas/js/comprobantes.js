@@ -857,6 +857,41 @@ $(".tablaComprobantes tbody").on("click", "button.btnSoporte", function () {
   });
 
 
+  $(".tablaComprobantes tbody").on("click", "button.btnFactura", function () {
+
+	var idFactura = $(this).attr("idFactura");
+	var datos = new FormData();
+	datos.append("idFactura",idFactura);
+  
+	if(idFactura!=""){
+  
+	$.ajax({
+  
+	   url:"ajax/comprobantes.ajax.php",
+	   method:"POST",
+	   data:datos,
+	   cache:false,
+	   contentType:false,
+	   processData:false,
+	   dataType:"json",
+	   success:function(respuesta){
+  
+		if(respuesta){
+	   
+		window.open("vistas/paginas/factura.php?id="+idFactura,"_blank");
+  
+		}
+  
+	   }
+  
+	  }) 
+	
+  
+   }
+  
+  })
+  
+
 
   $(".tablaComprobantes tbody").on("click", "img.fotoComprobante", function () {
   

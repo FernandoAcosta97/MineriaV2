@@ -85,11 +85,11 @@ class TablaComprobantes {
 
             if ( $value[ 'foto' ] == '' ) {
 
-                $foto = "<img src='vistas/img/comprobantes/default/default.jpg' class='img-thumbnail' width='60px'>";
+                $foto = "<button class='btn btnFactura' idFactura='".$value["comprobanteId"]."'><img src='vistas/img/comprobantes/default/default.jpg' class='img-thumbnail' width='60px'></button>";
 
             } else {
 
-                $foto = "<img src='".$value[ 'foto' ]."' class='img-thumbnail fotoComprobante' width='60px' data-toggle='modal' data-target='#modalVerFotoComprobante'>";
+                $foto = "<button class='btn'><img src='".$value[ 'foto' ]."' class='img-thumbnail fotoComprobante' width='60px' data-toggle='modal' data-target='#modalVerFotoComprobante'></button>";
 
             }
 

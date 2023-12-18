@@ -501,19 +501,35 @@ class AjaxComprobantes{
 	}
 
 
+	/*=============================================
+	FACTURA
+	=============================================*/	
+
+	public $idFactura;
+
+	public function ajaxFactura(){
+
+		$item = "id";
+		$valor = $this->idFactura;
+
+		$respuesta = ControladorComprobantes::ctrMostrarComprobantes($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
 
 
 }
 
 /*=============================================
-Validar email existente
+Factura generada
 =============================================*/
 
-if(isset($_POST["validarEmail"])){
+if(isset($_POST["idFactura"])){
 
-	$valEmail = new AjaxUsuarios();
-	$valEmail -> validarEmail = $_POST["validarEmail"];
-	$valEmail -> ajaxValidarEmail();
+	$factura = new AjaxComprobantes();
+	$factura -> idFactura = $_POST["idFactura"];
+	$factura -> ajaxFactura();
 
 }
 
