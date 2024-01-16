@@ -434,7 +434,7 @@ REGISTRAR COMPROBANTE
 
         <input type="hidden" value="<?php echo $usuario["doc_usuario"]; ?>" name="doc_usuario">
         
-        <input type="hidden" value="<?php echo $ingresos; ?>" id="saldo_cop">
+        <input type="hidden" value="<?php echo ($ingresos-$egresos); ?>" id="saldo_cop">
 
         <input type="hidden" id="id_campana" name="id_campana">
 
