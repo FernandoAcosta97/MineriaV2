@@ -831,6 +831,7 @@ VALIDAR REPETIR CONTRASEÑA
 =============================================*/
 $("input[id='registroPassword2']").click(function(){
 	$(".alert").remove();
+  alert("hola");
 });
 
 function validarRepetirPassword(){

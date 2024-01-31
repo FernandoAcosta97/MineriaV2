@@ -361,7 +361,7 @@ REGISTRAR COMPROBANTE
 		<?php
 
     $registrarComprobantes = new ControladorComprobantes();
-    $registrarComprobantes -> ctrRegistrarComprobantes();
+    $registrarComprobantes -> ctrRegistrarComprobantes(0,0);
 
     ?>
 

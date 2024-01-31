@@ -323,6 +323,12 @@ $estimado_binance=0;
  ?>
 
 	</div>
+
+	<?php 
+
+	if($usuario["perfil"]!="admin"){
+	?>
+
 	<div class="col-sm-4 align-self-start">
 		<div class="col-12 col-sm-12 col-lg-12 ">
 			<div class="card custom-bg">
@@ -384,6 +390,7 @@ $estimado_binance=0;
 			</div>
 		</div>
 	</div>
+	<?php } ?>
 
 
 

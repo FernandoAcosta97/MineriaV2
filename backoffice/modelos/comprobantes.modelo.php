@@ -12,7 +12,7 @@ class ModeloComprobantes
     public static function mdlRegistrarComprobantes($tabla, $datos)
     {
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(valor, foto, fecha, estado, doc_usuario, campana) VALUES (:valor, :foto, :fecha, :estado, :doc_usuario, :campana)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(valor, foto, fecha, estado, doc_usuario, campana, billetera) VALUES (:valor, :foto, :fecha, :estado, :doc_usuario, :campana, :billetera)");
 
         $stmt->bindParam(":valor", $datos["valor"], PDO::PARAM_INT);
         $stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
@@ -20,6 +20,7 @@ class ModeloComprobantes
         $stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_INT);
         $stmt->bindParam(":doc_usuario", $datos["doc_usuario"], PDO::PARAM_INT);
         $stmt->bindParam(":campana", $datos["campana"], PDO::PARAM_INT);
+        $stmt->bindParam(":billetera", $datos["billetera"], PDO::PARAM_INT);
 
         if ($stmt->execute()) {
 

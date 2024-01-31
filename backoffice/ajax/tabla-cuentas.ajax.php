@@ -65,8 +65,8 @@ class TablaCuentas
             $datosJson .= '[
                 "' . $acciones . '",
                 "' . $value["numero"] . '",
-                "' . $nombre . '",
-                "' . $documento . '",
+                "' . $usuario["nombre"] . '",
+                "' . $usuario["doc_usuario"] . '",
                 "' . $value["titular"] . '",
                 "' . $estado . '",
                 "' . $value["entidad"] . '",

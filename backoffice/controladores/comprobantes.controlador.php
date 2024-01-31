@@ -191,12 +191,31 @@ class ControladorComprobantes
     Registro de comprobantes
     =============================================*/
 
-    public function ctrRegistrarComprobantes()
+    public function ctrRegistrarComprobantes($saldo_cop,$saldo_crypto)
     {
 
         if (isset($_POST["id_campana"])) {
 
-        // $usu = ControladorUsuarios::ctrMostrarUsuarios("doc_usuario", $_POST["doc_usuario"]);
+            if($_POST["billeteras"]==1 && $saldo_cop<$_POST["registrarValor"] || $_POST["billeteras"]==2 && $saldo_crypto<$_POST["registrarValor"]){
+
+                echo '<script>
+
+                swal({
+                      type: "warning",
+                      title: "Valor incorrecto!",
+                      showConfirmButton: true,
+                      confirmButtonText: "Cerrar"
+                      }).then(function(result){
+                                if (result.value) {
+        
+                                }
+                            })
+        
+                </script>';
+
+            }else{
+
+        $usu = ControladorUsuarios::ctrMostrarUsuarios("doc_usuario", $_POST["doc_usuario"]);
 
         // $cuenta = ControladorCuentas::ctrMostrarCuentasxEstado("usuario", $usu["id_usuario"], "estado", 1);
 
@@ -359,7 +378,7 @@ class ControladorComprobantes
 				</script>';
 
             }
-
+        }
 
         }
 

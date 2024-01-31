@@ -33,6 +33,8 @@ Enlace de afiliado
 
 	<title>Mineria</title>
 
+	<script src="../backoffice/vistas/js/usuarios.js"></script>
+
 	<base href="vistas/">
 
 	<link rel="icon" href="img/icono.png">

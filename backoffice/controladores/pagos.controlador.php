@@ -8,10 +8,12 @@ class ControladorPagos
     Registro solicitud de retiro
     =============================================*/
 
-    public static function ctrSolicitudRetiro($id_usuario, $tipo)
+    public static function ctrSolicitudRetiro($id_usuario, $tipo, $disponible)
     {
 
-        if(isset($_POST["telefono"])){
+        if(isset($_POST["telefono"]) && $_POST["telefono"]!=""){
+
+        if(isset($_POST["valor"]) && $_POST["valor"]<=$disponible){
 
         $tabla = "retiros";
         $datos = array("usuario" => $id_usuario,
@@ -39,7 +41,26 @@ class ControladorPagos
                         </script>';
 
         }
-        }
+        
+    }else{
+
+        echo '<script>
+
+        swal({
+              type: "warning",
+              title: "Valor incorrecto!",
+              showConfirmButton: true,
+              confirmButtonText: "Cerrar"
+              }).then(function(result){
+                        if (result.value) {
+
+                        }
+                    })
+
+        </script>';
+
+    }
+}
 
     }
 

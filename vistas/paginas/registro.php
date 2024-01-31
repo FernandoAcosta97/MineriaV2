@@ -11,7 +11,7 @@
 
 			<?php else : ?>
 
-				<input type="hidden" value="admin-trading" name="patrocinador">
+				<input type="hidden" value="admin-mineria" name="patrocinador">
 
 			<?php endif ?>
 			<div class="social-login">
@@ -29,7 +29,7 @@
 			<input type="email" name="registroEmail" placeholder="Correo electrónico" required>
 			<div class="Group-Register">
 				<input type="password" name=registroPassword placeholder="Contraseña" required>
-				<input type="password" name="registroPassword2" placeholder="Repetir Contraseña" required>
+				<input type="password" name="registroPassword2" id="registroPassword2" placeholder="Repetir Contraseña" required>
 			</div>
 			<div class="form-check-inline text-right">
 

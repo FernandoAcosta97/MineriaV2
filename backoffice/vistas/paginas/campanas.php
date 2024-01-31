@@ -21,6 +21,8 @@ foreach ($solicitudesRetiro as $key => $value) {
 
 
 // var_dump($pagos);
+$saldo_cop=0;
+$saldo_crypto=0;
 
 foreach ($pagos as $key => $value) {
 	$total=0;
@@ -38,6 +40,11 @@ foreach ($pagos as $key => $value) {
 	if($value["estado"]==0){
 		$total_a_pagar+=$total;
 	}else{
+    if($comprobante["0"]["billetera"]==1 || $comprobante["0"]["billetera"]==3){
+			$saldo_cop=$saldo_cop+$total;
+		}else if($comprobante["0"]["billetera"]==2){
+			$saldo_crypto=$saldo_crypto+$total;
+		}
 		$total_pagos+=$total;
 	}
 }
@@ -45,6 +52,9 @@ foreach ($pagos as $key => $value) {
 }
 
 $ingresos=$ingresos+$total_pagos;
+var_dump($saldo_cop-$egresos);
+var_dump($saldo_crypto);
+
 
 ?>
 <div class="content-wrapper" style="min-height: 1058.31px;">
@@ -509,7 +519,7 @@ REGISTRAR COMPROBANTE
 <?php
 
      $registrarComprobantes = new ControladorComprobantes();
-      $registrarComprobantes->ctrRegistrarComprobantes();
+      $registrarComprobantes->ctrRegistrarComprobantes($saldo_cop,$saldo_crypto);
 ?>
       </form>
 

@@ -22,6 +22,9 @@ foreach ($solicitudesRetiro as $key => $value) {
 
 // var_dump($pagos);
 
+$saldo_cop=0;
+$saldo_crypto=0;
+
 foreach ($pagos as $key => $value) {
 	$total=0;
 
@@ -36,14 +39,24 @@ foreach ($pagos as $key => $value) {
 	$total=$comprobante[0]['valor']+$ganancia;
 
 	if($value["estado"]==0){
+		if($comprobante["0"]["billetera"]==1){
+			$egresos=$egresos+$comprobante["0"]["valor"];
+		}
 		$total_a_pagar+=$total;
 	}else{
+		if($comprobante["0"]["billetera"]==3){
+			$saldo_cop=$saldo_cop+$total;
+		}else if($comprobante["0"]["billetera"]==2){
+			$saldo_crypto=$saldo_crypto+$total;
+		}
+
 		$total_pagos+=$total;
 	}
 }
 
 }
-
+var_dump($saldo_cop-$egresos);
+var_dump($saldo_crypto);
 $ingresos=$ingresos+$total_pagos;
 
 ?>
@@ -181,7 +194,7 @@ RETIRAR
 
                <div>
 
-					<input type="text" class="form-control" id="inputMovil" name="telefono" data-inputmask="'mask':'(999) 999-9999'" data-mask>
+					<input type="text" class="form-control" id="inputMovil" name="telefono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
                 </div>
 
@@ -194,7 +207,7 @@ RETIRAR
 
 				<div>
 
-				<input type="number" class="form-control" id="disponible" placeholder="$ <?php echo number_format($ingresos-$egresos) ?>" readonly>
+				<input type="number" class="form-control" id="disponible" placeholder="$ <?php echo number_format($saldo_cop-$egresos) ?>" readonly>
 
 				</div>
 
@@ -235,7 +248,7 @@ RETIRAR
 		<?php
 
 			$solicitudRetiro = new ControladorPagos();
-			$solicitudRetiro->ctrSolicitudRetiro($usuario["id_usuario"], 2);
+			$solicitudRetiro->ctrSolicitudRetiro($usuario["id_usuario"], 2, $ingresos-$egresos);
 
 		?>
 

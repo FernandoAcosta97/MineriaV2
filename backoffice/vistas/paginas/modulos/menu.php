@@ -325,7 +325,7 @@
                   </a>
                 </li> -->
                 <li class="nav-item">
-                <a href="pagos-comisiones" class="nav-link">
+                <a href="pagos-inversiones" class="nav-link">
                 <button class="btn btn-submenu-mineria d-flex align-items-center">
                     <i class="far fa-circle nav-icon"></i>
                      <span class="text-center">Pagar suscripciones</span>
