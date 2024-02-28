@@ -19,6 +19,11 @@ $("#billeteras").on("change",function () {
 	}else{
 	  $(".invertir_transferencia").html("");
 	}
+
+	if(seleccionado==4){
+		$("#registrarValor").css("display","none");
+		
+	}
 	
 
   

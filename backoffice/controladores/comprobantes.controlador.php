@@ -399,6 +399,7 @@ class ControladorComprobantes
 
     }
 
+
      /*=============================================
     Mostrar Comprobantes x Tipo
     =============================================*/
@@ -472,8 +473,9 @@ class ControladorComprobantes
     {
 
         $tabla = "comprobantes";
+        $respuesta=null;
 
-        $respuesta = ModeloComprobantes::mdlMostrarComprobantesxEstadoSinLimit($tabla, $item, $valor,$item2, $valor2);
+       // $respuesta = ModeloComprobantes::mdlMostrarComprobantesxEstadoSinLimit($tabla, $item, $valor,$item2, $valor2);
 
         return $respuesta;
 

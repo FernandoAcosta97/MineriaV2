@@ -6,6 +6,8 @@ $total_pagos=0;
 
 $solicitudesRetiro=ControladorPagos::ctrMostrarSolicitudesRetiro("usuario", $usuario["id_usuario"], null,null);
 
+$comprobantes=ControladorComprobantes::ctrMostrarComprobantes("doc_usuario",$usuario["doc_usuario"]);
+
 $egresos=0;
 $ingresos=0;
 
@@ -24,6 +26,15 @@ foreach ($solicitudesRetiro as $key => $value) {
 
 $saldo_cop=0;
 $saldo_crypto=0;
+$inversiones=0;
+// var_dump($comprobantes);
+foreach ($comprobantes as $key => $value) {
+
+if($value["estado"]!=0 && $value["billetera"]==1){
+	$inversiones=$inversiones+$value["valor"];
+}
+
+}
 
 foreach ($pagos as $key => $value) {
 	$total=0;
@@ -39,9 +50,6 @@ foreach ($pagos as $key => $value) {
 	$total=$comprobante[0]['valor']+$ganancia;
 
 	if($value["estado"]==0){
-		if($comprobante["0"]["billetera"]==1){
-			$egresos=$egresos+$comprobante["0"]["valor"];
-		}
 		$total_a_pagar+=$total;
 	}else{
 		if($comprobante["0"]["billetera"]==3){
@@ -49,7 +57,6 @@ foreach ($pagos as $key => $value) {
 		}else if($comprobante["0"]["billetera"]==2){
 			$saldo_crypto=$saldo_crypto+$total;
 		}
-
 		$total_pagos+=$total;
 	}
 }
@@ -70,7 +77,7 @@ $ingresos=$ingresos+$total_pagos;
 
 			<div class="inner">
 
-				<h3>$ <span></span><?php echo number_format($ingresos-$egresos) ?></h3>
+				<h3>$ <span></span><?php echo number_format($ingresos-$egresos-$inversiones) ?></h3>
 
 				<p class="text-uppercase">Retirar</p>
 

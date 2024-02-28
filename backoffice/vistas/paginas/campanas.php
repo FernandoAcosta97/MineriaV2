@@ -460,6 +460,7 @@ REGISTRAR COMPROBANTE
                   <option value="1">COP</option>
                   <option value="2">CRYPTO</option>
                   <option value="3">TRANSFERENCIA</option>
+                  <option value="4">TRANSFERENCIA CRYPTO BINANCE</option>
 
                 </select>
 

@@ -12,8 +12,10 @@ use \Mpdf\Mpdf;
 
 $item="id";
 $valor=$_GET["id"];
+$total=0;
 
 $respuesta=ControladorComprobantes::ctrMostrarComprobantes("id",$valor);
+
 
 $html="";
 
@@ -48,14 +50,25 @@ $html.='<section>
         <tr>
             <th>Descripción</th>
             <th>Valor</th>
+            <th>Billetera</th>
             <th>fecha</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Plan de minado '.$campana["nombre"].'</td>
-            <td>'.number_format($respuesta[0]["valor"],0).'</td>
-            <td>'.$respuesta[0]["fecha"].'</td>
+            <td>Plan de minado '.$campana["nombre"].'</td>';
+
+            $html.='<td>'.number_format($respuesta[0]["valor"],0).'</td>';
+
+            if($respuesta[0]["billetera"]==1){
+                $html.='<td>COP</td>';
+            }else if($respuesta[0]["billetera"]==2){
+                $html.='<td>CRYPTO</td>';
+            }else{
+                $html.='<td>TRANSFERENCIA</td>';
+            }
+
+            $html.='<td>'.$respuesta[0]["fecha"].'</td>
         </tr>
         
     </tbody>
