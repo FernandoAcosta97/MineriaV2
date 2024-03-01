@@ -17,6 +17,14 @@ $retiro -> ctrVerificarCodigoIngresadoSms()
           <h1>Movimientos Billetera</h1>
 
         </div>
+
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+            <li class="breadcrumb-item active">Movimientos</li>
+          </ol>
+        </div>
+        
         <div class="col-sm-6">        
           <a href="billeteras-crypto" class="nav-link">
 							<button class="btn btn-menu-mineria d-flex align-items-center">
@@ -24,12 +32,7 @@ $retiro -> ctrVerificarCodigoIngresadoSms()
 							</button>
 					</a>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-            <li class="breadcrumb-item active">Movimientos</li>
-          </ol>
-        </div>
+
       </div>
     </div><!-- /.container-fluid -->
 
