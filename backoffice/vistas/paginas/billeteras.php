@@ -1,3 +1,11 @@
+<?php 
+
+$retiro = new ControladorPagos();
+
+$retiro -> ctrVerificarCodigoIngresadoSms()
+
+?>
+
 <div class="content-wrapper" style="min-height: 1058.31px;">
   
   <!-- Content Header (Page header) -->

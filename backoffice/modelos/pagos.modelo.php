@@ -33,6 +33,79 @@ class ModeloPagos
 
 
     /*=============================================
+    Registrar codigo sms
+    =============================================*/
+
+    public static function mdlRegistrarCodigoSms($tabla, $id_usuario, $codigo)
+    {
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_usuario, codigo) VALUES (:id_usuario, :codigo)");
+
+        $stmt->bindParam(":id_usuario", $id_usuario, PDO::PARAM_INT);
+        $stmt->bindParam(":codigo", $codigo, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+       /*=============================================
+    Mostrar Codigo verificacion
+    =============================================*/
+
+    public static function mdlMostrarCodigoVerificacion($valor)
+    {
+
+            $stmt = Conexion::conectar()->prepare("SELECT codigo FROM verificacion WHERE id_usuario = :$valor");
+
+            $stmt->bindParam(":" . $valor, $valor, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+      /*=============================================
+    Eliminar codigo sms
+    =============================================*/
+
+    public static function mdlEliminarCodigoSms($tabla, $id)
+    {
+
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_usuario = :id_usuario");
+
+        $stmt->bindParam(":id_usuario", $id, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return print_r(Conexion::conectar()->errorInfo());
+        }
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+    /*=============================================
     Registro de Pagos Publicidad
     =============================================*/
 

@@ -1,8 +1,10 @@
 <?php
 
+//sms
+include('httpPHPAltiria.php');
+
 class ControladorPagos
 {
-
 
     /*=============================================
     Registro solicitud de retiro
@@ -15,32 +17,80 @@ class ControladorPagos
 
         if(isset($_POST["valor"]) && $_POST["valor"]<=$disponible){
 
-        $tabla = "retiros";
-        $datos = array("usuario" => $id_usuario,
-                       "tipo" => $tipo,
-                       "valor" => $_POST["valor"]);
+            $usuario=ControladorUsuarios::ctrMostrarUsuarios("id_usuario",$id_usuario);
 
-        $respuesta = ModeloPagos::mdlSolicitudRetiro($tabla, $datos);  
+            $condicion=ControladorPagos::ctrMostrarCodigoVerificacion(1);
+
+            if($usuario["perfil"]!="admin" && $condicion["codigo"]==1){
+
+                $telefono=$usuario["telefono_movil"];
+                // Eliminar todos los caracteres que no sean números
+                $numero = preg_replace('/[^0-9]/', '', $telefono);
+                $sms=ControladorPagos::ctrVerificacionSms($numero);
+                // $sms="123";
+
+                $encriptarCodigo = crypt($sms, '$2a$07$asxx54ahjppf45sd87a5a4dDDGmineridev$');
+
+                ControladorPagos::ctrRegistrarCodigoSms($usuario["id_usuario"],$encriptarCodigo);
+
+                echo "<script>
+
+							swal({
+								title: 'Ingrese el código de verificación',
+								input: 'text',
+								inputAttributes: {
+								  autocapitalize: 'off'
+								},
+								showCancelButton: true,
+								confirmButtonText: 'Aceptar',
+								showLoaderOnConfirm: true,
+								preConfirm: (c) => {
+
+                                 window.location='index.php?pagina=billeteras&codigo='+c+'&id=".$usuario["id_usuario"]."&v=".$_POST["valor"]."&t=".$tipo."';
+
+
+								},
+								allowOutsideClick: () => !Swal.isLoading()
+							  }).then((result) => {
+								if (result.isConfirmed) {		
+
+								}
+							  })
+							
+							</script>";
+
+            }else{
+
+                    $tabla = "retiros";
+                    $datos = array("usuario" => $id_usuario,
+                        "tipo" => $tipo,
+                        "valor" => $_POST["valor"]);
+
+            $respuesta = ModeloPagos::mdlSolicitudRetiro($tabla, $datos);  
+            
+            if($respuesta=="ok"){
+
+                echo '<script>
+
+                            swal({
+                                type: "success",
+                                title: "Se ha generado su solicitud con éxito!",
+                                showConfirmButton: true,
+                                confirmButtonText: "Cerrar"
+                                }).then(function(result){
+                                            if (result.value) {
         
-        if($respuesta=="ok"){
+                                            window.location="billeteras"
+                                            }
+                                        })
+        
+                            </script>';
 
-            echo '<script>
+            }
 
-                        swal({
-                              type: "success",
-                              title: "Se ha generado su solicitud con éxito!",
-                              showConfirmButton: true,
-                              confirmButtonText: "Cerrar"
-                              }).then(function(result){
-                                        if (result.value) {
-    
-                                        window.location="billeteras"
-                                        }
-                                    })
-    
-                        </script>';
+            }
 
-        }
+
         
     }else{
 
@@ -65,6 +115,16 @@ class ControladorPagos
     }
 
 
+    static public function ctrRegistrarCodigoSms($id_usuario, $CODIGO){
+
+		$tabla = "verificacion";
+
+		$respuesta = ModeloPagos::mdlRegistrarCodigoSms($tabla, $id_usuario, $CODIGO);
+
+		return $respuesta;
+
+	}
+
     /*=============================================
     Mostrar solicitudes retiro
     =============================================*/
@@ -79,6 +139,162 @@ class ControladorPagos
         return $respuesta;
 
     }
+
+
+
+    /*=============================================
+	Eliminar Codigo sms
+	=============================================*/
+
+	static public function ctrEliminarCodigoSms($id){
+
+		$tabla = "verificacion";
+
+		$respuesta = ModeloPagos::mdlEliminarCodigoSms($tabla, $id);
+
+		return $respuesta;
+
+	}
+
+
+	/*=============================================
+	Verificacion sms
+	=============================================*/
+
+    public static function ctrVerificacionSms($numero_destino){
+
+	$codigo = ControladorPagos::ctrGenerarCodigoVerificacion();
+
+	$altiriaSMS = new AltiriaSMS();
+
+	$altiriaSMS->setApikey('BjaDPXpad4');
+	$altiriaSMS->setApisecret('qryam5gyet');
+
+	$sDestination = $numero_destino;
+	//$sDestination = array('346xxxxxxxx','346yyyyyyyy');
+
+	$response = $altiriaSMS->sendSMS($sDestination, "Código de verificación Club Mineria: ".$codigo);
+	// $altiriaSMS->setDebug(true);
+
+		// print($message->sid);
+		return $codigo;
+
+	}
+
+
+	public static function ctrGenerarCodigoVerificacion() {
+		$codigo = '';
+		$caracteres = '0123456789';
+	
+		for ($i = 0; $i < 6; $i++) {
+			$indiceAleatorio = rand(0, strlen($caracteres) - 1);
+			$codigo .= $caracteres[$indiceAleatorio];
+		}
+	
+		return $codigo;
+	}
+
+
+	public function ctrValidarCodigoVerificacion($codigo, $codigo_ingresado) {
+	
+		if($codigo==$codigo_ingresado) return true;
+	
+         return false;
+	}
+
+
+	public function ctrVerificarCodigoIngresadoSms(){
+
+		if(isset($_GET["codigo"]) && isset($_GET["id"]) && isset($_GET["v"]) && isset($_GET["t"])){
+
+			$usu=ControladorUsuarios::ctrMostrarUsuarios("id_usuario",$_GET["id"]);
+
+			if($usu && $usu["perfil"]!="admin"){
+
+				$sms=ControladorPagos::ctrMostrarCodigoVerificacion($usu["id_usuario"]);
+
+				$encriptar = crypt($_GET["codigo"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+			if($sms && $encriptar==$sms["codigo"]){
+
+                $tabla = "retiros";
+                $datos = array("usuario" => $_GET["id"],
+                               "tipo" => $_GET["t"],
+                               "valor" => $_GET["v"]);
+        
+                $respuesta = ModeloPagos::mdlSolicitudRetiro($tabla, $datos);  
+                
+                if($respuesta=="ok"){
+        
+                    echo '<script>
+        
+                                swal({
+                                      type: "success",
+                                      title: "Se ha generado su solicitud con éxito!",
+                                      showConfirmButton: true,
+                                      confirmButtonText: "Cerrar"
+                                      }).then(function(result){
+                                                if (result.value) {
+            
+                                                window.location="billeteras"
+                                                }
+                                            })
+            
+                                </script>';
+        
+                }
+		
+
+			}else{
+
+				echo "<script>
+				swal({
+					icon:'error',
+					  title: '¡Error!',
+					  text: '¡El código es incorrecto!',
+					  showConfirmButton: true,
+					confirmButtonText: 'Cerrar'
+				  
+			}).then(function(result){
+				window.location='billeteras';
+			});
+			</script>";
+
+			}
+
+		}else{
+			echo "<script>
+			swal({
+				icon:'error',
+				  title: '¡Error!',
+				  text: '¡Intentelo de nuevo!',
+				  showConfirmButton: true,
+				confirmButtonText: 'Cerrar'
+			  
+		}).then(function(result){
+			window.location='ingreso';
+		});
+		</script>";
+		}
+		ControladorPagos::ctrEliminarCodigoSms($usu["id_usuario"]);
+		}
+
+	}
+
+
+    /*=============================================
+	Mostrar Codigo Verificacion
+	=============================================*/
+
+	static public function ctrMostrarCodigoVerificacion($valor){
+	
+		$tabla = "verificacion";
+
+		$respuesta = ModeloPagos::mdlMostrarCodigoVerificacion($valor);
+
+		return $respuesta;
+
+	}
  
     /*=============================================
     Registro de Pagos
