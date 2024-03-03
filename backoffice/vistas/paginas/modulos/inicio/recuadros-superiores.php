@@ -246,6 +246,78 @@ if ($usuario["fecha_contrato"] != null) {
 
 ?>
 
+
+
+<?php
+
+$pagos = ControladorPagos::ctrMostrarPagosAll("id_usuario",$usuario["id_usuario"]);
+$total_a_pagar=0;
+$total_pagos=0;
+
+$solicitudesRetiro=ControladorPagos::ctrMostrarSolicitudesRetiro("usuario", $usuario["id_usuario"], null,null);
+
+$comprobantes=ControladorComprobantes::ctrMostrarComprobantes("doc_usuario",$usuario["doc_usuario"]);
+
+$egresos=0;
+$ingresos=0;
+
+foreach ($solicitudesRetiro as $key => $value) {
+
+	if($value["tipo"]==1){
+		$ingresos=$ingresos+$value["valor"];
+	}else{
+		$egresos=$egresos+$value["valor"];
+	}
+      
+}
+
+
+// var_dump($pagos);
+
+$saldo_cop=0;
+$saldo_crypto=0;
+$inversiones=0;
+// var_dump($comprobantes);
+foreach ($comprobantes as $key => $value) {
+
+if($value["estado"]!=0 && $value["billetera"]==1){
+	$inversiones=$inversiones+$value["valor"];
+}
+
+}
+
+foreach ($pagos as $key => $value) {
+	$total=0;
+
+	$comprobante = ControladorComprobantes::ctrMostrarComprobantes("id", $value["id_comprobante"]);
+
+	if($comprobante){
+	
+	$campana = ControladorCampanas::ctrMostrarCampanas("id",$comprobante[0]["campana"]);
+
+	$ganancia = ($comprobante[0]['valor']*$campana['retorno'])/100;
+
+	$total=$comprobante[0]['valor']+$ganancia;
+
+	if($value["estado"]==0){
+		$total_a_pagar+=$total;
+	}else{
+		if($comprobante["0"]["billetera"]==3){
+			$saldo_cop=$saldo_cop+$total;
+		}else if($comprobante["0"]["billetera"]==2){
+			$saldo_crypto=$saldo_crypto+$total;
+		}
+		$total_pagos+=$total;
+	}
+}
+
+}
+// var_dump($saldo_cop-$egresos);
+// var_dump($saldo_crypto);
+$ingresos=$ingresos+$total_pagos;
+
+?>
+
 <div class="row">
 	<div class="col-sm-8">
 		<!-- Jerson Arnual -->
@@ -339,7 +411,7 @@ $estimado_binance=0;
 								<div class="input-group-prepend" style="width: 9vh;">
 								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/peso.png">
 								</div>
-								<h2 class="card-text coin-text">$100.000</h2>
+								<h2 class="card-text coin-text">$ <?php echo number_format($ingresos-$egresos-$inversiones) ?></h2>
 							</div>
 							<div class="input-group profile-username input-link span-item-group">
 								<div class="input-group-prepend" style="width: 9vh;">

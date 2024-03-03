@@ -901,11 +901,11 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
         processData: false,
         success: function(respuesta){
     
-            if (respuesta == "ok") {
+            if (respuesta.trim() == "ok") {
     
               alerta("success", "¡El pago se ha realizado correctamente!", null, "pagos-retiros", false);
           
-            }else if(respuesta == "pagado"){
+            }else if(respuesta.trim() == "pagado"){
     
               alerta("info", "¡Información!", "¡El pago ya se ha realizado!", "pagos-retiros", false);
     
@@ -939,11 +939,11 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
         processData: false,
         success: function(respuesta){
     
-            if (respuesta == "ok") {
+            if (respuesta.trim() == "ok") {
     
               alerta("success", "¡El pago se ha realizado correctamente!", null, "pagos-recurrencia", false);
           
-            }else if(respuesta == "pagado"){
+            }else if(respuesta.trim() == "pagado"){
     
               alerta("info", "¡Información!", "¡El pago ya se ha realizado!", "pagos-recurrencia", false);
     
@@ -978,11 +978,11 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
         processData: false,
         success: function(respuesta){
     
-            if (respuesta == "ok") {
+            if (respuesta.trim() == "ok") {
     
               alerta("success", "¡El pago se ha realizado correctamente!", null, "pagos-publicidad", false);
           
-            }else if(respuesta == "pagado"){
+            }else if(respuesta.trim() == "pagado"){
     
               alerta("info", "¡Información!", "¡El pago ya se ha realizado!", "pagos-publicidad", false);
     
@@ -1016,11 +1016,11 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
         processData: false,
         success: function(respuesta){
 
-          if (respuesta == "ok") {
+          if (respuesta.trim() == "ok") {
 
             alerta("success", "¡El pago se ha realizado correctamente!", null, "pagos-comisiones", false);
         
-          }else if(respuesta == "pagado"){
+          }else if(respuesta.trim() == "pagado"){
   
             alerta("info", "¡Información!", "¡El pago ya se ha realizado!", "pagos-comisiones", false);
   
@@ -1053,8 +1053,11 @@ $(".btnPagos").click(function () {
       if(tipoPago == "bonos"){
         direccion="pagos-extras";
       }
-      if(tipoPago == "bonos"){
-        direccion="publicidad";
+      if(tipoPago == "publicidad"){
+        direccion="pagos-publicidad";
+      }
+      if(tipoPago == "retiros"){
+        direccion="pagos-retiros";
       }
 
       if(idsPagos!=""){
@@ -1077,7 +1080,7 @@ $(".btnPagos").click(function () {
           var arreglo = Array.from(conjunto);
           var res = arreglo.join("");
       
-              if (res == "ok") {
+              if (res.trim() == "ok") {
             
                 swal({
                   type: "success",
@@ -1153,11 +1156,11 @@ $(".btnPagos").click(function () {
         processData: false,
         success: function(respuesta){
 
-          if (respuesta == "ok") {
+          if (respuesta.trim() == "ok") {
 
             alerta("success", "¡El pago se ha realizado correctamente!", null, "pagos-extras", false);
         
-          }else if(respuesta == "pagado"){
+          }else if(respuesta.trim() == "pagado"){
   
             alerta("info", "¡Información!", "¡El pago ya se ha realizado!", "pagos-extras", false);
 

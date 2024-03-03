@@ -62,8 +62,8 @@ foreach ($pagos as $key => $value) {
 }
 
 }
-var_dump($saldo_cop-$egresos);
-var_dump($saldo_crypto);
+// var_dump($saldo_cop-$egresos);
+// var_dump($saldo_crypto);
 $ingresos=$ingresos+$total_pagos;
 
 ?> -->

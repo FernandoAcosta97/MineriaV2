@@ -1,3 +1,11 @@
+<?php 
+
+$retiro = new ControladorPagos();
+
+$retiro -> ctrVerificarCodigoIngresadoSms()
+
+?>
+
 <div class="content-wrapper" style="min-height: 1058.31px;">
   
   <!-- Content Header (Page header) -->
@@ -34,6 +42,14 @@
         </script>
 
         </div>
+
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+            <li class="breadcrumb-item active">Movimientos</li>
+          </ol>
+        </div>
+        
         <!-- <div class="col-sm-6">        
           <a href="billeteras-crypto" class="nav-link">
 							<button class="btn btn-menu-mineria  d-flex align-items-center">
@@ -47,6 +63,8 @@
             <li class="breadcrumb-item active">Movimientos</li>
           </ol>
         </div>
+        </div>
+
       </div>
     </div>
     <!-- /.container-fluid -->
