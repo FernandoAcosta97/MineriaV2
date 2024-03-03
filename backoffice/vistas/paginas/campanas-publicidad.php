@@ -30,6 +30,22 @@
 
         <h3 class="card-title">Campañas publicidad registradas</h3>
 
+
+        <!-- INICIO NUEVAS TARJETAS -->
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- FIN NUEVAS TARJETAS -->
+
         <?php if ($usuario["perfil"] == "admin"): ?>
 
         <div style="margin:1em auto auto auto">

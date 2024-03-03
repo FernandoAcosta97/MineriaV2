@@ -2,44 +2,46 @@
 </div>
 
 <div class="ladoUsuarios">
-	<div class="left-side-login"></div>
-	<div class="right-side-login">
-		<form method="post" class="mt-5">
+	<div class="left-side-login w-0 lg:w-3/5"></div>
+	<div class='right-side-login w-full lg:w-2/5'>
+		<span class='text-white'>.</span>
+		<div class="w-full p-2 lg:p-4 overflow-y-scroll flex flex-col gap-4 h-screen">
+			<form method="post" class="mt-5 m-auto">
 
-			<div class="social-login">
-				<div class="circle-logo">
-					<img src="https://image.flaticon.com/icons/png/512/145/145802.png">
+				<div class="social-login">
+					<div class="circle-logo">
+						<img src="https://image.flaticon.com/icons/png/512/145/145802.png">
+					</div>
 				</div>
-			</div>
-			<h1>Ingreso al sistema</h1>
-			<p style="margin-bottom: 40px;">¿No tienes una cuenta? &nbsp;&nbsp; <a href="<?php echo $ruta ?>registro" class="register" style="margin-left: 10px;">Regístrate</a></p>
-			<input type="email" name="ingresoEmail" placeholder="Correo electrónico" required>
-			<input type="password" name="ingresoPassword" placeholder="Contraseña" required>
-			<button type="submit" class="submit-button">Ingresar</button>
-			<?php
+				<h1>Ingreso al sistema</h1>
+				<p style="margin-bottom: 40px;">¿No tienes una cuenta? &nbsp;&nbsp; <a href="<?php echo $ruta ?>registro" class="register" style="margin-left: 10px;">Regístrate</a></p>
+				<input type="email" name="ingresoEmail" placeholder="Correo electrónico" required>
+				<input type="password" name="ingresoPassword" placeholder="Contraseña" required>
+				<button type="submit" class="submit-button">Ingresar</button>
+				<?php
 
-			$ingreso = new ControladorUsuarios();
-			$ingreso->ctrIngresoUsuario();
+				$ingreso = new ControladorUsuarios();
+				$ingreso->ctrIngresoUsuario();
 
-			?>
-			<div class="line-container">
-				<div class="line"></div>
-				<p>O continúa con</p>
-				<div class="line"></div>
-			</div>
-			<div class="social-login">
-				<div class="circle-logo">
-					<img src="https://image.flaticon.com/icons/png/512/145/145802.png">
+				?>
+				<div class="line-container">
+					<div class="line"></div>
+					<p>O continúa con</p>
+					<div class="line"></div>
 				</div>
-				<div class="circle-logo">
-					<img src="https://image.flaticon.com/icons/png/512/145/145804.png">
+				<div class="social-login">
+					<div class="circle-logo">
+						<img src="https://image.flaticon.com/icons/png/512/145/145802.png">
+					</div>
+					<div class="circle-logo">
+						<img src="https://image.flaticon.com/icons/png/512/145/145804.png">
+					</div>
 				</div>
-			</div>
-			<br>
+				<br>
 
-			<p class="text-center pt-1"><a href="#modalRecuperarPassword" data-toggle="modal" data-dismiss="modal">¿Olvidó su contraseña?</a></p>
-
-		</form>
+				<p class="text-center pt-1"><a href="#modalRecuperarPassword" data-toggle="modal" data-dismiss="modal">¿Olvidó su contraseña?</a></p>
+			</form>
+		</div>
 	</div>
 </div>
 

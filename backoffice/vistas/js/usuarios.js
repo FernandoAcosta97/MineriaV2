@@ -15,14 +15,14 @@ $.ajax({
 
       $("#inputPais").append(
         `<option value="` +
-          pais +
-          `,` +
-          codPais +
-          `,` +
-          dial +
-          `">` +
-          pais +
-          `</option>`
+        pais +
+        `,` +
+        codPais +
+        `,` +
+        dial +
+        `">` +
+        pais +
+        `</option>`
       );
     }
   },
@@ -46,14 +46,14 @@ $.ajax({
 
       $("#inputPaisEditar").append(
         `<option value="` +
-          pais +
-          `,` +
-          codPais +
-          `,` +
-          dial +
-          `">` +
-          pais +
-          `</option>`
+        pais +
+        `,` +
+        codPais +
+        `,` +
+        dial +
+        `">` +
+        pais +
+        `</option>`
       );
     }
   },
@@ -75,22 +75,22 @@ PLUGIN SELECT 2 BUSCAR USUARIO POR NOMBRE O NÚMERO DE DOCUMENTO
 $(".selectBuscar").select2({
   placeholder: "Ingrese el nombre o número de documento del usuario a buscar",
   minimumInputLength: 3,
-  ajax:{
+  ajax: {
     url: "ajax/buscarUsuario.ajax.php",
     type: "POST",
     dataType: "json",
     delay: 250,
-    data: function(params){
+    data: function (params) {
       return {
         buscarUsuario: params.term
       }
     },
     processResults: function (response) {
       return {
-      results: response.items
+        results: response.items
       };
-      },
-      cache: true
+    },
+    cache: true
   }
 });
 
@@ -176,7 +176,7 @@ $(".suscribirse").click(function () {
   /*=============================================
    VALIDAR DOCUMENTO
    =============================================*/
-   if(doc_usuario == ""){
+  if (doc_usuario == "") {
 
     $(".suscribirse").before(`
 
@@ -184,15 +184,15 @@ $(".suscribirse").click(function () {
 
     `);
 
-   return;
+    return;
 
-   }
+  }
 
 
   /*=============================================
    VALIDAR USUARIO
    =============================================*/
-   if(usuario == ""){
+  if (usuario == "") {
 
     $(".suscribirse").before(`
 
@@ -200,14 +200,14 @@ $(".suscribirse").click(function () {
 
     `);
 
-   return;
+    return;
 
-   }
+  }
 
   /*=============================================
    VALIDAR NOMBRE
    =============================================*/
-   if(nombre == ""){
+  if (nombre == "") {
 
     $(".suscribirse").before(`
 
@@ -215,14 +215,14 @@ $(".suscribirse").click(function () {
 
     `);
 
-   return;
+    return;
 
-   }
+  }
 
   /*=============================================
    VALIDAR CORREO
    =============================================*/
-   if(email == ""){
+  if (email == "") {
 
     $(".suscribirse").before(`
 
@@ -230,14 +230,14 @@ $(".suscribirse").click(function () {
 
     `);
 
-   return;
+    return;
 
-   }
+  }
 
   /*=============================================
    VALIDAR PATROCINADOR
    =============================================*/
-   if(patrocinador == ""){
+  if (patrocinador == "") {
 
     $(".suscribirse").before(`
 
@@ -245,14 +245,14 @@ $(".suscribirse").click(function () {
 
     `);
 
-   return;
+    return;
 
-   }
+  }
 
   /*=============================================
    VALIDAR PAIS
    =============================================*/
-   if(pais == ""){
+  if (pais == "") {
 
     $(".suscribirse").before(`
 
@@ -260,15 +260,15 @@ $(".suscribirse").click(function () {
 
     `);
 
-   return;
+    return;
 
-   }
+  }
 
 
   /*=============================================
    VALIDAR TELEFONO
    =============================================*/
-   if(tel == ""){
+  if (tel == "") {
 
     $(".suscribirse").before(`
 
@@ -276,14 +276,14 @@ $(".suscribirse").click(function () {
 
     `);
 
-   return;
+    return;
 
-   }
+  }
 
   /*=============================================
    VALIDAR TERMINOS Y CONDICIONES
    =============================================*/
-   if(aceptarTerminos != "on"){
+  if (aceptarTerminos != "on") {
 
     $(".suscribirse").before(`
 
@@ -291,9 +291,9 @@ $(".suscribirse").click(function () {
 
     `);
 
-   return;
+    return;
 
-   }
+  }
 
   /*=============================================
    VALIDAR FIRMA
@@ -325,70 +325,70 @@ $(".suscribirse").click(function () {
   // ) {}
 
 
-    var datos = new FormData();
-    datos.append("aceptar", "ok");
-    datos.append("doc_usuario", doc_usuario);
-    datos.append("id_usuario", id_usuario);
-    datos.append("pais", pais);
-    datos.append("codigo_pais", codigo_pais);
-    datos.append("telefono_movil", telefono_movil);
-    // datos.append("firma", firma[1]);
-    datos.append("enlace_afiliado", enlace_afiliado);
-    datos.append("patrocinador", patrocinador);
+  var datos = new FormData();
+  datos.append("aceptar", "ok");
+  datos.append("doc_usuario", doc_usuario);
+  datos.append("id_usuario", id_usuario);
+  datos.append("pais", pais);
+  datos.append("codigo_pais", codigo_pais);
+  datos.append("telefono_movil", telefono_movil);
+  // datos.append("firma", firma[1]);
+  datos.append("enlace_afiliado", enlace_afiliado);
+  datos.append("patrocinador", patrocinador);
 
-    $.ajax({
-      url: "ajax/usuarios.ajax.php",
-      method: "POST",
-      data: datos,
-      cache: false,
-      contentType: false,
-      processData: false,
-      //    dataType:"json",
-      beforeSend: function () {
-        $(".suscribirse").after(`
+  $.ajax({
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    //    dataType:"json",
+    beforeSend: function () {
+      $(".suscribirse").after(`
 
 				   <img src="vistas/img/plantilla/status.gif" class="ml-3" style="width:30px; height:30px" />
-				   <span class="alert alert-warning ml-3">Procesando el contrato, no cerrar esta página</span>
+				   <span class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 ml-3">Procesando el contrato, no cerrar esta página</span>
 
 			   `);
-      },
-      success: function (respuesta) {
+    },
+    success: function (respuesta) {
 
-        if (respuesta == "ok") {
-			
-          swal({
-            type: "success",
-            title: "¡Se ha registrado correctamente!",
-            text: "¡Bienvenido a nuestro programa de afiliados, ahora puede comenzar a ganar dinero con nosotros, visite nuestro plan de compensación!",
-			      allowOutsideClick: false,
-            showConfirmButton: true,
-            confirmButtonText: "Cerrar",
-          }).then(function (result) {
-            if (result.value) {
-              window.location = "perfil";
-            }
-          });
-		  
-        }else{
+      if (respuesta == "ok") {
 
-          swal({
-            type: "error",
-            title: "¡Ha ocurrido un error!",
-            text: "¡Contacte con el administrador o vuelve a intentarlo mas tarde!",
-            showConfirmButton: true,
-            confirmButtonText: "Cerrar",
-          }).then(function (result) {
-            if (result.value) {
-              //window.location = "perfil";
-            }
-          });
-		  
+        swal({
+          type: "success",
+          title: "¡Se ha registrado correctamente!",
+          text: "¡Bienvenido a nuestro programa de afiliados, ahora puede comenzar a ganar dinero con nosotros, visite nuestro plan de compensación!",
+          allowOutsideClick: false,
+          showConfirmButton: true,
+          confirmButtonText: "Cerrar",
+        }).then(function (result) {
+          if (result.value) {
+            window.location = "perfil";
+          }
+        });
 
-        }
-        //    window.location = respuesta;
-      },
-    });
-  
+      } else {
+
+        swal({
+          type: "error",
+          title: "¡Ha ocurrido un error!",
+          text: "¡Contacte con el administrador o vuelve a intentarlo mas tarde!",
+          showConfirmButton: true,
+          confirmButtonText: "Cerrar",
+        }).then(function (result) {
+          if (result.value) {
+            //window.location = "perfil";
+          }
+        });
+
+
+      }
+      //    window.location = respuesta;
+    },
+  });
+
 });
 
 
@@ -458,14 +458,14 @@ $(".suscribirse").click(function () {
 //         $(".registroManual").after(`
 
 // 				   <img src="vistas/img/plantilla/status.gif" class="ml-3" style="width:30px; height:30px" />
-// 				   <span class="alert alert-warning ml-3">Procesando el registro, no cerrar esta página</span>
+// 				   <span class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 ml-3">Procesando el registro, no cerrar esta página</span>
 
 // 			   `);
 //       },
 //       success: function (respuesta) {
 
 //         if (respuesta == "ok") {
-			
+
 //           swal({
 //             type: "success",
 //             title: "¡Se ha registrado correctamente!",
@@ -477,7 +477,7 @@ $(".suscribirse").click(function () {
 //               window.location = "usuarios";
 //             }
 //           });
-		  
+
 //         }else{
 
 //           $(".alert").remove();
@@ -493,7 +493,7 @@ $(".suscribirse").click(function () {
 //               window.location = "usuarios";
 //             }
 //           });
-		  
+
 
 //         }
 //         //    window.location = respuesta;
@@ -505,7 +505,7 @@ $(".suscribirse").click(function () {
 
 
 
-$("#selectFiltro").on("change", function (){
+$("#selectFiltro").on("change", function () {
 
   seleccion = $(this).val();
 
@@ -515,7 +515,7 @@ $("#selectFiltro").on("change", function (){
   tabla = tabla.dataTable().fnDestroy();
 
   tabla = $(".tablaUsuarios").DataTable({
-    ajax: "ajax/tabla-usuarios.ajax.php?filtro="+seleccion,
+    ajax: "ajax/tabla-usuarios.ajax.php?filtro=" + seleccion,
     deferRender: true,
     retrieve: true,
     processing: true,
@@ -552,7 +552,7 @@ $("#selectFiltro").on("change", function (){
 seleccion = $("#selectFiltro").val();
 
 $(".tablaUsuarios").DataTable({
-  ajax: "ajax/tabla-usuarios.ajax.php?filtro="+seleccion,
+  ajax: "ajax/tabla-usuarios.ajax.php?filtro=" + seleccion,
   deferRender: true,
   retrieve: true,
   processing: true,
@@ -629,37 +629,37 @@ $(".tablaCampanasBonosRecurrencia tbody").on("click", "button.btnVerOperantes", 
   tabla = tabla.dataTable().fnDestroy();
 
   tabla = $(".tabla-afiliados-operando").DataTable({
-    "ajax":"ajax/tabla-afiliados-operando.ajax.php?id="+id,
+    "ajax": "ajax/tabla-afiliados-operando.ajax.php?id=" + id,
     "deferRender": true,
     "retrieve": true,
     "processing": true,
     "language": {
-  
-       "sProcessing":     "Procesando...",
-      "sLengthMenu":     "Mostrar _MENU_ registros",
-      "sZeroRecords":    "No se encontraron resultados",
-      "sEmptyTable":     "Ningún dato disponible en esta tabla",
-      "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
-      "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
-      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-      "sInfoPostFix":    "",
-      "sSearch":         "Buscar:",
-      "sUrl":            "",
-      "sInfoThousands":  ",",
+
+      "sProcessing": "Procesando...",
+      "sLengthMenu": "Mostrar _MENU_ registros",
+      "sZeroRecords": "No se encontraron resultados",
+      "sEmptyTable": "Ningún dato disponible en esta tabla",
+      "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+      "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0",
+      "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+      "sInfoPostFix": "",
+      "sSearch": "Buscar:",
+      "sUrl": "",
+      "sInfoThousands": ",",
       "sLoadingRecords": "Cargando...",
       "oPaginate": {
-        "sFirst":    "Primero",
-        "sLast":     "Último",
-        "sNext":     "Siguiente",
+        "sFirst": "Primero",
+        "sLast": "Último",
+        "sNext": "Siguiente",
         "sPrevious": "Anterior"
       },
       "oAria": {
-          "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
       }
-  
-     }
-  
+
+    }
+
   });
 
 });
@@ -670,15 +670,15 @@ $(".tablaCampanasBonosRecurrencia tbody").on("click", "button.btnVerOperantes", 
 BORRAR ALERTAS
 =============================================*/
 
-$("input[id='inputDoc'], input[id='inputPatrocinador'], input[name='registroUsuario'], input[name='registroEmail']").change(function(){
+$("input[id='inputDoc'], input[id='inputPatrocinador'], input[name='registroUsuario'], input[name='registroEmail']").change(function () {
 
-	$(".alert").remove();
+  $(".alert").remove();
 
 })
 
-$("input[id='inputDoc'], input[id='inputPatrocinador'], input[name='registroUsuario'], input[name='registroEmail']").click(function(){
+$("input[id='inputDoc'], input[id='inputPatrocinador'], input[name='registroUsuario'], input[name='registroEmail']").click(function () {
 
-	$(".alert").remove();
+  $(".alert").remove();
 
 })
 // $("input[id='inputDoc']", "input[id='inputPatrocinador']").click(function(){
@@ -691,44 +691,44 @@ VALIDAR NÚMERO DOCUMENTO REPETIDO
 
 var ruta = $("#inputRuta").val();
 
-$("#inputDoc").change(function(){
+$("#inputDoc").change(function () {
 
-	var documento = $(this).val();
-	
-	var datos = new FormData();
-	datos.append("validarDocumento", documento);
+  var documento = $(this).val();
 
-	$.ajax({
+  var datos = new FormData();
+  datos.append("validarDocumento", documento);
 
-		url: "ajax/usuarios.ajax.php",
-		method: "POST",
-		data: datos,
-		cache: false,
-		contentType: false,
-		processData: false,
-		dataType:"json",
-		success:function(respuesta){
-			
-			if(respuesta){
+  $.ajax({
 
-				$("#inputDoc").val("");
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
 
-				$("#inputDoc").after(`
+      if (respuesta) {
 
-						<div class="alert alert-warning">
+        $("#inputDoc").val("");
+
+        $("#inputDoc").after(`
+
+						<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
 							<strong>ERROR:</strong>
 							El número de documento ya existe en la base de datos, por favor ingrese otro diferente
 
 						</div>
 				`)
 
-				return;
+        return;
 
-			}
+      }
 
-		}
+    }
 
-	})
+  })
 
 })
 
@@ -737,44 +737,44 @@ $("#inputDoc").change(function(){
 VALIDAR USUARIO REPETIDO
 =============================================*/
 
-$("input[name='registroUsuario']").change(function(){
+$("input[name='registroUsuario']").change(function () {
 
-	var usuario = $(this).val();
-	
-	var datos = new FormData();
-	datos.append("validarUsuario", usuario);
+  var usuario = $(this).val();
 
-	$.ajax({
+  var datos = new FormData();
+  datos.append("validarUsuario", usuario);
 
-		url: "ajax/usuarios.ajax.php",
-		method: "POST",
-		data: datos,
-		cache: false,
-		contentType: false,
-		processData: false,
-		dataType:"json",
-		success:function(respuesta){
-			
-			if(respuesta){
+  $.ajax({
 
-				$("input[name='registroUsuario']").val("");
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
 
-				$("input[name='registroUsuario']").after(`
+      if (respuesta) {
 
-						<div class="alert alert-warning">
+        $("input[name='registroUsuario']").val("");
+
+        $("input[name='registroUsuario']").after(`
+
+						<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
 							<strong>ERROR:</strong>
 							El nombre de usuario ya existe en la base de datos, por favor ingrese otro diferente
 
 						</div>
 				`)
 
-				return;
+        return;
 
-			}
+      }
 
-		}
+    }
 
-	})
+  })
 
 })
 
@@ -783,44 +783,44 @@ $("input[name='registroUsuario']").change(function(){
 VALIDAR EMAIL REPETIDO
 =============================================*/
 
-$("input[name='registroEmail']").change(function(){
+$("input[name='registroEmail']").change(function () {
 
-	var email = $(this).val();
-	
-	var datos = new FormData();
-	datos.append("validarEmail", email);
+  var email = $(this).val();
 
-	$.ajax({
+  var datos = new FormData();
+  datos.append("validarEmail", email);
 
-		url: "ajax/usuarios.ajax.php",
-		method: "POST",
-		data: datos,
-		cache: false,
-		contentType: false,
-		processData: false,
-		dataType:"json",
-		success:function(respuesta){
-			
-			if(respuesta){
+  $.ajax({
 
-				$("input[name='registroEmail']").val("");
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
 
-				$("input[name='registroEmail']").after(`
+      if (respuesta) {
 
-						<div class="alert alert-warning">
+        $("input[name='registroEmail']").val("");
+
+        $("input[name='registroEmail']").after(`
+
+						<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
 							<strong>ERROR:</strong>
 							El correo electrónico ya existe en la base de datos, por favor ingrese otro diferente
 
 						</div>
 				`)
 
-				return;
+        return;
 
-			}
+      }
 
-		}
+    }
 
-	})
+  })
 
 })
 
@@ -829,45 +829,45 @@ $("input[name='registroEmail']").change(function(){
 /*=============================================
 VALIDAR REPETIR CONTRASEÑA
 =============================================*/
-$("input[id='registroPassword2']").click(function(){
-	$(".alert").remove();
+$("input[id='registroPassword2']").click(function () {
+  $(".alert").remove();
   alert("hola");
 });
 
-function validarRepetirPassword(){
+function validarRepetirPassword() {
 
-	var password = $("input[name='registroPassword']").val();	
-	var password2 = $("input[id='registroPassword2']").val();
+  var password = $("input[name='registroPassword']").val();
+  var password2 = $("input[id='registroPassword2']").val();
 
-	if(password2 != ""){
+  if (password2 != "") {
+
+    if (password != password2) {
+
+      $("input[id='registroPassword2']").val("");
+
+      $("input[id='registroPassword2']").after(`
 	
-			if(password != password2){
-	
-					$("input[id='registroPassword2']").val("");
-	
-					$("input[id='registroPassword2']").after(`
-	
-							<div class="alert alert-warning">
+							<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
 								<strong>ERROR:</strong>
 								Las contraseñas no coinciden.
 	
 							</div>
 					`)
-	
-					return;
-	
-			}
 
-		}
+      return;
+
+    }
+
+  }
 
 }
 
-$("input[id='registroPassword2']").change(function(){
-         validarRepetirPassword();
+$("input[id='registroPassword2']").change(function () {
+  validarRepetirPassword();
 })
 
-$("input[name='registroPassword']").change(function(){
-	validarRepetirPassword();
+$("input[name='registroPassword']").change(function () {
+  validarRepetirPassword();
 })
 
 
@@ -877,44 +877,44 @@ $("input[name='registroPassword']").change(function(){
 VALIDAR QUEL CODIGO DEL PATROCINADOR EXISTA
 =============================================*/
 
-$("#inputPatrocinador").change(function(){
+$("#inputPatrocinador").change(function () {
 
-	var patrocinador = $(this).val();
-	
-	var datos = new FormData();
-	datos.append("validarPatrocinador", patrocinador);
+  var patrocinador = $(this).val();
 
-	$.ajax({
+  var datos = new FormData();
+  datos.append("validarPatrocinador", patrocinador);
 
-		url: "ajax/usuarios.ajax.php",
-		method: "POST",
-		data: datos,
-		cache: false,
-		contentType: false,
-		processData: false,
-		dataType:"json",
-		success:function(respuesta){
-			
-			if(!respuesta){
+  $.ajax({
 
-				$("#inputPatrocinador").val("");
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
 
-				$("#inputPatrocinador").after(`
+      if (!respuesta) {
 
-						<div class="alert alert-warning">
+        $("#inputPatrocinador").val("");
+
+        $("#inputPatrocinador").after(`
+
+						<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
 							<strong>ERROR:</strong>
 							El código del patrocinador ingresado no existe en la base de datos.
 
 						</div>
 				`)
 
-				return;
+        return;
 
-			}
+      }
 
-		}
+    }
 
-	})
+  })
 
 })
 
@@ -940,7 +940,7 @@ $(".tablaUsuarios tbody").on("click", "button.btnActivar", function () {
     cache: false,
     contentType: false,
     processData: false,
-    success: function (respuesta) {},
+    success: function (respuesta) { },
   });
 
   if (estadoUsuario == 0) {
@@ -974,7 +974,7 @@ $(".tablaUsuarios tbody").on("click", "button.btnOperar", function () {
     cache: false,
     contentType: false,
     processData: false,
-    success: function (respuesta) {},
+    success: function (respuesta) { },
   });
 
   if (estadoUsuario == 0) {
@@ -1009,7 +1009,7 @@ $(".tablaUsuarios tbody").on("click", "button.btnVerificar", function () {
     cache: false,
     contentType: false,
     processData: false,
-    success: function (respuesta) {},
+    success: function (respuesta) { },
   });
 
   if (verificacionUsuario == 0) {
@@ -1044,18 +1044,18 @@ $(".tablaUsuarios tbody").on("click", "button.btnEditarUsuario", function () {
     dataType: "json",
     success: function (respuesta) {
 
-      pais="";
+      pais = "";
 
-      if(respuesta["telefono_movil"]!=null){
+      if (respuesta["telefono_movil"] != null) {
 
-      t = respuesta["telefono_movil"].split(" ");
-      tel = t[1]+t[2];
-      indicativo = t[0];
-      if(respuesta["pais"]!=null && respuesta["codigo_pais"]!=null){
-      pais = respuesta["pais"]+","+respuesta["codigo_pais"]+","+indicativo;
-      }
+        t = respuesta["telefono_movil"].split(" ");
+        tel = t[1] + t[2];
+        indicativo = t[0];
+        if (respuesta["pais"] != null && respuesta["codigo_pais"] != null) {
+          pais = respuesta["pais"] + "," + respuesta["codigo_pais"] + "," + indicativo;
+        }
 
-      }else{
+      } else {
         tel = "";
         indicativo = "";
       }
@@ -1075,9 +1075,9 @@ $(".tablaUsuarios tbody").on("click", "button.btnEditarUsuario", function () {
 });
 
 
-$(".btnExcelUsuarios").click(function(){
+$(".btnExcelUsuarios").click(function () {
 
-  window.location="index.php?pagina=reporte-usuarios&excel=1";
+  window.location = "index.php?pagina=reporte-usuarios&excel=1";
 
 })
 
@@ -1131,7 +1131,7 @@ $(".tablaUsuarios tbody").on("click", "button.btnEliminarUsuario", function () {
 ACTUALIZAR DATOS USUARIO
 =============================================*/
 $("#actualizarDatos").click(function () {
-  
+
   var idUsuario = $(this).attr("idUsuario");
 
   var datos = new FormData();
@@ -1149,13 +1149,13 @@ $("#actualizarDatos").click(function () {
 
       console.log(respuesta);
 
-      if(respuesta["telefono_movil"]!=null){
+      if (respuesta["telefono_movil"] != null) {
 
-      t = respuesta["telefono_movil"].split(" ");
-      tel = t[1]+t[2];
-      indicativo = t[0];
+        t = respuesta["telefono_movil"].split(" ");
+        tel = t[1] + t[2];
+        indicativo = t[0];
 
-      }else{
+      } else {
         tel = "";
         indicativo = "";
       }
@@ -1216,7 +1216,7 @@ $(".copiarLinkInicio").click(function () {
     type: "success",
     title: "¡Enlace Copiado Correctamente!",
     position: "top-right",
-    toast : "true",
+    toast: "true",
     showConfirmButton: false,
     timer: 3000
   });
@@ -1243,7 +1243,7 @@ $(".copiarCodigoInicio").click(function () {
     type: "success",
     title: "¡Código Copiado Correctamente!",
     position: "top-right",
-    toast : "true",
+    toast: "true",
     showConfirmButton: false,
     timer: 3000
   });
@@ -1277,7 +1277,7 @@ VER NOMBRE AL COLOCAR EL CURSOR SOBRE EL USUARIO EN EL ÁRBOL
 //   });
 // });
 
-$(document).ready(function(){
+$(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 

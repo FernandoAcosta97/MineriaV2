@@ -81,6 +81,19 @@ Enlace de afiliado
 	<!-- https://sweetalert2.github.io/ -->
 	<script src="js/plugins/sweetalert2.all.js"></script>
 
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+		theme: {
+			extend: {
+			colors: {
+				primario: '#0596f2',
+			}
+			}
+		}
+		}
+	</script>
+
 </head>
 
 <body>

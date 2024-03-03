@@ -78,6 +78,77 @@ var_dump($saldo_crypto);
       </div>
     </div><!-- /.container-fluid -->
 
+    <div class="flex flex-wrap w-full bg-white">
+					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+							<div class="flex justify-between">
+								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+									30%
+								</div>
+								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+							</div>
+							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+								<ul class="list-none">
+									<li>Campaña minado 1</li>
+									<li>finaliza el dia:</li>
+									<li>dd/mm/aa</li>
+									<li>paga el dia:</li>
+									<li>dd/mm/aa</li>
+								</ul>
+								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900">
+									Minar
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
+							<div class="flex justify-between">
+								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+									50%
+								</div>
+								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+							</div>
+							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+								<ul class="list-none">
+									<li>Campaña minado 2</li>
+									<li>finaliza el dia:</li>
+									<li>dd/mm/aa</li>
+									<li>paga el dia:</li>
+									<li>dd/mm/aa</li>
+								</ul>
+								<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900">
+									Minar
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
+							<div class="flex justify-between">
+								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+									70%
+								</div>
+								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+							</div>
+							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+								<ul class="list-none">
+									<li>Campaña minado 3</li>
+									<li>finaliza el dia:</li>
+									<li>dd/mm/aa</li>
+									<li>paga el dia:</li>
+									<li>dd/mm/aa</li>
+								</ul>
+								<button class="btn px-10 mx-auto mb-8 bg-purple-500 text-white hover:border hover:text-blue-900">
+									Minar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
   </section>
 
   <!-- Main content -->
