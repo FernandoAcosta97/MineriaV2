@@ -16,7 +16,7 @@ class ControladorGeneral{
 	
 	static public function ctrPatrocinador(){
 
-		return "admin-trading";
+		return "admin-mineria";
 
 	}
 }
