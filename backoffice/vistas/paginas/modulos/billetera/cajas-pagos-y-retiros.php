@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 $pagos = ControladorPagos::ctrMostrarPagosAll("id_usuario",$usuario["id_usuario"]);
 $total_a_pagar=0;
@@ -66,12 +66,12 @@ foreach ($pagos as $key => $value) {
 // var_dump($saldo_crypto);
 $ingresos=$ingresos+$total_pagos;
 
-?>
+?> -->
 
 
 <div class="row">
 
-	<div class="col-12 col-sm-6 col-lg-3">
+	<!-- <div class="col-12 col-sm-6 col-lg-3">
 	
 		<div class="small-box bg-info">
 
@@ -121,49 +121,133 @@ $ingresos=$ingresos+$total_pagos;
 
     <div class="col-12 col-sm-6 col-lg-3">
 
-<div class="small-box bg-purple">
+		<div class="small-box bg-purple">
 
-    <div class="inner">
+			<div class="inner">
 
-        <h3>$ <span><?php echo number_format($egresos) ?></span></h3>
+				<h3>$ <span><?php echo number_format($egresos) ?></span></h3>
 
-        <p class="text-uppercase">Egresos</p>
+				<p class="text-uppercase">Egresos</p>
 
+			</div>
+
+			<div class="icon">
+
+				<i class="fas fa-wallet"></i>
+
+			</div>
+
+			<a href="ingresos-uninivel" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+			
+		</div>
+	</div>
+
+	<div class="col-12 col-sm-6 col-lg-3">
+
+		<div class="small-box bg-purple">
+
+			<div class="inner">
+
+				<h3>$ <span>-</span></h3>
+
+				<p class="text-uppercase">Reinvertir</p>
+
+			</div>
+
+			<div class="icon">
+
+				<i class="fas fa-wallet"></i>
+
+			</div>
+
+			<a href="campanas" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+			
+		</div>
+	</div> -->
+
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+        <div class="flex justify-end">
+            <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
+                <p class="font-bold text-6xl">$</p>
+            </div>
+        </div>
+        <a data-toggle="modal" data-target="#modalRetirar" href="#">
+            <div class="flex justify-between p-4 bg-white rounded-b-lg">
+                <div class="flex flex-col justify-around font-bold text-xl">
+                    <p>Retirar</p>
+                    <p>$<?php echo number_format($ingresos-$egresos-$inversiones) ?></p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <div class=" h-[122px]">
+						<i class="fas fa-dollar-sign text-[102px] text-primario"></i>
+					</div>
+                </div>
+            </div>
+        </a>
     </div>
 
-    <div class="icon">
-
-        <i class="fas fa-wallet"></i>
-
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
+        <div class="flex justify-end">
+            <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
+                <p class="font-bold text-6xl">$</p>
+            </div>
+        </div>
+        <a href="ingresos-uninivel">
+            <div class="flex justify-between p-4 bg-white rounded-b-lg">
+                <div class="flex flex-col justify-around font-bold text-xl">
+                    <p>Ingresos</p>
+                    <p>$<?php echo number_format($ingresos) ?></p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <div class=" h-[122px]">
+						<i class="fas fa-wallet text-[102px] text-purple-500"></i>
+					</div>
+                </div>
+            </div>
+        </a>
     </div>
 
-    <a href="ingresos-uninivel" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
-    
-</div>
-</div>
-
-<div class="col-12 col-sm-6 col-lg-3">
-
-<div class="small-box bg-purple">
-
-    <div class="inner">
-
-        <h3>$ <span>-</span></h3>
-
-        <p class="text-uppercase">Reinvertir</p>
-
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
+        <div class="flex justify-end">
+            <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
+                <p class="font-bold text-6xl">$</p>
+            </div>
+        </div>
+        <a href="ingresos-uninivel">
+            <div class="flex justify-between p-4 bg-white rounded-b-lg">
+                <div class="flex flex-col justify-around font-bold text-xl">
+                    <p>Egresos</p>
+                    <p>$<?php echo number_format($egresos) ?></p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <div class=" h-[122px]">
+						<i class="fas fa-wallet text-[102px] text-blue-700"></i>
+					</div>
+                </div>
+            </div>
+        </a>
     </div>
 
-    <div class="icon">
-
-        <i class="fas fa-wallet"></i>
-
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-purple-700 hover:scale-105 transition inner-shadow">
+        <div class="flex justify-end">
+            <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
+                <p class="font-bold text-6xl">$</p>
+            </div>
+        </div>
+        <a data-toggle="modal" data-target="#modalReinvertir" href="campanas">
+            <div class="flex justify-between p-4 bg-white rounded-b-lg">
+                <div class="flex flex-col justify-around font-bold text-xl">
+                    <p>Reinvertir</p>
+                    <p>$-</p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <div class=" h-[122px]">
+						<i class="fas fa-wallet text-[102px] text-purple-700"></i>
+					</div>
+                </div>
+            </div>
+        </a>
     </div>
-
-    <a href="campanas" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
-    
-</div>
-</div>
 
 </div>
 
@@ -182,13 +266,13 @@ RETIRAR
 <!-- The Modal -->
 <div class="modal" id="modalRetirar">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content rounded-3xl">
 
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Solicitud de retiro</h4>
+	      <div class="modal-header bg-primario rounded-t-2xl">
+	        <h4 class="modal-title text-white">Solicitud de retiro</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -263,4 +347,98 @@ RETIRAR
 
     </div>
   </div>
+</div>
+
+<!-- The Modal 2 -->
+<div class="modal" id="modalReinvertir">
+	<div class="flex justify-center items-center h-full bg-transparent">
+		<div class="w-3/4"> <!-- Aquí es donde se cambia el ancho -->
+		<div class="modal-content bg-transparent">
+
+			<!-- Modal Header -->
+			<div class="mt-[50vh] sm:mt-0 modal-header flex items-center bg-primario">
+				<h4 class="modal-title mx-auto text-center">Reinvertir</h4>
+				<button type="button" class="close m-0" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="w-full">
+
+				<div class="flex flex-wrap w-full bg-white">
+					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+							<div class="flex justify-between">
+								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+									30%
+								</div>
+								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+							</div>
+							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+								<ul class="list-none">
+									<li>Campaña minado 1</li>
+									<li>finaliza el dia:</li>
+									<li>dd/mm/aa</li>
+									<li>paga el dia:</li>
+									<li>dd/mm/aa</li>
+								</ul>
+								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900">
+									Minar
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
+							<div class="flex justify-between">
+								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+									50%
+								</div>
+								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+							</div>
+							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+								<ul class="list-none">
+									<li>Campaña minado 2</li>
+									<li>finaliza el dia:</li>
+									<li>dd/mm/aa</li>
+									<li>paga el dia:</li>
+									<li>dd/mm/aa</li>
+								</ul>
+								<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900">
+									Minar
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
+							<div class="flex justify-between">
+								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+									70%
+								</div>
+								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+							</div>
+							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+								<ul class="list-none">
+									<li>Campaña minado 3</li>
+									<li>finaliza el dia:</li>
+									<li>dd/mm/aa</li>
+									<li>paga el dia:</li>
+									<li>dd/mm/aa</li>
+								</ul>
+								<button class="btn px-10 mx-auto mb-8 bg-purple-500 text-white hover:border hover:text-blue-900">
+									Minar
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+	</div>
 </div>

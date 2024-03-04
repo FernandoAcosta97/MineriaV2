@@ -108,7 +108,7 @@ if (count($cuentas) == 0) {
 
         if ($usuario["perfil"] != "admin" && $bono_extra) {
 
-          echo '<div class="alert alert-info alert-info">
+          echo '<div class="alert bg-primario text-white">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
   <h5><i class="icon fas fa-exclamation-triangle"></i> Atención!</h5>
   Invita a mas personas con tu link de referido entre el ' . $bono_extra["fecha_inicio"] . ' y el ' . $bono_extra["fecha_fin"] . ' y recibiras un bono extra de $ ' . number_format($bono_extra["retorno"]) . ' COP por cada persona que se registre e invierta. No dejes pasar esta oportunidad, que esperas para ganar.
@@ -121,7 +121,7 @@ if (count($cuentas) == 0) {
 
             if ($totalInversiones >= 6 && $operando < 6) {
 
-              echo '<div class="alert alert-warning alert-dismissible">
+              echo '<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     <h5><i class="icon fas fa-exclamation-triangle"></i> Atención!</h5>
     Recuerda que para recibir tu rendimiento necesitas tener por lo menos [6] afiliados con una inversión activa, en estos momentos tienes [' . $operando . '] afiliados con una inversión activa, invita a tus demas referidos a inverir o trae un nuevo referido para que este realice su primer inversión.
@@ -130,7 +130,7 @@ if (count($cuentas) == 0) {
 
               if ($operando < $afiliadosNecesarios) {
 
-                echo '<div class="alert alert-warning alert-dismissible">
+                echo '<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     <h5><i class="icon fas fa-exclamation-triangle"></i> Atención!</h5>
     Recuerda que para recibir tu rendimiento necesitas tener por lo menos [' . $afiliadosNecesarios . '] afiliados con una inversión activa, en estos momentos tienes [' . $operando . '] afiliados con una inversión activa, invita a tus demas referidos a inverir o trae un nuevo referido para que este realice su primer inversión.

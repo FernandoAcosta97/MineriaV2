@@ -26,7 +26,7 @@ $cuentas = ControladorCuentas::ctrMostrarCuentasAll($item, $valor);
 
     <?php
     if(count($cuentas)==0 && $usuario["perfil"]!="admin"){
-    echo '<div class="alert alert-warning alert-dismissible">
+    echo '<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     <h5><i class="icon fas fa-exclamation-triangle"></i> Atención!</h5>
     Recuerda que para recibir tu rendimiento necesitas tener registrada una cuenta bancaria, porfavor registre una en el boton registrar cuenta.

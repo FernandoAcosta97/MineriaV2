@@ -321,7 +321,7 @@ $ingresos=$ingresos+$total_pagos;
 <div class="row">
 	<div class="col-sm-8">
 		<!-- Jerson Arnual -->
-		<div class="col col-sm-6 col-lg-12">
+		<div class="col col-lg-12">
 			<div class="card bg-light d-flex flex-fill">
 				<div class="card-header text-muted border-bottom-0">
 					
@@ -368,7 +368,7 @@ $ingresos=$ingresos+$total_pagos;
 			</div>
 		</div>
 
-<div class="row justify-content-between">
+<div class="row justify-content-between gap-4">
 	<div class="col content-button">
 		<a href="ingresos-uninivel" class="btn btn-app bg-cajas-menu card">
 			<div class="card-body">
@@ -401,12 +401,12 @@ $estimado_binance=0;
 	if($usuario["perfil"]!="admin"){
 	?>
 
-	<div class="col-sm-4 align-self-start">
+	<div class="col-sm-4 align-self-start mt-[20px] sm:mt-0">
 		<div class="col-12 col-sm-12 col-lg-12 ">
 			<div class="card custom-bg">
 				<div class="card-body">
-					<div class="row">
-						<div class="col-8">
+					<div class="">
+						<div class="">
 							<div class="input-group profile-username input-link span-item-group">
 								<div class="input-group-prepend" style="width: 9vh;">
 								<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/peso.png">
@@ -420,15 +420,25 @@ $estimado_binance=0;
 								<h2 class="card-text coin-text"><?php echo number_format($estimado_binance,1) ?></h2>
 							</div>
 							<br>
-							<a href="#" class="nav-link">
-							<button class="btn btn-menu-mineria d-flex align-items-center" data-toggle="modal" data-target="#modalBilletera">
+							<div class="flex flex-wrap justify-between w-full">
+								<a href="#" class="nav-link w-auto">
+									<button class="btn btn-menu-mineria  d-flex align-items-center" data-toggle="modal" data-target="#modalBilletera">
+										<span class="text-center">Billetera</span>
+									</button>
+								</a>
+								<div class="col-4 align-self-end w-1/2">
+									<img src="vistas/img/inicio/billetera.png" class="card-img-top w-1000" alt="billetera" />
+								</div>
+							</div>
+							<!-- <a href="#" class="nav-link">
+							<button class="btn btn-menu-mineria  d-flex align-items-center" data-toggle="modal" data-target="#modalBilletera">
 								<span class="text-center">Billetera</span>
-							</button>
+							</button> -->
 							</a>
 						</div>
-						<div class="col-4 align-self-end">
+						<!-- <div class="col-4 align-self-end">
 							<img src="vistas/img/inicio/billetera.png" class="card-img-top w-1000" alt="billetera" />
-						</div>
+						</div> -->
 					</div>
 
 				</div>
@@ -437,8 +447,8 @@ $estimado_binance=0;
 		<div class="col-12 col-sm-12 col-lg-12 ">
 			<div class="card custom-bg">
 				<div class="card-body">
-					<div class="row">
-						<div class="col-8">
+					<div class="">
+						<div class="">
 							<div class="input-group profile-username input-link span-item-group">
 								<div class="input-group-prepend" style="width: 9vh;">
 									<img class="profile-user-img img-fluid img-circle" src="vistas/img/inicio/peso.png">
@@ -446,16 +456,26 @@ $estimado_binance=0;
 								<h2 class="card-text coin-text">$100.000</h2>
 							</div>
 							<br>
-							<br>
-							<a href="campanas" class="nav-link">
-							<button class="btn btn-menu-mineria d-flex align-items-center">
+							<div class="flex flex-wrap justify-between w-full">
+								<a href="campanas" class="nav-link w-auto">
+									<button class="btn btn-menu-mineria  d-flex align-items-center">
+										<span class="text-center">Minar</span>
+									</button>
+								</a>
+								<div class="col-4 align-self-end w-1/2">
+									<img src="vistas/img/inicio/ahorra-dinero.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
+								</div>
+							</div>
+						</div>
+							<!-- <a href="campanas" class="nav-link">
+							<button class="btn btn-menu-mineria  d-flex align-items-center">
 								<span class="text-center">Minar</span>
 							</button>
 							</a>
 						</div>
 						<div class="col-4">
 							<img src="vistas/img/inicio/ahorra-dinero.png" class="card-img-top w-1000" alt="Fissure in Sandstone" />
-						</div>
+						</div> -->
 					</div>
 
 				</div>

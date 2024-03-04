@@ -57,6 +57,51 @@ $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 	Vínculos CSS
 	======================================-->
 
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			corePlugins: {
+				preflight: false,
+			},
+			theme: {
+				extend: {
+				colors: {
+					primario: '#0596f2',
+				}
+				}
+			},
+			// plugins: [
+			// 	function({ addBase, config }) {
+			// 	addBase({
+			// 		'button': { all: 'unset' },
+			// 	})
+			// 	}
+			// ]
+		}
+	</script>
+
+	<style>
+		/* Esto cambiará el aspecto de las barras de desplazamiento para todos los elementos en tu página. */
+		::-webkit-scrollbar {
+		width: 10px; /* Ancho de la barra de desplazamiento vertical */
+		height: 10px; /* Altura de la barra de desplazamiento horizontal */
+		}
+
+		::-webkit-scrollbar-track {
+		background: #f1f1f1; /* Color de fondo de la barra de desplazamiento */
+		border-radius: 10px;
+		}
+
+		::-webkit-scrollbar-thumb {
+		background: #0596f2; /* Color de la barra de desplazamiento */
+		border-radius: 10px; /* Redondea las esquinas de la barra de desplazamiento */
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+		background: #0596f2; /* Color de la barra de desplazamiento al pasar el ratón */
+		}
+	</style>
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
