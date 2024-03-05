@@ -33,8 +33,6 @@ Enlace de afiliado
 
 	<title>Mineria</title>
 
-	<script src="../backoffice/vistas/js/usuarios.js"></script>
-
 	<base href="vistas/">
 
 	<link rel="icon" href="img/icono.png">
@@ -246,6 +244,7 @@ if(isset($_GET["pagina"])){
 
 <input type="hidden" value="<?php echo $ruta; ?>" id="ruta">
 <script src="js/script.js"></script>
+<script src="../backoffice/vistas/js/usuarios.js"></script>
 
 </body>
 

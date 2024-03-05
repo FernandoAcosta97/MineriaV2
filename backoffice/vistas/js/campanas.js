@@ -20,10 +20,10 @@ $("#billeteras").on("change",function () {
 	  $(".invertir_transferencia").html("");
 	}
 
-	if(seleccionado==4){
-		$("#registrarValor").css("display","none");
+	// if(seleccionado==4){
+	// 	$("#registrarValor").css("display","none");
 		
-	}
+	// }
 	
 
   
@@ -629,6 +629,14 @@ $(".tablaCampanas").on("click","button.btnInvertir",function(){
 
 	 var idCampana = $(this).attr("idCampana");
 	 $("#id_campana").val(idCampana);
+
+});
+
+
+$(".planesMinado").on("click","button.btnInvertir",function(){
+
+	var idCampana = $(this).attr("idCampana");
+	$("#id_campana").val(idCampana);
 
 });
 

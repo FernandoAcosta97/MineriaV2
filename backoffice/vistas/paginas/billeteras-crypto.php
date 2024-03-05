@@ -41,13 +41,13 @@
           </ol>
         </div>
 
-        <div class="col-sm-6">        
+        <!-- <div class="col-sm-6">        
           <a href="billeteras" class="nav-link">
 							<button class="btn btn-menu-mineria d-flex align-items-center">
 								<span class="text-center">Billetera Local</span>
 							</button>
 					</a>
-        </div>
+        </div> -->
 
       </div>
     </div><!-- /.container-fluid -->

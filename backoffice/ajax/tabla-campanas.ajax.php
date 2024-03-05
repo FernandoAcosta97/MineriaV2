@@ -63,7 +63,7 @@ class TablaCampanas{
 				// 	$estado = "<button type='button' class='btn btn-danger btn-sm'>FINALIZADA</button>";
 
 				// }
-
+				
 					$acciones = "<div class='btn-group'><button type='button' class='btn btn-primary btn-xs btnInvertir' idCampana='".$value["id"]."' data-toggle='modal' data-target='#modalRegistrarComprobante'>Invertir</button></div>";
 
 					$datosJson .= '[

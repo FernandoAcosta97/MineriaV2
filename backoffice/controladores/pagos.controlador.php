@@ -15,7 +15,7 @@ class ControladorPagos
 
         if(isset($_POST["telefono"]) && $_POST["telefono"]!=""){
 
-        if(isset($_POST["valor"]) && $_POST["valor"]<=$disponible){
+        if(isset($_POST["valor"]) && $_POST["valor"]<=$disponible && $_POST["valor"]>0){
 
             $usuario=ControladorUsuarios::ctrMostrarUsuarios("id_usuario",$id_usuario);
 
@@ -98,7 +98,7 @@ class ControladorPagos
 
         swal({
               type: "warning",
-              title: "Valor incorrecto!",
+              title: "Saldo Insuficiente!",
               showConfirmButton: true,
               confirmButtonText: "Cerrar"
               }).then(function(result){

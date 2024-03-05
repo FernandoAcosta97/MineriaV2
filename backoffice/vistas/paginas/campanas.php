@@ -52,8 +52,8 @@ foreach ($pagos as $key => $value) {
 }
 
 $ingresos=$ingresos+$total_pagos;
-var_dump($saldo_cop-$egresos);
-var_dump($saldo_crypto);
+// var_dump($saldo_cop-$egresos);
+// var_dump($saldo_crypto);
 
 
 ?>
@@ -78,7 +78,13 @@ var_dump($saldo_crypto);
       </div>
     </div><!-- /.container-fluid -->
 
-    <div class="flex flex-wrap w-full bg-white">
+    <?php 
+
+    $campanas = ControladorCampanas::ctrMostrarCampanasLimitActivas();
+    
+    ?>
+
+    <div class="flex flex-wrap w-full bg-white planesMinado">
 					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
 						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
 							<div class="flex justify-between">
@@ -89,13 +95,13 @@ var_dump($saldo_crypto);
 							</div>
 							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
 								<ul class="list-none">
-									<li>Campaña minado 1</li>
+									<li><?php echo $campanas[0]["nombre"] ?></li>
 									<li>finaliza el dia:</li>
-									<li>dd/mm/aa</li>
+									<li><?php echo $campanas[0]["fecha_fin"] ?></li>
 									<li>paga el dia:</li>
-									<li>dd/mm/aa</li>
+									<li><?php echo $campanas[0]["fecha_retorno"] ?></li>
 								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900">
+								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
 									Minar
 								</button>
 							</div>
@@ -112,13 +118,13 @@ var_dump($saldo_crypto);
 							</div>
 							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
 								<ul class="list-none">
-									<li>Campaña minado 2</li>
+                <li><?php echo $campanas[1]["nombre"] ?></li>
 									<li>finaliza el dia:</li>
-									<li>dd/mm/aa</li>
+									<li><?php echo $campanas[1]["fecha_fin"] ?></li>
 									<li>paga el dia:</li>
-									<li>dd/mm/aa</li>
+									<li><?php echo $campanas[1]["fecha_retorno"] ?></li>
 								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900">
+								<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[1]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
 									Minar
 								</button>
 							</div>
@@ -135,13 +141,13 @@ var_dump($saldo_crypto);
 							</div>
 							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
 								<ul class="list-none">
-									<li>Campaña minado 3</li>
+                <li><?php echo $campanas[2]["nombre"] ?></li>
 									<li>finaliza el dia:</li>
-									<li>dd/mm/aa</li>
+									<li><?php echo $campanas[2]["fecha_fin"] ?></li>
 									<li>paga el dia:</li>
-									<li>dd/mm/aa</li>
+									<li><?php echo $campanas[2]["fecha_retorno"] ?></li>
 								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-purple-500 text-white hover:border hover:text-blue-900">
+								<button class="btn px-10 mx-auto mb-8 bg-purple-500 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[2]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
 									Minar
 								</button>
 							</div>
@@ -151,6 +157,7 @@ var_dump($saldo_crypto);
 
   </section>
 
+  <?php if($usuario["perfil"]=="admin"): ?>
   <!-- Main content -->
   <section class="content">
 
@@ -215,6 +222,7 @@ var_dump($saldo_crypto);
 
   </section>
   <!-- /.content -->
+  <?php endif ?>
 
 </div>
 
