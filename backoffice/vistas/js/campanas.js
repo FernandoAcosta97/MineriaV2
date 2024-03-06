@@ -336,6 +336,29 @@ $(".tablaCampanas tbody").on("change","select.selectActiva",function(){
       processData: false,
       success: function(respuesta){
 
+		if(respuesta=="error"){
+
+			swal({
+
+				type:"warning",
+				title: "¡ADVERTENCIA!",
+				text: "El número de campañas activas debe ser mínimo 1 y máximo 3",
+				showConfirmButton: true,
+				confirmButtonText: "Cerrar"
+
+			}).then(function(result){
+
+				if(result.value){
+
+					window.location="campanas";
+
+				}
+
+
+			});
+
+		}
+
       }
 
   	})
