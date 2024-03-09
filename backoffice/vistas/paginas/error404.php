@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<!-- <div class="content-wrapper">
 
   <section class="content-header">
 
@@ -51,4 +51,28 @@
 
   </section>
 
+</div> -->
+<div class="flex flex-col justify-center items-center h-screen">
+  <img class="h-1/2" src="vistas/img/image404.png" alt="">
+  <section class="content">
+
+    <div class="error-page">
+
+      <h2 class="headline text-warning"> 404</h2>
+
+      <div class="error-content">
+
+        <h3><i class="fa fa-warning text-warning"></i> Oops! Página no encontrada.</h3>
+
+        <p>
+          Lo sentimos la página que está buscando no existe en el sistema,
+          usted puede <a href="inicio">regresar al tablero</a>.
+        </p>
+
+      </div>
+    
+    </div>
+
+  </section>
+  
 </div>

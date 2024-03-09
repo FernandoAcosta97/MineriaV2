@@ -238,7 +238,7 @@ if(isset($_GET["pagina"])){
 	<p>Este sitio web utiliza cookies para garantizar que obtenga la mejor experiencia al navegar nuestro sitio.
 	<a href="<?php echo $ruta; ?>politicas-de-privacidad.pdf" target="_blank">Leer más</a>
 	</p>
-	<button class="btn btn-info btn-sm px-5">Ok</button>
+	<button class="btn btn-info btn-sm px-5 bg-primario text-white hover:bg-blue-400">Ok</button>
 
 </div>
 

@@ -126,7 +126,7 @@ $comprobantes = ControladorComprobantes::ctrMostrarComprobantes($item, $valor); 
             </tr>
           </thead>
           <tbody>
-
+            
           </tbody>
         </table>
 
@@ -161,8 +161,7 @@ EDITAR COMPROBANTE
     	<form method="post" enctype="multipart/form-data">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Editar comprobante</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Editar comprobante</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -227,8 +226,7 @@ EDITAR COMPROBANTE
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -263,8 +261,7 @@ REGISTRAR COMPROBANTE
     	<form method="post" enctype="multipart/form-data">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Registrar comprobante</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Registrar comprobante</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -352,8 +349,7 @@ REGISTRAR COMPROBANTE
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -386,8 +382,7 @@ VER FOTO COMPROBANTE
     <div class="modal-content">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Comprobante</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Comprobante</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 

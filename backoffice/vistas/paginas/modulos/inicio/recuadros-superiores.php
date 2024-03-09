@@ -360,13 +360,26 @@ $ingresos=$ingresos+$total_pagos;
 				<div class="card-footer">
 					<div class="text-right">
 						<?php if ($usuario["perfil"] != "admin") : ?>
-							<button class="btn btn-primary btn-sm" data-toggle="modal" id="actualizarDatos" data-target="#modalActualizarDatos" idUsuario="<?php echo $usuario["id_usuario"] ?>">Actualizar datos</button>
+							<button class="btn bg-primario text-white btn-sm" data-toggle="modal" id="actualizarDatos" data-target="#modalActualizarDatos" idUsuario="<?php echo $usuario["id_usuario"] ?>">Actualizar datos</button>
 						<?php endif ?>
 						<button class="btn btn-purple btn-sm" data-toggle="modal" data-target="#cambiarPassword">Cambiar contraseña</button>
 					</div>
 				</div>
+
+				
 			</div>
+			
 		</div>
+		
+
+
+
+		
+
+
+
+
+
 
 <div class="row justify-content-between gap-4">
 	<div class="col content-button">
@@ -396,8 +409,7 @@ $estimado_binance=0;
 
 	</div>
 
-	<?php 
-
+	<?php
 	if($usuario["perfil"]!="admin"){
 	?>
 
@@ -444,7 +456,7 @@ $estimado_binance=0;
 				</div>
 			</div>
 		</div>
-		<div class="col-12 col-sm-12 col-lg-12 ">
+		<div class="col-12 col-sm-12 col-lg-12">
 			<div class="card custom-bg">
 				<div class="card-body">
 					<div class="">
@@ -482,6 +494,134 @@ $estimado_binance=0;
 			</div>
 		</div>
 	</div>
+	<?php }else { ?>
+		<div class="col-sm-4  mt-[20px] sm:mt-0">
+			<div class="card bg-primario text-white px-[15px]" style="position: relative; left: 0px; top: 0px;">
+				<div class="card-header border-0 ui-sortable-handle">
+					<h3 class="card-title">
+						<i class="fas fa-th mr-1"></i>
+					Grafica de ventas
+					</h3>
+				</div>
+				<div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+					<canvas class="chart chartjs-render-monitor" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 337px;" width="674" height="500"></canvas>
+				</div>
+
+				<div class="card-footer bg-transparent">
+				<div class="row">
+					<div class="col-4 text-center">
+						<div style="display:inline;width:60px;height:60px;"><canvas width="60" height="60"></canvas><input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgcolor="#39CCCC" readonly="readonly" style="width: 34px; height: 20px; position: absolute; vertical-align: middle; margin-top: 20px; margin-left: -47px; border: 0px; background: none; font: bold 12px Arial; text-align: center; color: rgb(57, 204, 204); padding: 0px; appearance: none;"></div>
+						<div class="text-white">dato1</div>
+					</div>
+
+					<div class="col-4 text-center">
+						<div style="display:inline;width:60px;height:60px;"><canvas width="60" height="60"></canvas><input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgcolor="#39CCCC" readonly="readonly" style="width: 34px; height: 20px; position: absolute; vertical-align: middle; margin-top: 20px; margin-left: -47px; border: 0px; background: none; font: bold 12px Arial; text-align: center; color: rgb(57, 204, 204); padding: 0px; appearance: none;"></div>
+							<div class="text-white">dato2</div>
+						</div>
+
+						<div class="col-4 text-center">
+							<div style="display:inline;width:60px;height:60px;"><canvas width="60" height="60"></canvas><input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60" data-fgcolor="#39CCCC" readonly="readonly" style="width: 34px; height: 20px; position: absolute; vertical-align: middle; margin-top: 20px; margin-left: -47px; border: 0px; background: none; font: bold 12px Arial; text-align: center; color: rgb(57, 204, 204); padding: 0px; appearance: none;"></div>
+							<div class="text-white">dato3</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		
+
+
+			<div class="card">
+				<div class="card-header border-0 flex justify-between">
+					<h3 class="card-title">Divisas relevantes</h3>
+					<div>
+						<label for="divisa">Base</label>
+						<select class="rounded" name="divisa" id="divisa">
+							<option value="1">Dolar(usd)</option>
+							<option value="3">Bitcoin(btn)</option>
+							<option value="4">Etherium(eth)</option>
+						</select>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+						<div>
+							<p class="text-xl">
+								Dollar
+							</p>
+							<div class="flex justify-between flex-wrap gap-4">
+								<p class="text-xl bg-primario px-1 rounded-lg text-white">
+									1usd
+								</p>
+								<p class="text-xl">
+									=> 
+								</p>
+								<p class="text-xl bg-blue-600 px-1 rounded-lg text-white">
+									1usd
+								</p>
+							</div>
+						</div>
+						<p class="d-flex flex-column text-right">
+						<span class="font-weight-bold text-warning">
+						<i class="ion ion-android-arrow-up text-success"></i> 0%
+						</span>
+						<span class="text-muted">Fluctuacion</span>
+						</p>
+					</div>
+
+					<div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+						<div>
+							<p class="text-xl">
+								Bitcoin
+							</p>
+							<div class="flex justify-between flex-wrap gap-4">
+								<p class="text-xl bg-primario px-1 rounded-lg text-white">
+									10000000usd
+								</p>
+								<p class="text-xl">
+									=> 
+								</p>
+								<p class="text-xl bg-blue-600 px-1 rounded-lg text-white">
+									10003900usd
+								</p>
+							</div>
+						</div>
+						<p class="d-flex flex-column text-right">
+						<span class="font-weight-bold text-success">
+						<i class="ion ion-android-arrow-up"></i> 0.8%
+						</span>
+						<span class="text-muted">Fluctuacion</span>
+						</p>
+					</div>
+
+					<div class="d-flex justify-content-between align-items-center mb-0">
+						<div>
+							<p class="text-xl">
+								Etherium
+							</p>
+							<div class="flex justify-between flex-wrap gap-4">
+								<p class="text-xl bg-primario px-1 rounded-lg text-white">
+									10000000usd
+								</p>
+								<p class="text-xl">
+									=> 
+								</p>
+								<p class="text-xl bg-blue-600 px-1 rounded-lg text-white">
+									99067000usd
+								</p>
+							</div>
+						</div>
+						<p class="d-flex flex-column text-right">
+						<span class="font-weight-bold text-danger">
+						<i class="ion ion-android-arrow-down"></i> 1%
+						</span>
+						<span class="text-muted">Fluctuacion</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	<?php } ?>
 
 
@@ -734,7 +874,7 @@ Cambiar Contraseña
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form method="post">
-				<div class="modal-header">
+				<div class="modal-header bg-primario text-white">
 					<h4 class="modal-title">Cambiar contraseña</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
@@ -749,8 +889,7 @@ Cambiar Contraseña
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 					</div>
 					<div>
-						<button type="submit" class="btn btn-primary">Enviar</button>
-					</div>
+						<button type="submit" class="btn bg-primario text-white">Enviar</button>					</div>
 				</div>
 				<?php
 				$cambiarPassword = new ControladorUsuarios();
@@ -770,7 +909,7 @@ Actualizar Datos nombre y telefono
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form method="post">
-				<div class="modal-header">
+				<div class="modal-header bg-primario text-white">
 					<h4 class="modal-title">Actualizar mis datos</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
@@ -796,8 +935,7 @@ Actualizar Datos nombre y telefono
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 					</div>
 					<div>
-						<button type="submit" class="btn btn-primary">Enviar</button>
-					</div>
+						<button type="submit" class="btn bg-primario text-white">Enviar</button>					</div>
 				</div>
 				<?php
 				$actualizarDatos = new ControladorUsuarios();
@@ -816,15 +954,17 @@ MODAL SELECCIONAR BILLETERA
 
 <!-- The Modal -->
 <div class="modal" id="modalBilletera">
-  <div class="modal-dialog">
-    <div class="modal-content">
+	<div class="flex justify-center items-center h-full bg-transparent">
+		<div class="w-2/3 sm:w-1/2 bg-white rounded"> <!-- Aquí es donde se cambia el ancho -->
 
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Billetera</h4>
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      <div class="modal-header bg-primario text-white flex items-center relative">
+	        <div class="flex justify-center w-full">
+				<h4 class="modal-title text-white">SELECCIONE LA BILLETERA</h4>
+			</div>
+	        <button type="button" class="close text-white absolute top-5 right-5" data-dismiss="modal">&times;</button>
 	      </div>
 
 	      <!-- Modal body -->
@@ -833,29 +973,25 @@ MODAL SELECCIONAR BILLETERA
         <input type="hidden" id="id_usuario" name="id_usuario">
 
                 <!-- ENTRADA  -->
-                <div class="form-group">
 
-                <label for="seleccionar" class="control-label">Seleccionar</label>
+				<!-- <label for="seleccionar" class="control-label">Seleccionar</label> -->
+                <div class="flex w-full flex-wrap justify-around">
 
-                <div class="card offset-1 col-10">
-				<a href="billeteras-crypto">
-				<img style="width: 50%;margin:auto;
-		    display:block;" src="vistas/img/inicio/bitcoin.png" class="card-img-top w-1000" alt="billetera">
-				  <center>
-                  <h2>Criptomoneda</h2>
-                  <p>-------------------</p>
-				  </center>
-				</a>
-              </div>
+					  <div class="card w-100% sm:w-1/3 min-w-[200px] mx-auto">
+						<a class="flex flex-col items-center justify-center" href="billeteras-crypto">
+							<img class="h-[150px]" style="display:block;" src="vistas/img/inicio/criptopig.png" class="card-img-top" alt="bitcoin">
+							<center><h2 class="font-extrabold">Criptomoneda</h2>
+							<p>-------------------</p></center>
+						<a>
+					</div>
 
-              <div class="card offset-1 col-10">
-				<a href="billeteras">
-				<img style="width: 50%;margin:auto;
-		    display:block;" src="vistas/img/inicio/billetera.png" class="card-img-top w-1000" alt="billetera">
-                  <center><h2>Billetera</h2>
-                  <p>-------------------</p></center>
-				  <a>
-              </div>
+					<div class="card w-100% sm:w-1/3 min-w-[200px] mx-auto">
+						<a class="flex flex-col items-center justify-center" href="billeteras">
+							<img class="h-[150px]" style="display:block;" src="vistas/img/inicio/pesoinicio.png" class="card-img-top" alt="moneda">
+							<center><h2 class="font-extrabold">Billetera</h2>
+							<p>-------------------</p></center>
+						<a>
+					</div>
                
 
                 </div>
@@ -864,17 +1000,11 @@ MODAL SELECCIONAR BILLETERA
 	      </div>
 
 	      <!-- Modal footer -->
-	      <div class="modal-footer d-flex justify-content-between">
+	      <div class="modal-footer d-flex justify-content-center">
 
 	      	<div>
 
-	        	<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-
-	        </div>
-
-        	<div>
-
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
+	        	<button type="button" class="btn text-white bg-primario text-white px-20" data-dismiss="modal">SALIR</button>
 
 	        </div>
 

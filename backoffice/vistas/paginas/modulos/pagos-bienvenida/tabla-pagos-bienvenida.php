@@ -73,8 +73,7 @@ VER DETALLES PAGO BONOS
     <div class="modal-content">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Detalles bonos extras</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Detalles bonos extras</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 

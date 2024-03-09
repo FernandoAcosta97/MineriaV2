@@ -165,7 +165,7 @@ $ingresos=$ingresos+$total_pagos;
 		</div>
 	</div> -->
 
-	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-primario text-white hover:scale-105 transition inner-shadow">
         <div class="flex justify-end">
             <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
                 <p class="font-bold text-6xl">$</p>
@@ -179,14 +179,14 @@ $ingresos=$ingresos+$total_pagos;
                 </div>
                 <div class="flex justify-center items-center">
                     <div class=" h-[122px]">
-						<i class="fas fa-dollar-sign text-[102px] text-primario"></i>
+						<img src="vistas/img/cajero-automatico.png" alt="retiro de dinero">
 					</div>
                 </div>
             </div>
         </a>
     </div>
 
-	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-[#694ED9] hover:scale-105 transition inner-shadow">
         <div class="flex justify-end">
             <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
                 <p class="font-bold text-6xl">$</p>
@@ -200,14 +200,14 @@ $ingresos=$ingresos+$total_pagos;
                 </div>
                 <div class="flex justify-center items-center">
                     <div class=" h-[122px]">
-						<i class="fas fa-wallet text-[102px] text-purple-500"></i>
+						<img src="vistas/img/transferencia-de-dinero.png" alt="transferencia de dinero">
 					</div>
                 </div>
             </div>
         </a>
     </div>
 
-	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-[#B52AF6] hover:scale-105 transition inner-shadow">
         <div class="flex justify-end">
             <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
                 <p class="font-bold text-6xl">$</p>
@@ -221,14 +221,14 @@ $ingresos=$ingresos+$total_pagos;
                 </div>
                 <div class="flex justify-center items-center">
                     <div class=" h-[122px]">
-						<i class="fas fa-wallet text-[102px] text-blue-700"></i>
+						<img src="vistas/img/retiro-de-dinero.png" alt="retiro de dinero">
 					</div>
                 </div>
             </div>
         </a>
     </div>
 
-	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-purple-700 hover:scale-105 transition inner-shadow">
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-[#F22AF6] hover:scale-105 transition inner-shadow">
         <div class="flex justify-end">
             <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
                 <p class="font-bold text-6xl">$</p>
@@ -242,7 +242,7 @@ $ingresos=$ingresos+$total_pagos;
                 </div>
                 <div class="flex justify-center items-center">
                     <div class=" h-[122px]">
-						<i class="fas fa-wallet text-[102px] text-purple-700"></i>
+						<img src="vistas/img/ingresos.png" alt="reinversion">
 					</div>
                 </div>
             </div>
@@ -271,7 +271,7 @@ RETIRAR
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header bg-primario rounded-t-2xl">
+	      <div class="modal-header bg-primario text-white rounded-t-2xl">
 	        <h4 class="modal-title text-white">Solicitud de retiro</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
@@ -330,8 +330,7 @@ RETIRAR
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Generar OTP</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Generar OTP</button>
 	        </div>
 
 	      </div>
@@ -356,7 +355,7 @@ RETIRAR
 		<div class="modal-content bg-transparent">
 
 			<!-- Modal Header -->
-			<div class="mt-[50vh] sm:mt-0 modal-header flex items-center bg-primario">
+			<div class="mt-[50vh] sm:mt-0 modal-header flex items-center bg-primario text-white">
 				<h4 class="modal-title mx-auto text-center">Reinvertir</h4>
 				<button type="button" class="close m-0" data-dismiss="modal">&times;</button>
 			</div>
@@ -366,7 +365,7 @@ RETIRAR
 
 				<div class="flex flex-wrap w-full bg-white">
 					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-[#694ED9] hover:scale-105 transition inner-shadow">
 							<div class="flex justify-between">
 								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
 									30%
@@ -381,7 +380,7 @@ RETIRAR
 									<li>paga el dia:</li>
 									<li>dd/mm/aa</li>
 								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900">
+								<button class="btn px-10 mx-auto mb-8 bg-[#694ED9] text-white hover:border hover:text-blue-900">
 									Minar
 								</button>
 							</div>
@@ -389,7 +388,7 @@ RETIRAR
 					</div>
 
 					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-[#B52AF6] hover:scale-105 transition inner-shadow">
 							<div class="flex justify-between">
 								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
 									50%
@@ -404,7 +403,7 @@ RETIRAR
 									<li>paga el dia:</li>
 									<li>dd/mm/aa</li>
 								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900">
+								<button class="btn px-10 mx-auto mb-8 bg-[#B52AF6] text-white hover:border hover:text-blue-900">
 									Minar
 								</button>
 							</div>
@@ -412,7 +411,7 @@ RETIRAR
 					</div>
 
 					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-[#F22AF6] hover:scale-105 transition inner-shadow">
 							<div class="flex justify-between">
 								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
 									70%
@@ -427,7 +426,7 @@ RETIRAR
 									<li>paga el dia:</li>
 									<li>dd/mm/aa</li>
 								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-purple-500 text-white hover:border hover:text-blue-900">
+								<button class="btn px-10 mx-auto mb-8 bg-[#F22AF6] text-white hover:border hover:text-blue-900">
 									Minar
 								</button>
 							</div>
