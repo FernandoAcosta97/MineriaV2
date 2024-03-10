@@ -34,7 +34,7 @@ class ControladorPagos
                 ControladorPagos::ctrRegistrarCodigoSms($usuario["id_usuario"],$encriptarCodigo);
 
                 echo "<script>
-
+                
 							swal({
 								title: 'Ingrese el código de verificación',
 								input: 'text',
@@ -282,6 +282,107 @@ class ControladorPagos
 	}
 
 
+
+
+    public function ctrVerificarCodigoIngresadoSmsPagos(){
+
+		if(isset($_GET["codigo"]) && isset($_GET["id"]) && isset($_GET["estado"])){
+
+            $pago = ControladorPagos::ctrMostrarPagos("id", $_GET["id"]);
+
+            $comprobante = ControladorComprobantes::ctrMostrarComprobantes("id", $pago["id_comprobante"]);
+
+            $usu = ControladorUsuarios::ctrMostrarUsuarios("doc_usuario", $comprobante[0]["doc_usuario"]);
+
+			if($usu){
+
+				$sms=ControladorPagos::ctrMostrarCodigoVerificacion(0);
+
+				$encriptar = crypt($_GET["codigo"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+			if($sms && $encriptar==$sms["codigo"]){
+
+                $cuenta = ControladorCuentas::ctrMostrarCuentasxEstado("usuario",$usu["id_usuario"],"estado",1);
+
+                $datos = array("id" => $_GET["id"],
+                "estado" => $_GET["estado"],
+                "id_cuenta" => $cuenta["id"]);
+        
+                $respuesta = ControladorPagos::ctrActualizarPagoInversion($datos); 
+                
+                if($respuesta=="ok" || $respuesta==NULL){
+        
+                    echo '<script>
+        
+                                swal({
+                                      type: "success",
+                                      title: "¡El pago se ha realizado correctamente!",
+                                      showConfirmButton: true,
+                                      confirmButtonText: "Cerrar"
+                                      }).then(function(result){
+                                                if (result.value) {
+            
+                                                window.location="pagos-inversiones"
+                                                }
+                                            })
+            
+                                </script>';
+        
+                }else{
+
+                    echo "<script>
+                    swal({
+                        type:'error',
+                          title: '¡Error!',
+                          text: '¡Contacte con el administrador!',
+                          showConfirmButton: true,
+                        confirmButtonText: 'Cerrar'
+                      
+                }).then(function(result){
+                    window.location='pagos-inversiones';
+                });
+                </script>";
+
+                }
+		
+
+			}else{
+
+				echo "<script>
+				swal({
+					type:'error',
+					  title: '¡Error!',
+					  text: '¡El código es incorrecto!',
+					  showConfirmButton: true,
+					confirmButtonText: 'Cerrar'
+				  
+			}).then(function(result){
+				window.location='pagos-inversiones';
+			});
+			</script>";
+
+			}
+
+		}else{
+			echo "<script>
+			swal({
+				type:'error',
+				  title: '¡Error!',
+				  text: '¡Intentelo de nuevo!',
+				  showConfirmButton: true,
+				confirmButtonText: 'Cerrar'
+			  
+		}).then(function(result){
+			window.location='pagos-inversiones';
+		});
+		</script>";
+		}
+		ControladorPagos::ctrEliminarCodigoSms(0);
+		}
+
+	}
+
+
     /*=============================================
 	Mostrar Codigo Verificacion
 	=============================================*/
@@ -291,6 +392,22 @@ class ControladorPagos
 		$tabla = "verificacion";
 
 		$respuesta = ModeloPagos::mdlMostrarCodigoVerificacion($valor);
+
+		return $respuesta;
+
+	}
+
+
+
+    /*=============================================
+	Mostrar Funcionalidad
+	=============================================*/
+
+	static public function ctrMostrarFuncionalidades($item, $valor){
+	
+		$tabla = "funcionalidades";
+
+		$respuesta = ModeloPagos::mdlMostrarFuncionalidades($tabla, $item, $valor);
 
 		return $respuesta;
 

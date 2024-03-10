@@ -19,6 +19,10 @@
 							 PAGAR SELECCIONADOS
 		    </button>
 
+			<button type="button" class="btn btn-default btn-sm btnDesbloquearPagos">
+                	<i class="fas fa-lock"></i>
+        	</button>
+
 	</div>
 
 	<div class="card-body p-3 seleccionarPagos">

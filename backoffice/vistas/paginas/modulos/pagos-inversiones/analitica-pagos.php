@@ -13,6 +13,8 @@ foreach ($pagos as $key => $value) {
 
 	$comprobante=ControladorComprobantes::ctrMostrarComprobantes("id",$value["id_comprobante"]);
 
+	if($comprobante){
+
 	$campana=ControladorCampanas::ctrMostrarCampanas("id",$comprobante[0]["campana"]);
 
 	$campana_apalancamiento=ControladorCampanas::ctrMostrarCampanasxEstado("tipo", 4, "estado", 1);
@@ -36,6 +38,7 @@ foreach ($pagos as $key => $value) {
 	}else{
 		$total_pagos+=$retorno_total;
 	}
+}
 	}
 
 

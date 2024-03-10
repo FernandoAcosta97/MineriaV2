@@ -6,9 +6,12 @@ $total_pagos=0;
 
 
 foreach ($pagos as $key => $value) {
+
 	$total=0;
 
 	$comprobante = ControladorComprobantes::ctrMostrarComprobantes("id", $value["id_comprobante"]);
+
+	if($comprobante){
 	
 	$campana = ControladorCampanas::ctrMostrarCampanas("id",$comprobante[0]["campana"]);
 
@@ -21,6 +24,7 @@ foreach ($pagos as $key => $value) {
 	}else{
 		$total_pagos+=$total;
 	}
+}
 
 }
 

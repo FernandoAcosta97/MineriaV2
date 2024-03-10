@@ -375,75 +375,183 @@ RETIRAR
 			<!-- Modal body -->
 			<div class="w-full">
 
-				<div class="flex flex-wrap w-full bg-white">
-					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
-							<div class="flex justify-between">
-								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
-									30%
-								</div>
-								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
-							</div>
-							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
-								<ul class="list-none">
-									<li>Campaña minado 1</li>
-									<li>finaliza el dia:</li>
-									<li>dd/mm/aa</li>
-									<li>paga el dia:</li>
-									<li>dd/mm/aa</li>
-								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900">
-									Minar
-								</button>
-							</div>
-						</div>
-					</div>
+				<div class="flex flex-wrap w-full bg-white planesMinado">
+					
 
-					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
-							<div class="flex justify-between">
-								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
-									50%
-								</div>
-								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
-							</div>
-							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
-								<ul class="list-none">
-									<li>Campaña minado 2</li>
-									<li>finaliza el dia:</li>
-									<li>dd/mm/aa</li>
-									<li>paga el dia:</li>
-									<li>dd/mm/aa</li>
-								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900">
-									Minar
-								</button>
-							</div>
-						</div>
-					</div>
+				<?php 
 
-					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
-							<div class="flex justify-between">
-								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
-									70%
-								</div>
-								<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
-							</div>
-							<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
-								<ul class="list-none">
-									<li>Campaña minado 3</li>
-									<li>finaliza el dia:</li>
-									<li>dd/mm/aa</li>
-									<li>paga el dia:</li>
-									<li>dd/mm/aa</li>
-								</ul>
-								<button class="btn px-10 mx-auto mb-8 bg-purple-500 text-white hover:border hover:text-blue-900">
-									Minar
-								</button>
-							</div>
+$campanas = ControladorCampanas::ctrMostrarCampanasLimitActivas();
+
+if(count($campanas)==3){
+
+?>
+
+			<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+				<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+					<div class="flex justify-between">
+						<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+							30%
 						</div>
+						<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
 					</div>
+					<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+						<ul class="list-none">
+							<li><?php echo $campanas[0]["nombre"] ?></li>
+							<li>finaliza el dia:</li>
+							<li><?php echo $campanas[0]["fecha_fin"] ?></li>
+							<li>paga el dia:</li>
+							<li><?php echo $campanas[0]["fecha_retorno"] ?></li>
+						</ul>
+		<?php if($usuario["perfil"]!="admin"): ?>
+						<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+							Minar
+						</button>
+		<?php endif ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+				<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
+					<div class="flex justify-between">
+						<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+							50%
+						</div>
+						<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+					</div>
+					<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+						<ul class="list-none">
+		<li><?php echo $campanas[1]["nombre"] ?></li>
+							<li>finaliza el dia:</li>
+							<li><?php echo $campanas[1]["fecha_fin"] ?></li>
+							<li>paga el dia:</li>
+							<li><?php echo $campanas[1]["fecha_retorno"] ?></li>
+						</ul>
+		<?php if($usuario["perfil"]!="admin"): ?>
+						<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[1]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+							Minar
+						</button>
+		<?php endif ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+				<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
+					<div class="flex justify-between">
+						<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+							70%
+						</div>
+						<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+					</div>
+					<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+						<ul class="list-none">
+		<li><?php echo $campanas[2]["nombre"] ?></li>
+							<li>finaliza el dia:</li>
+							<li><?php echo $campanas[2]["fecha_fin"] ?></li>
+							<li>paga el dia:</li>
+							<li><?php echo $campanas[2]["fecha_retorno"] ?></li>
+						</ul>
+		<?php if($usuario["perfil"]!="admin"): ?>
+						<button class="btn px-10 mx-auto mb-8 bg-purple-500 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[2]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+							Minar
+						</button>
+		<?php endif ?>
+					</div>
+				</div>
+			</div>
+
+  <?php
+	}else if(count($campanas)==2){
+
+	  ?>
+
+	  <div class="flex flex-wrap p-4 w-full sm:w-1/3">
+	  <div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+		<div class="flex justify-between">
+		  <div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+			30%
+		  </div>
+		  <img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+		</div>
+		<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+		  <ul class="list-none">
+			<li><?php echo $campanas[0]["nombre"] ?></li>
+			<li>finaliza el dia:</li>
+			<li><?php echo $campanas[0]["fecha_fin"] ?></li>
+			<li>paga el dia:</li>
+			<li><?php echo $campanas[0]["fecha_retorno"] ?></li>
+		  </ul>
+		  <?php if($usuario["perfil"]!="admin"): ?>
+		  <button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+			Minar
+		  </button>
+		  <?php endif ?>
+		</div>
+	  </div>
+	</div>
+
+	<div class="flex flex-wrap p-4 w-full sm:w-1/3">
+	  <div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
+		<div class="flex justify-between">
+		  <div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+			50%
+		  </div>
+		  <img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+		</div>
+		<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+		  <ul class="list-none">
+		  <li><?php echo $campanas[1]["nombre"] ?></li>
+			<li>finaliza el dia:</li>
+			<li><?php echo $campanas[1]["fecha_fin"] ?></li>
+			<li>paga el dia:</li>
+			<li><?php echo $campanas[1]["fecha_retorno"] ?></li>
+		  </ul>
+		  <?php if($usuario["perfil"]!="admin"): ?>
+		  <button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[1]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+			Minar
+		  </button>
+		  <?php endif ?>
+		</div>
+	  </div>
+	</div>
+
+	<?php
+
+
+	}else if(count($campanas)==1){
+	  ?>
+
+   <div class="flex flex-wrap p-4 w-full sm:w-1/3">
+				<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+					<div class="flex justify-between">
+						<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
+							30%
+						</div>
+						<img class="h-20 mr-10 my-1" src="vistas/img/servidor-de-datos.png" alt="">
+					</div>
+					<div class="flex flex-col justify-start gap-0 bg-white rounded-b-lg">
+						<ul class="list-none">
+							<li><?php echo $campanas[0]["nombre"] ?></li>
+							<li>finaliza el dia:</li>
+							<li><?php echo $campanas[0]["fecha_fin"] ?></li>
+							<li>paga el dia:</li>
+							<li><?php echo $campanas[0]["fecha_retorno"] ?></li>
+						</ul>
+		<?php if($usuario["perfil"]!="admin"): ?>
+						<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+							Minar
+						</button>
+		<?php endif ?>
+					</div>
+				</div>
+			</div>
+
+	  <?php
+	}
+  ?>
+
+
 				</div>
 
 
@@ -452,4 +560,115 @@ RETIRAR
 		</div>
 	</div>
 	</div>
+</div>
+
+
+
+
+
+
+<!--=====================================
+REGISTRAR COMPROBANTE
+======================================-->
+
+<!-- The Modal -->
+<div class="modal" id="modalRegistrarComprobante">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+    	<form method="post" enctype="multipart/form-data">
+
+	      <!-- Modal Header -->
+	      <div class="modal-header">
+	        <h4 class="modal-title">Realizar Inversión</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+
+	      <!-- Modal body -->
+	      <div class="modal-body">
+
+        <input type="hidden" value="<?php echo $usuario["doc_usuario"]; ?>" name="doc_usuario">
+        
+        <input type="hidden" value="<?php echo ($ingresos-$egresos); ?>" id="saldo_cop">
+
+        <input type="hidden" id="id_campana" name="id_campana">
+
+              <div class="form-group">
+
+                  <label for="billeteras" class="control-label">Billetera</label>
+
+               <div>
+
+                <select class="form-control" id="billeteras" name="billeteras" required>
+
+                  <option value="">SELECCIONAR</option>
+                  <option value="1">COP</option>
+                  <option value="2">CRYPTO</option>
+                  <option value="3">TRANSFERENCIA</option>
+                  <option value="4">TRANSFERENCIA CRYPTO BINANCE</option>
+
+                </select>
+
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label for="registrarValor" class="control-label">Valor</label>
+
+                <div>
+
+                <input type="number" class="form-control" id="registrarValor" name="registrarValor" placeholder="Valor" required>
+
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label for="registrarEstado" class="control-label">Estado</label>
+
+                <div>
+                  <select class="form-control" id="registrarEstado" name="registrarEstado" readonly>
+
+                      <option value="2">Pendiente</option>
+
+                  </select>
+
+                </div>
+
+              </div>
+
+            <div class="invertir_transferencia"></div>
+
+	    </div>
+
+	      <!-- Modal footer -->
+	      <div class="modal-footer d-flex justify-content-between">
+
+	      	<div>
+
+	        	<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+
+	        </div>
+
+        	<div>
+
+	        	<button type="submit" class="btn btn-primary">Enviar</button>
+
+	        </div>
+
+	      </div>
+        
+      
+<?php
+
+     $registrarComprobantes = new ControladorComprobantes();
+      $registrarComprobantes->ctrRegistrarComprobantes($saldo_cop,$saldo_crypto);
+?>
+      </form>
+
+    </div>
+  </div>
 </div>

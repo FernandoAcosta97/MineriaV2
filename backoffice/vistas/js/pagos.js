@@ -862,15 +862,47 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
     processData: false,
     success: function(respuesta){
 
-        if (respuesta == "ok") {
+        if (respuesta.trim() == "ok") {
 
           alerta("success", "¡El pago se ha realizado correctamente!", null, "pagos-inversiones", false);
 		  
-        }else if(respuesta == "pagado"){
+        }else if(respuesta.trim() == "pagado"){
 
           alerta("info", "¡Información!", "¡El pago ya se ha realizado!", "pagos-inversiones", false);
+          
+        }else if(respuesta.split(" ",)[0].trim()=="codigo"){
+          s=respuesta.split(" ",);
+          c=s[1].split("",s[1].length-1);
 
-        }else{
+          estado=s[1].slice(-1);
+					id=c.toString().replaceAll(",",""); 
+
+
+          swal({
+            title: 'Ingrese el código de verificación',
+            input: 'text',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Aceptar',
+            showLoaderOnConfirm: true,
+            preConfirm: (c) => {
+
+              window.location='index.php?pagina=pagos-inversiones&codigo='+c+'&id='+id+'&estado='+estado;
+
+
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+            if (result.isConfirmed) {		
+
+            }
+            })
+
+
+        }
+        else{
 
           alerta("error", "¡Ha ocurrido un error!", "¡Contacte con el administrador o vuelve a intentarlo mas tarde!", null, true);
 
@@ -1038,11 +1070,18 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
 
 
 
+
+$(".btnDesbloquearPagos").click(function(){
+  
+
+
+})
+
+
 $(".btnPagos").click(function () {
 
       var idsPagos= $(this).attr("idPagos");
       var tipoPago= $(this).attr("tipoPago");
-      var direccion = "";
 
       if(tipoPago == "comisiones"){
         direccion="pagos-comisiones";
@@ -1059,6 +1098,96 @@ $(".btnPagos").click(function () {
       if(tipoPago == "retiros"){
         direccion="pagos-retiros";
       }
+
+    enviarCodigoSmsPagos();
+
+  swal({
+    title: 'Ingrese el código de verificación',
+    input: 'text',
+    inputAttributes: {
+      autocapitalize: 'off'
+    },
+    showCancelButton: true,
+    confirmButtonText: 'Aceptar',
+    showLoaderOnConfirm: true,
+    preConfirm: (c) => {
+
+      var datos = new FormData();
+      datos.append("codigoSms", c);
+
+      $.ajax({
+      
+        url:"ajax/pagos.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+
+          if(respuesta.trim()=="ok"){
+
+            variosPagos(idsPagos, tipoPago, direccion);
+
+          }else{
+
+            swal({
+              type: "error",
+              title: "¡Código Incorrecto!",
+              showConfirmButton: true,
+              confirmButtonText: "Cerrar",
+            }).then(function (result) {
+              if (result.value) {
+                // window.location = "pagos-inversiones";
+                
+              }
+            });
+
+          }
+
+        }
+      
+      })
+
+      // window.location='pagos-inversiones';
+
+      // alert(c);
+
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+     
+    if (result.isConfirmed) {		
+
+    }
+    })
+    
+      
+    });
+
+
+    function enviarCodigoSmsPagos(){
+
+      var datos = new FormData();
+      datos.append("enviarCodigoSmsPagos", 0);
+
+      $.ajax({
+      
+        url:"ajax/pagos.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+
+        }
+      });
+
+    }
+
+
+    function variosPagos(idsPagos, tipoPago, direccion){
 
       if(idsPagos!=""){
 
@@ -1112,7 +1241,8 @@ $(".btnPagos").click(function () {
       
               }
       
-            }
+
+          }
       
           })
 
@@ -1133,9 +1263,7 @@ $(".btnPagos").click(function () {
         });
 
       }
-    
-      
-    });
+    }
 
 
 

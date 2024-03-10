@@ -104,9 +104,11 @@ $ingresos=$ingresos+$total_pagos;
 									<li>paga el dia:</li>
 									<li><?php echo $campanas[0]["fecha_retorno"] ?></li>
 								</ul>
+                <?php if($usuario["perfil"]!="admin"): ?>
 								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
 									Minar
 								</button>
+                <?php endif ?>
 							</div>
 						</div>
 					</div>
@@ -127,9 +129,11 @@ $ingresos=$ingresos+$total_pagos;
 									<li>paga el dia:</li>
 									<li><?php echo $campanas[1]["fecha_retorno"] ?></li>
 								</ul>
+                <?php if($usuario["perfil"]!="admin"): ?>
 								<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[1]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
 									Minar
 								</button>
+                <?php endif ?>
 							</div>
 						</div>
 					</div>
@@ -150,9 +154,11 @@ $ingresos=$ingresos+$total_pagos;
 									<li>paga el dia:</li>
 									<li><?php echo $campanas[2]["fecha_retorno"] ?></li>
 								</ul>
+                <?php if($usuario["perfil"]!="admin"): ?>
 								<button class="btn px-10 mx-auto mb-8 bg-purple-500 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[2]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
 									Minar
 								</button>
+                <?php endif ?>
 							</div>
 						</div>
 					</div>
@@ -178,9 +184,11 @@ $ingresos=$ingresos+$total_pagos;
                     <li>paga el dia:</li>
                     <li><?php echo $campanas[0]["fecha_retorno"] ?></li>
                   </ul>
+                  <?php if($usuario["perfil"]!="admin"): ?>
                   <button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
                     Minar
                   </button>
+                  <?php endif ?>
                 </div>
               </div>
             </div>
@@ -201,9 +209,11 @@ $ingresos=$ingresos+$total_pagos;
                     <li>paga el dia:</li>
                     <li><?php echo $campanas[1]["fecha_retorno"] ?></li>
                   </ul>
+                  <?php if($usuario["perfil"]!="admin"): ?>
                   <button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[1]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
                     Minar
                   </button>
+                  <?php endif ?>
                 </div>
               </div>
             </div>
@@ -230,9 +240,11 @@ $ingresos=$ingresos+$total_pagos;
 									<li>paga el dia:</li>
 									<li><?php echo $campanas[0]["fecha_retorno"] ?></li>
 								</ul>
+                <?php if($usuario["perfil"]!="admin"): ?>
 								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
 									Minar
 								</button>
+                <?php endif ?>
 							</div>
 						</div>
 					</div>
