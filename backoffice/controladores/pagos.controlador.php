@@ -35,22 +35,30 @@ class ControladorPagos
 
                 echo "<script>
 
-							swal({
-								title: 'Ingrese el código de verificación',
+							swal.fire({
+                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-user-secret\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">Ingrese el código de verificación</h2></div></div>',
+                                showConfirmButton: true,
+								showCancelButton: true,
+                                confirmButtonText: 'Aceptar',
+                                buttonsStyling: false,
+								showLoaderOnConfirm: true,
 								input: 'text',
 								inputAttributes: {
-								  autocapitalize: 'off'
+								    autocapitalize: 'off'
 								},
-								showCancelButton: true,
-								confirmButtonText: 'Aceptar',
+                                customClass: {
+                                    popup: 'border-primario border-2 p-4 rounded-3xl',
+                                    confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                    cancelButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                }
 								showLoaderOnConfirm: true,
 								preConfirm: (c) => {
 
-                                 window.location='index.php?pagina=billeteras&codigo='+c+'&id=".$usuario["id_usuario"]."&v=".$_POST["valor"]."&t=".$tipo."';
+                                window.location='index.php?pagina=billeteras&codigo='+c+'&id=".$usuario["id_usuario"]."&v=".$_POST["valor"]."&t=".$tipo."';
 
 
 								},
-								allowOutsideClick: () => !Swal.isLoading()
+								allowOutsideClick: () => !swal.fire.isLoading()
 							  }).then((result) => {
 								if (result.isConfirmed) {		
 
@@ -70,21 +78,26 @@ class ControladorPagos
             
             if($respuesta=="ok"){
 
-                echo '<script>
+                echo "<script>
 
-                            swal({
-                                type: "success",
-                                title: "Se ha generado su solicitud con éxito!",
+                            swal.fire({
+                                type:'success',
+                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡Se ha generado su solicitud con éxito!</h2></div></div>',
                                 showConfirmButton: true,
-                                confirmButtonText: "Cerrar"
+                                confirmButtonText: 'Cerrar',
+                                buttonsStyling: false,
+                                customClass: {
+                                    popup: 'border-primario border-2 p-4 rounded-3xl',
+                                    confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                }
                                 }).then(function(result){
                                             if (result.value) {
         
-                                            window.location="billeteras"
+                                            window.location='billeteras'
                                             }
                                         })
         
-                            </script>';
+                            </script>";
 
             }
 
@@ -94,20 +107,25 @@ class ControladorPagos
         
     }else{
 
-        echo '<script>
+        echo "<script>
 
-        swal({
-              type: "warning",
-              title: "Valor incorrecto!",
-              showConfirmButton: true,
-              confirmButtonText: "Cerrar"
+        swal.fire({
+            type:'warning',
+            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">¡Valor incorrecto!</h2></div></div>',
+            showConfirmButton: true,
+            confirmButtonText: 'Cerrar',
+            buttonsStyling: false,
+            customClass: {
+                popup: 'border-orange-100 border-2 p-4 rounded-3xl',
+                confirmButton: 'text-white bg-orange-100 hover:bg-orange-300 hover:text-white px-4 py-1 border-0 rounded-lg',
+            }
               }).then(function(result){
                         if (result.value) {
 
                         }
                     })
 
-        </script>';
+        </script>";
 
     }
 }
@@ -226,21 +244,25 @@ class ControladorPagos
                 
                 if($respuesta=="ok"){
         
-                    echo '<script>
+                    echo "<script>
         
-                                swal({
-                                      type: "success",
-                                      title: "Se ha generado su solicitud con éxito!",
-                                      showConfirmButton: true,
-                                      confirmButtonText: "Cerrar"
-                                      }).then(function(result){
-                                                if (result.value) {
+                                swal.fire({
+                                    type:'success',
+                                    html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡Se ha generado su solicitud con éxito!</h2></div></div>',
+                                    showConfirmButton: true,
+                                    confirmButtonText: 'Cerrar',
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        popup: 'border-primario border-2 p-4 rounded-3xl',
+                                        confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                    }
+                                }).then(function(result){
+                                    if (result.value) {
+                                        window.location='billeteras'
+                                    }
+                                })
             
-                                                window.location="billeteras"
-                                                }
-                                            })
-            
-                                </script>';
+                                </script>";
         
                 }
 		
@@ -248,13 +270,16 @@ class ControladorPagos
 			}else{
 
 				echo "<script>
-				swal({
-					icon:'error',
-					  title: '¡Error!',
-					  text: '¡El código es incorrecto!',
-					  showConfirmButton: true,
-					confirmButtonText: 'Cerrar'
-				  
+				swal.fire({
+                    type:'error',
+                    html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡Error!</h2></div><p class=\"text-red-500 text-2xl\">¡El código es incorrecto!</p></div>',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Cerrar',
+                    buttonsStyling: false,
+                    customClass: {
+                        popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                        confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                    }
 			}).then(function(result){
 				window.location='billeteras';
 			});
@@ -264,13 +289,16 @@ class ControladorPagos
 
 		}else{
 			echo "<script>
-			swal({
-				icon:'error',
-				  title: '¡Error!',
-				  text: '¡Intentelo de nuevo!',
-				  showConfirmButton: true,
-				confirmButtonText: 'Cerrar'
-			  
+			swal.fire({
+                type:'error',
+                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡Error!</h2></div><p class=\"text-red-500 text-2xl\">¡Intentelo de nuevo!</p></div>',
+                showConfirmButton: true,
+                confirmButtonText: 'Cerrar',
+                buttonsStyling: false,
+                customClass: {
+                    popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                    confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                }
 		}).then(function(result){
 			window.location='ingreso';
 		});
@@ -2372,14 +2400,19 @@ class ControladorPagos
                         unlink($rutaFotoActual);
 					}
 
-                    echo '<script>
+                    echo "<script>
 
-                        swal({
-                              type: "success",
-                              title: "El comprobantes ha sido editado correctamente",
-                              showConfirmButton: true,
-                              confirmButtonText: "Cerrar"
-                              }).then(function(result){
+                        swal.fire({
+							type:'success',
+							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">El comprobantes ha sido editado correctamente</h2></div></div>',
+							showConfirmButton: true,
+							confirmButtonText: 'Cerrar',
+							buttonsStyling: false,
+							customClass: {
+								popup: 'border-primario border-2 p-4 rounded-3xl',
+								confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+							}
+                            }).then(function(result){
                                         if (result.value) {
     
                                         
@@ -2387,18 +2420,23 @@ class ControladorPagos
                                         }
                                     })
     
-                        </script>';
+                        </script>";
 
             
                 }else{
-                    echo '<script>
+                    echo "<script>
 
-                    swal({
-                          type: "error",
-                          title: "Ha ocurrido un error",
-                          showConfirmButton: true,
-                          confirmButtonText: "Cerrar"
-                          }).then(function(result){
+                    swal.fire({
+						type:'error',
+						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">Ha ocurrido un error</h2></div></div>',
+						showConfirmButton: true,
+						confirmButtonText: 'Cerrar',
+						buttonsStyling: false,
+						customClass: {
+							popup: 'border-red-500 border-2 p-4 rounded-3xl',
+							confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+						}
+                        }).then(function(result){
                                     if (result.value) {
 
                                     
@@ -2406,19 +2444,24 @@ class ControladorPagos
                                     }
                                 })
 
-                    </script>';
+                    </script>";
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-						  type: "error",
-						  title: "¡El nombre no puede ir vacío o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+					swal.fire({
+						type:'error',
+						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡El nombre no puede ir vacío o llevar caracteres especiales!</h2></div></div>',
+						showConfirmButton: true,
+						confirmButtonText: 'Cerrar',
+						buttonsStyling: false,
+						customClass: {
+							popup: 'border-red-500 border-2 p-4 rounded-3xl',
+							confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+						}
+						}).then(function(result){
 							if (result.value) {
 
 							
@@ -2426,7 +2469,7 @@ class ControladorPagos
 							}
 						})
 
-			  	</script>';
+                </script>";
 
             }
 
@@ -2621,36 +2664,44 @@ class ControladorPagos
 
                     if ($respuesta["verificacion"] == 0) {
 
-                        echo '<script>
+                        echo "<script>
 
-							swal({
-									type:"error",
-								  	title: "¡ERROR!",
-								  	text: "¡El correo electrónico aún no ha sido verificado, por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para verificar la cuenta, o contáctese con nuestro soporte admin@trading.com!",
-								  	showConfirmButton: true,
-									confirmButtonText: "Cerrar"
+							swal.fire({
+                                type:'error',
+                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡El correo electrónico aún no ha sido verificado, por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para verificar la cuenta, o contáctese con nuestro soporte admin@trading.com!</p></div>',
+                                showConfirmButton: true,
+                                confirmButtonText: 'Cerrar',
+                                buttonsStyling: false,
+                                customClass: {
+                                    popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                    confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                }
 
 							}).then(function(result){
 
 									if(result.value){
 									    history.back();
-									  }
+									}
 							});
 
-						</script>';
+						</script>";
 
                         return;
 
                     } else if ($respuesta["estado"] == 0) {
 
-                        echo '<script>
+                        echo "<script>
 
-						   swal({
-								   type:"warning",
-									 title: "¡Advertencia!",
-									 text: "¡Su cuenta se encuentra desactivada, contáctese con nuestro soporte admin@trading.com!",
-									 showConfirmButton: true,
-								   confirmButtonText: "Cerrar"
+						   swal.fire({
+                            type:'warning',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">¡Advertencia!</h2></div><p class=\"text-orange-100 text-2xl\">¡Su cuenta se encuentra desactivada, contáctese con nuestro soporte admin@trading.com!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-orange-100 border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-orange-100 hover:bg-orange-300 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						   }).then(function(result){
 
@@ -2659,7 +2710,7 @@ class ControladorPagos
 									 }
 						   });
 
-					   </script>';
+					   </script>";
 
                         return;
 
@@ -2680,37 +2731,44 @@ class ControladorPagos
 
                 } else {
 
-                    echo '<script>
+                    echo "<script>
 
-						swal({
-								type:"error",
-							  	title: "¡ERROR!",
-							  	text: "¡El email o contraseña no coinciden!",
-							  	showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+						swal.fire({
+                            type:'error',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡El email o contraseña no coinciden!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						}).then(function(result){
 
 								if(result.value){
 								    history.back();
-								  }
+								}
 						});
 
-					</script>';
+					</script>";
 
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡No se permiten caracteres especiales en ninguno de los campos!",
+					swal.fire({
+						type:'error',
+						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+						confirmButtonText: 'Cerrar',
+						buttonsStyling: false,
+						customClass: {
+							popup: 'border-red-500 border-2 p-4 rounded-3xl',
+							confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+						}
 
 					}).then(function(result){
 
@@ -2722,7 +2780,7 @@ class ControladorPagos
 
 					});
 
-				</script>';
+				</script>";
 
             }
 
@@ -2810,23 +2868,27 @@ class ControladorPagos
 
                 } else {
 
-                    echo '<script>
+                    echo "<script>
 
-						swal({
-								type:"error",
-							  	title: "¡CORREGIR!",
-							  	text: "¡No se permiten formatos diferentes a JPG y/o PNG!",
-							  	showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+						swal.fire({
+                            type:'error',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten formatos diferentes a JPG y/o PNG!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						}).then(function(result){
 
 								if(result.value){
 								    history.back();
-								  }
+								}
 						});
 
-					</script>';
+					</script>";
 
                 }
 
@@ -2843,14 +2905,18 @@ class ControladorPagos
 
             if ($respuesta == "ok") {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-						type:"success",
-					  	title: "¡CORRECTO!",
-					  	text: "¡La foto de perfil ha sido actualizada!",
-					  	showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+					swal.fire({
+                        type:'success',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡CORRECTO!</h2></div><p class=\"text-primario text-2xl\">¡La foto de perfil ha sido actualizada!</p></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-primario border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
 
 					}).then(function(result){
 
@@ -2859,7 +2925,7 @@ class ControladorPagos
 							  }
 					});
 
-				</script>';
+				</script>";
 
             }
 
@@ -2889,38 +2955,44 @@ class ControladorPagos
 
                 if ($respuesta == "ok") {
 
-                    echo '<script>
+                    echo "<script>
 
-						swal({
-							type:"success",
-						  	title: "¡CORRECTO!",
-						  	text: "¡La contraseña ha sido actualizada!",
-						  	showConfirmButton: true,
-							confirmButtonText: "Cerrar"
+						swal.fire({
+                            type:'success',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡CORRECTO!</h2></div><p class=\"text-primario text-2xl\">¡La contraseña ha sido actualizada!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-primario border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						}).then(function(result){
 
 								if(result.value){
 								    history.back();
-								  }
+								}
 						});
 
-					</script>';
+					</script>";
 
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡No se permiten caracteres especiales en la contraseña!",
+					swal.fire({
+						type:'error',
+						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en la contraseña!</p></div>',
 						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
-
+						confirmButtonText: 'Cerrar',
+						buttonsStyling: false,
+						customClass: {
+							popup: 'border-red-500 border-2 p-4 rounded-3xl',
+							confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+						}
 					}).then(function(result){
 
 						if(result.value){
@@ -2931,7 +3003,7 @@ class ControladorPagos
 
 					});
 
-				</script>';
+				</script>";
 
             }
 
@@ -3061,52 +3133,50 @@ class ControladorPagos
                         if (!$envio) {
 
                             echo '<script>
-
-								swal({
-
-									type:"error",
-									title: "¡ERROR!",
-									text: "¡¡Ha ocurrido un problema enviando verificación de correo electrónico a ' . $traerUsuario["email"] . ' ' . $mail->ErrorInfo . ', por favor inténtelo nuevamente",
-									showConfirmButton: true,
-									confirmButtonText: "Cerrar"
-
-								}).then(function(result){
-
-									if(result.value){
-
-										history.back();
-
-									}
-
-
-								});
-
-							</script>';
+                                swal.fire({
+                                    type: "error",
+                                    html: "<div class=\'flex flex-col gap-4\'><div><i class=\'fa-solid fa-triangle-exclamation text-red-500 text-6xl\'></i><h2 class=\'text-4xl\'>¡ERROR!</h2></div><p class=\'text-red-500 text-2xl\'>¡¡Ha ocurrido un problema enviando verificación de correo electrónico a ' . $traerUsuario["email"] . ' ' . $mail->ErrorInfo . ', por favor inténtelo nuevamente!!</p></div>",
+                                    showConfirmButton: true,
+                                    confirmButtonText: "Cerrar",
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        popup: "border-red-500 border-2 p-4 rounded-3xl",
+                                        confirmButton: "text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg",
+                                    }
+                                }).then(function(result){
+                                    if(result.value){
+                                        history.back();
+                                    }
+                                });    
+                            </script>';
 
                         } else {
 
-                            echo '<script>
+                            echo "<script>
 
-								swal({
-
-									type:"success",
-									title: "¡SU NUEVA CONTRASEÑA HA SIDO ENVIADA!",
-									text: "¡Por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para tomar la nueva contraseña!",
-									showConfirmButton: true,
-									confirmButtonText: "Cerrar"
+								swal.fire({
+                                    type:'success',
+                                    html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡SU NUEVA CONTRASEÑA HA SIDO ENVIADA!</h2></div><p class=\"text-primario text-2xl\">¡Por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para tomar la nueva contraseña!</p></div>',
+                                    showConfirmButton: true,
+                                    confirmButtonText: 'Cerrar',
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        popup: 'border-primario border-2 p-4 rounded-3xl',
+                                        confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                    }
 
 								}).then(function(result){
 
 									if(result.value){
 
-										window.location = "' . $ruta . 'ingreso";
+										window.location = \"' . $ruta . 'ingreso\";
 
 									}
 
 
 								});
 
-							</script>';
+							</script>";
 
                         }
 
@@ -3114,37 +3184,44 @@ class ControladorPagos
 
                 } else {
 
-                    echo '<script>
+                    echo "<script>
 
-						swal({
-							type:"error",
-						  	title: "¡ERROR!",
-						  	text: "¡El correo no existe en el sistema, puede registrase nuevamente con ese correo!",
-						  	showConfirmButton: true,
-							confirmButtonText: "Cerrar"
+						swal.fire({
+                            type:'error',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡El correo no existe en el sistema, puede registrase nuevamente con ese correo!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						}).then(function(result){
 
 								if(result.value){
 								    history.back();
-								  }
+								}
 						});
 
-					</script>';
+					</script>";
 
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡Error al escribir el correo!",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+					swal.fire({
+                        type:'error',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡Error al escribir el correo!</p></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
 
 					}).then(function(result){
 
@@ -3156,7 +3233,7 @@ class ControladorPagos
 
 					});
 
-				</script>';
+				</script>";
 
             }
 
@@ -3223,28 +3300,31 @@ class ControladorPagos
                 $respuesta = ModeloUsuarios::mdlRegistrarCuentaBancaria($tabla, $datos);
 
                 if ($respuesta == "ok") {
-                    echo '<script>
+                    echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "REGISTRO EXITOSO",
-								text: "¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!",
-								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+							swal.fire({
+                                type:'success',
+                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">REGISTRO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!</p></div>',
+                                showConfirmButton: true,
+                                confirmButtonText: 'Cerrar',
+                                buttonsStyling: false,
+                                customClass: {
+                                    popup: 'border-primario border-2 p-4 rounded-3xl',
+                                    confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                }
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "perfil";
+									window.location = 'perfil';
 
 								}
 
 
 							});
 
-						</script>';
+						</script>";
                 }
 
             }

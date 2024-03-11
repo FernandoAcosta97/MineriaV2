@@ -51,28 +51,31 @@ Class ControladorCuentas{
 		$respuesta = ModeloCuentas::mdlRegistrarCuentaBancaria($tabla, $datos);
 
 		if($respuesta == "ok"){
-			echo '<script>
+			echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "REGISTRO EXITOSO",
-								text: "¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!",
+							swal.fire({
+								type:'success',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">REGISTRO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-primario border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "'.$pagina.'";
+									window.location = \"'.$pagina.'\";
 
 								}
 
 
 							});	
 
-						</script>';
+						</script>";
 		}
 
 				}
@@ -190,28 +193,31 @@ Class ControladorCuentas{
 		$respuesta = ModeloCuentas::mdlEditarCuenta($tabla, $datos);
 
 		if($respuesta == "ok"){
-			echo '<script>
+			echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "ACTUALIZACIÓN EXITOSA",
-								text: "¡LA CUENTA BANCARIA HA SIDO ACTUALIZADA CORRECTAMENTE!",
+							swal.fire({
+								type:'success',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">ACTUALIZACIÓN EXITOSA</h2></div><p class=\"text-primario text-2xl\">¡LA CUENTA BANCARIA HA SIDO ACTUALIZADA CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-primario border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "'.$pagina.'";
+									window.location = \"'.$pagina.'\";
 
 								}
 
 
 							});	
 
-						</script>';
+						</script>";
 		}
 
 				}
