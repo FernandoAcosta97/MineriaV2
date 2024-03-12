@@ -42,7 +42,7 @@ Class ControladorCampanas{
 					echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡CAMPAÑA CREADA CORRECTAMENTE!</h2></div></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -56,7 +56,7 @@ Class ControladorCampanas{
 
 								if(result.value){
 
-									window.location = \"'.$pagina.'\";
+									window.location = '".$pagina."';
 
 								}
 
@@ -70,7 +70,7 @@ Class ControladorCampanas{
 					echo "<script>
 
 							swal.fire({
-								type:'error',
+								icon:'error',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡¡Ha ocurrido un problema, por favor inténtelo nuevamente!!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -100,7 +100,7 @@ Class ControladorCampanas{
 				echo "<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -144,7 +144,7 @@ Class ControladorCampanas{
 					echo"<script>
 
 						swal.fire({
-							type:'error',
+							icon:'error',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">No hay recurrencias creadas</h2></div></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -202,7 +202,7 @@ Class ControladorCampanas{
 					echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡BONO CREADO CORRECTAMENTE!</h2></div></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -216,7 +216,7 @@ Class ControladorCampanas{
 
 								if(result.value){
 
-									window.location = \"'.$direccion.'\";
+									window.location = '".$direccion."';
 
 								}
 
@@ -230,7 +230,7 @@ Class ControladorCampanas{
 					echo "<script>
 
 							swal.fire({
-								type:'error',
+								icon:'error',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡¡Ha ocurrido un problema, por favor inténtelo nuevamente!!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -260,7 +260,7 @@ Class ControladorCampanas{
 				echo "<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -505,7 +505,7 @@ Class ControladorCampanas{
 			echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">ACTUALIZACIÓN EXITOSA</h2></div><p class=\"text-primario text-2xl\">¡LA CAMPAÑA HA SIDO ACTUALIZADA CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -519,7 +519,7 @@ Class ControladorCampanas{
 
 								if(result.value){
 
-									window.location = \"'.$pagina.'\";
+									window.location = '".$pagina."';
 
 								}
 
@@ -534,7 +534,7 @@ Class ControladorCampanas{
 					echo "<script>
 	
 						swal.fire({
-							type:'error',
+							icon:'error',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -601,7 +601,7 @@ Class ControladorCampanas{
 			echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">ACTUALIZACIÓN EXITOSA</h2></div><p class=\"text-primario text-2xl\">¡EL BONO HA SIDO ACTUALIZADO CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -615,7 +615,7 @@ Class ControladorCampanas{
 
 								if(result.value){
 
-									window.location = \"'.$direccion.'\";
+									window.location = '".$direccion."';
 
 								}
 
@@ -630,7 +630,7 @@ Class ControladorCampanas{
 					echo "<script>
 	
 						swal.fire({
-							type:'error',
+							icon:'error',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -749,7 +749,7 @@ Class ControladorCampanas{
 			echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">REGISTRO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',

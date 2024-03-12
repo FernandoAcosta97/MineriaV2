@@ -54,7 +54,7 @@ Class ControladorCuentas{
 			echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">REGISTRO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -68,7 +68,7 @@ Class ControladorCuentas{
 
 								if(result.value){
 
-									window.location = \"'.$pagina.'\";
+									window.location = '".$pagina."';
 
 								}
 
@@ -196,7 +196,7 @@ Class ControladorCuentas{
 			echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">ACTUALIZACIÓN EXITOSA</h2></div><p class=\"text-primario text-2xl\">¡LA CUENTA BANCARIA HA SIDO ACTUALIZADA CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -210,7 +210,7 @@ Class ControladorCuentas{
 
 								if(result.value){
 
-									window.location = \"'.$pagina.'\";
+									window.location = '".$pagina."';
 
 								}
 

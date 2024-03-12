@@ -305,10 +305,10 @@ $(".tablaCuentasDetalles tbody").on("click", "button.btnEliminarCuenta", functio
 	var datos = new FormData();
 	datos.append("idCuentaEliminar", idCuenta);
   
-	swal({
+	swal.fire({
 	  title: "¿Está seguro de borrar la ceunta bancaria?",
 	  text: "¡Si no lo está puede cancelar la acción!",
-	  type: "warning",
+	  icon: "warning",
 	  showCancelButton: true,
 	  confirmButtonColor: "#3085d6",
 	  cancelButtonColor: "#d33",
@@ -326,8 +326,8 @@ $(".tablaCuentasDetalles tbody").on("click", "button.btnEliminarCuenta", functio
 		  success: function (respuesta) {
 			if (respuesta == 1) {
 
-				swal({
-					type: "warning",
+				swal.fire({
+					icon: "warning",
 					title: "¡ADVERTENCIA!",
 					text: "¡La cuenta bancaria no se puede eliminar porque tiene pagos registrados!",
 					showConfirmButton: true,
@@ -340,8 +340,8 @@ $(".tablaCuentasDetalles tbody").on("click", "button.btnEliminarCuenta", functio
 
 			}else if(respuesta != "error"){
 
-				swal({
-					type: "success",
+				swal.fire({
+					icon: "success",
 					title: "¡OK!",
 					text: "¡La cuenta bancaria se ha eliminado correctamente!",
 					showConfirmButton: true,
@@ -367,10 +367,10 @@ $(".tablaCuentas tbody").on("click", "button.btnEliminarCuenta", function () {
 	var datos = new FormData();
 	datos.append("idCuentaEliminar", idCuenta);
   
-	swal({
+	swal.fire({
 	  title: "¿Está seguro de borrar la ceunta bancaria?",
 	  text: "¡Si no lo está puede cancelar la acción!",
-	  type: "warning",
+	  icon: "warning",
 	  showCancelButton: true,
 	  confirmButtonColor: "#3085d6",
 	  cancelButtonColor: "#d33",
@@ -388,8 +388,8 @@ $(".tablaCuentas tbody").on("click", "button.btnEliminarCuenta", function () {
 		  success: function (respuesta) {
 			if (respuesta == 1) {
 
-				swal({
-					type: "warning",
+				swal.fire({
+					icon: "warning",
 					title: "¡ADVERTENCIA!",
 					text: "¡La cuenta bancaria no se puede eliminar porque tiene pagos registrados!",
 					showConfirmButton: true,
@@ -402,8 +402,8 @@ $(".tablaCuentas tbody").on("click", "button.btnEliminarCuenta", function () {
 
 			}else if(respuesta != "error"){
 
-				swal({
-					type: "success",
+				swal.fire({
+					icon: "success",
 					title: "¡OK!",
 					text: "¡La cuenta bancaria se ha eliminado correctamente!",
 					showConfirmButton: true,

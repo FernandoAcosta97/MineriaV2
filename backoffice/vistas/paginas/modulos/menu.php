@@ -430,29 +430,6 @@
           </li>
         <?php endif ?>
 
-        <?php if ($usuario["fecha_contrato"] != null) : ?>
-
-          <?php if (!$inhabilitado_sin_cuenta) : ?>
-
-            <!--=====================================
-        Botón Soporte
-        ======================================-->
-
-            <li class="nav-item">
-              <a href="soporte" class="nav-link w-[95%]">
-
-                <!-- <p>Soporte</p> -->
-                <button class="btn btn-menu-mineria btn-menu-mineria-alterado flex justify-between">
-                  <!-- <i class="nav-icon fas fa-comments mr-2"></i> -->
-                  <img src="vistas/img/menu/soporte.png" class="card-img-top relative left-[-10px] pr-[10px] h-[40px] w-auto" alt="Fissure in Sandstone"   />
-                  <span class="text-center brand-text text-lg">Soporte</span>
-                </button>
-              </a>
-            </li>
-          <?php endif ?>
-
-        <?php endif ?>
-
         <!--=====================================
         Botón Salir
         ======================================-->

@@ -349,8 +349,8 @@ class AjaxComprobantes{
    }else{
 	echo '<script>
 
-	swal({
-		  type: "error",
+	swal.fire({
+		  icon: "error",
 		  title: "El comprobante tiene pagos asociados",
 		  showConfirmButton: true,
 		  confirmButtonText: "Cerrar"

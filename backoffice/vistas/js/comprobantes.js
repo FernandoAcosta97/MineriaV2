@@ -422,10 +422,10 @@ $(".registrarFotoComprobante").change(function(){
   
 		$(".registrarFotoComprobante").val("");
   
-		 swal({
+		 swal.fire({
 			title: "Error al subir la imagen",
 			text: "¡La imagen debe estar en formato JPG o PNG!",
-			type: "error",
+			icon: "error",
 			confirmButtonText: "¡Cerrar!"
 		  });
   
@@ -433,10 +433,10 @@ $(".registrarFotoComprobante").change(function(){
   
 		$(".registrarFotoComprobante").val("");
   
-		 swal({
+		 swal.fire({
 			title: "Error al subir la imagen",
 			text: "¡La imagen no debe pesar más de 2MB!",
-			type: "error",
+			icon: "error",
 			confirmButtonText: "¡Cerrar!"
 		  });
   
@@ -472,10 +472,10 @@ $(".editarFotoComprobante").change(function(){
   
 		$(".editarFotoComprobante").val("");
   
-		 swal({
+		 swal.fire({
 			title: "Error al subir la imagen",
 			text: "¡La imagen debe estar en formato JPG o PNG!",
-			type: "error",
+			icon: "error",
 			confirmButtonText: "¡Cerrar!"
 		  });
   
@@ -483,10 +483,10 @@ $(".editarFotoComprobante").change(function(){
   
 		$(".editarFotoComprobante").val("");
   
-		 swal({
+		 swal.fire({
 			title: "Error al subir la imagen",
 			text: "¡La imagen no debe pesar más de 2MB!",
-			type: "error",
+			icon: "error",
 			confirmButtonText: "¡Cerrar!"
 		  });
   
@@ -701,10 +701,10 @@ $(".tablaComprobantes tbody").on("click", "button.btnEliminarComprobante", funct
 	var datos = new FormData();
 	datos.append("idComprobanteEliminar", idComprobante);
   
-	swal({
+	swal.fire({
 	  title: "¿Está seguro de borrar el comprobante?",
 	  text: "¡Si no lo está puede cancelar la acción!",
-	  type: "warning",
+	  icon: "warning",
 	  showCancelButton: true,
 	  confirmButtonColor: "#3085d6",
 	  cancelButtonColor: "#d33",
@@ -721,8 +721,8 @@ $(".tablaComprobantes tbody").on("click", "button.btnEliminarComprobante", funct
 		  processData: false,
 		  success: function (respuesta) {
 			if (respuesta == "ok") {
-			  swal({
-				type: "success",
+			  swal.fire({
+				icon: "success",
 				title: "¡OK!",
 				text: "¡El comprobante se ha eliminado correctamente!",
 				showConfirmButton: true,
@@ -733,8 +733,8 @@ $(".tablaComprobantes tbody").on("click", "button.btnEliminarComprobante", funct
 				}
 			  });
 			}else{
-				swal({
-					type: "error",
+				swal.fire({
+					icon: "error",
 					title: "¡Error!",
 					text: "¡El comprobante no se puede eliminar porque esta aprobado!",
 					showConfirmButton: true,

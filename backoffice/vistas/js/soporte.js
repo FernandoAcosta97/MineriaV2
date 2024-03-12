@@ -42,10 +42,10 @@ $(".subirAdjuntos").change(function(){
 
 			$(".subirAdjuntos").val("");
 
-			swal({
+			swal.fire({
 	          title: "Error al subir los Archivos",
 	          text: "¡El formato de los archivos no es correcto, debe ser: JPG, PNG, EXCEL, WORD o PDF!",
-	          type: "error",
+	          icon: "error",
 	          confirmButtonText: "¡Cerrar!"
 	        });
 
@@ -59,10 +59,10 @@ $(".subirAdjuntos").change(function(){
 
 			$(".subirAdjuntos").val("");
 
-			swal({
+			swal.fire({
 	          title: "Error al subir los Archivos",
 	          text: "¡Los Archivos no deben pesar más de 32MB!",
-	          type: "error",
+	          icon: "error",
 	          confirmButtonText: "¡Cerrar!"
 	        });
 
@@ -299,8 +299,8 @@ $(".btnPapelera").click(function(){
 
 	    	if(respuesta == "ok"){
 
-	    		swal({
-							type:"success",
+	    		swal.fire({
+							icon: "success",
 						  	title: "¡TICKET ENVIADO CORRECTAMENTE A LA PAPELERA!",
 						  	text: "¡Puede recuperar el ticket si lo desea en la sección de papelera!",
 						  	showConfirmButton: true,
@@ -317,8 +317,8 @@ $(".btnPapelera").click(function(){
 
 	    	if(respuesta == "recuperado"){
 
-	    		swal({
-							type:"success",
+	    		swal.fire({
+							icon: "success",
 						  	title: "¡TICKET RECUPERADO!",
 						  	text: "¡Revisa en las otras bandejas el ticket recuperado!",
 						  	showConfirmButton: true,
@@ -367,8 +367,8 @@ $(".btnEliminar").click(function(){
 
 	    	if(res == "ok"){
 
-	    		swal({
-							type:"success",
+	    		swal.fire({
+							icon: "success",
 						  	title: "¡TICKETS ELIMINADOS CORRECTAMENTE!",
 						  	showConfirmButton: true,
 							confirmButtonText: "Cerrar"
@@ -395,8 +395,8 @@ Vaciar papelera
 
 $(".btnVaciarPapelera").click(function(){
 
-	swal({
-		type:"warning",
+	swal.fire({
+		icon: "warning",
 		  title: "¡ESTA SEGURO DE VACIAR LA PAPELERA, NO SE PUEDE DESHACER!",
 		  showConfirmButton: true,
 		  showCancelButton: true,
@@ -421,8 +421,8 @@ $(".btnVaciarPapelera").click(function(){
 
 	    	if(respuesta == "ok"){
 
-	    		swal({
-							type:"success",
+	    		swal.fire({
+							icon: "success",
 						  	title: "¡LA PAPELERA SE HA VACIADO CORRECTAMENTE!",
 						  	showConfirmButton: true,
 							confirmButtonText: "Cerrar"

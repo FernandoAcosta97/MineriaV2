@@ -119,7 +119,7 @@ class ControladorSoporte{
 							echo"<script>
 
 								swal.fire({
-									type:'error',
+									icon:'error',
 									html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten formatos diferentes a JPG, PNG, EXCEL, WORD o PDF!</p></div>',
 									showConfirmButton: true,
 									confirmButtonText: 'Cerrar',
@@ -132,7 +132,7 @@ class ControladorSoporte{
 								}).then(function(result){
 
 										if(result.value){   
-										    window.location = \"'.$url.'backoffice/soporte\";
+										    window.location = '".$url."'backoffice/soporte';
 										} 
 								});
 
@@ -241,7 +241,7 @@ class ControladorSoporte{
 					echo"<script>
 
 						swal.fire({
-							type:'success',
+							icon:'success',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡SU TICKET HA SIDO CORRECTAMENTE ENVIADO!</h2></div><p class=\"text-primario text-2xl\">¡Muy pronto nos comunicaremos con usted!</p></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -253,7 +253,7 @@ class ControladorSoporte{
 						}).then(function(result){
 
 								if(result.value){   
-								    window.location = \"'.$url.'backoffice/soporte\";
+								    window.location = '".$url."'backoffice/soporte';
 								} 
 						});
 
@@ -266,7 +266,7 @@ class ControladorSoporte{
 				echo"<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -279,7 +279,7 @@ class ControladorSoporte{
 					}).then(function(result){
 
 							if(result.value){   
-							    window.location = \"'.$url.'backoffice/soporte\";
+							    window.location = '".$url."'backoffice/soporte';
 							} 
 					});
 

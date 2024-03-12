@@ -338,9 +338,9 @@ $(".tablaCampanas tbody").on("change","select.selectActiva",function(){
 
 		if(respuesta=="error"){
 
-			swal({
+			swal.fire({
 
-				type:"warning",
+				icon: "warning",
 				title: "¡ADVERTENCIA!",
 				text: "El número de campañas activas debe ser mínimo 1 y máximo 3",
 				showConfirmButton: true,
@@ -893,10 +893,10 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 	var datos = new FormData();
 	datos.append("idCampanaEliminar", idCampana);
   
-	swal({
+	swal.fire({
 	  title: "¿Está seguro de borrar la campaña?",
 	  text: "¡Si no lo está puede cancelar la acción!",
-	  type: "warning",
+	  icon: "warning",
 	  showCancelButton: true,
 	  confirmButtonColor: "#3085d6",
 	  cancelButtonColor: "#d33",
@@ -914,8 +914,8 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 		  success: function (respuesta) {
 			if (respuesta == "ok") {
 
-			  swal({
-				type: "success",
+			  swal.fire({
+				icon: "success",
 				title: "¡OK!",
 				text: "¡La campaña se ha eliminado correctamente!",
 				showConfirmButton: true,
@@ -928,8 +928,8 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 
 			}else if(respuesta != "0"){
 
-				swal({
-					type: "warning",
+				swal.fire({
+					icon: "warning",
 					title: "¡ADVERTENCIA!",
 					text: "¡La campaña no se puede eliminar porque tiene "+respuesta+" inversiones activas!",
 					showConfirmButton: true,
@@ -955,10 +955,10 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 	var datos = new FormData();
 	datos.append("idCampanaEliminarPublicidad", idCampana);
   
-	swal({
+	swal.fire({
 	  title: "¿Está seguro de borrar la campaña?",
 	  text: "¡Si no lo está puede cancelar la acción!",
-	  type: "warning",
+	  icon: "warning",
 	  showCancelButton: true,
 	  confirmButtonColor: "#3085d6",
 	  cancelButtonColor: "#d33",
@@ -976,8 +976,8 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 		  success: function (respuesta) {
 			if (respuesta == "ok") {
 
-			  swal({
-				type: "success",
+			  swal.fire({
+				icon: "success",
 				title: "¡OK!",
 				text: "¡La campaña se ha eliminado correctamente!",
 				showConfirmButton: true,
@@ -990,8 +990,8 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 
 			}else if(respuesta != "0"){
 
-				swal({
-					type: "warning",
+				swal.fire({
+					icon: "warning",
 					title: "¡ADVERTENCIA!",
 					text: "¡La campaña no se puede eliminar porque tiene "+respuesta+" registros de publicidad activos!",
 					showConfirmButton: true,
@@ -1016,10 +1016,10 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 	var datos = new FormData();
 	datos.append("idCampanaEliminarBono", idCampana);
   
-	swal({
+	swal.fire({
 	  title: "¿Está seguro de borrar la campaña?",
 	  text: "¡Si no lo está puede cancelar la acción!",
-	  type: "warning",
+	  icon: "warning",
 	  showCancelButton: true,
 	  confirmButtonColor: "#3085d6",
 	  cancelButtonColor: "#d33",
@@ -1037,8 +1037,8 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 		  success: function (respuesta) {
 			if (respuesta == "ok") {
 
-			  swal({
-				type: "success",
+			  swal.fire({
+				icon: "success",
 				title: "¡OK!",
 				text: "¡La campaña se ha eliminado correctamente!",
 				showConfirmButton: true,
@@ -1051,8 +1051,8 @@ $(".tablaCampanasBonosExtras").on("click","button.btnEditarCampana",function(){
 
 			}else if(respuesta != "0"){
 
-				swal({
-					type: "warning",
+				swal.fire({
+					icon: "warning",
 					title: "¡ADVERTENCIA!",
 					text: "¡La campaña no se puede eliminar porque tiene "+respuesta+" pagos por bono extra registrados!",
 					showConfirmButton: true,

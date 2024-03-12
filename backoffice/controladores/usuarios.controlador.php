@@ -116,7 +116,7 @@ Class ControladorUsuarios{
 					echo "<script>
 
 					swal.fire({
-						type:'success',
+						icon:'success',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡LA CUENTA HA SIDO CREADA CORRECTAMENTE!</h2></div></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -144,7 +144,7 @@ Class ControladorUsuarios{
 					echo "<script>
 
 							swal.fire({
-								type:'error',
+								icon:'error',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡¡Ha ocurrido un problema, por favor inténtelo nuevamente!!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -175,7 +175,7 @@ Class ControladorUsuarios{
 				echo "<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -278,7 +278,7 @@ Class ControladorUsuarios{
 					echo "<script>
 
 						swal.fire({
-							type:'success',
+							icon:'success',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡LA CUENTA HA SIDO CREADA CORRECTAMENTE!</h2></div></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -306,7 +306,7 @@ Class ControladorUsuarios{
 					echo "<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡¡Ha ocurrido un problema, por favor inténtelo nuevamente!!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -339,7 +339,7 @@ Class ControladorUsuarios{
 				echo "<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -509,7 +509,7 @@ Class ControladorUsuarios{
 						echo"<script>
 
 								swal.fire({
-										type:'error',
+										icon:'error',
 										html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡La contraseña no puede ir vacía o llevar caracteres especiales!</p></div>',
 										showConfirmButton: true,
 										confirmButtonText: 'Cerrar',
@@ -560,7 +560,7 @@ Class ControladorUsuarios{
 					echo"<script>
 
 					swal.fire({
-							type:'success',
+							icon:'success',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">El usuario ha sido editado correctamente</h2></div></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -587,7 +587,7 @@ Class ControladorUsuarios{
 				echo"<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡El nombre no puede ir vacío o llevar caracteres especiales!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -700,7 +700,7 @@ return $estimate;
 			 			echo"<script>
 
 							swal.fire({
-								type:'error',
+								icon:'error',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡¡El correo electrónico aún no ha sido verificado, por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para verificar la cuenta, o contáctese con nosotros soporte@sportbit.com.co!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -726,7 +726,7 @@ return $estimate;
 						echo"<script>
 
 						   swal.fire({
-								type:'warning',
+								icon:'warning',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">Atención</h2></div><p class=\"text-orange-100 text-2xl\">¡Su cuenta se encuentra desactivada , contáctese con nosotros soporte@sportbit.com.co!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -766,7 +766,7 @@ return $estimate;
 
 			 		echo"<script>
 							swal.fire({
-								type:'error',
+								icon:'error',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡El email o contraseña no coinciden!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -791,7 +791,7 @@ return $estimate;
 			 	echo "<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -902,7 +902,7 @@ return $estimate;
 					echo"<script>
 
 						swal.fire({
-								type:'error',
+								icon:'error',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten formatos diferentes a JPG y/o PNG!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -938,7 +938,7 @@ return $estimate;
 				echo "<script>
 
 					swal.fire({
-						type:'success',
+						icon:'success',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-primario text-6xl\"></i><h2 class=\"text-4xl\">¡CORRECTO!</h2></div><p class=\"text-primario text-2xl\">¡La foto de perfil ha sido actualizada!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -988,7 +988,7 @@ return $estimate;
 					echo "<script>
 
 						swal.fire({
-							type:'success',
+							icon:'success',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡CORRECTO!</h2></div><p class=\"text-primario text-2xl\">¡La contraseña ha sido actualizada!</p></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -1015,7 +1015,7 @@ return $estimate;
 			 	echo "<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en la contraseña!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -1165,7 +1165,7 @@ return $estimate;
 
 							echo '<script>
 								swal.fire({
-									type:"error",
+									icon: "error",
 									html: "<div class=\'flex flex-col gap-4\'><div><i class=\'fa-solid fa-triangle-exclamation text-red-500 text-6xl\'></i><h2 class=\'text-4xl\'>¡ERROR!</h2></div><p class=\'text-red-500 text-2xl\'>¡¡Ha ocurrido un problema enviando verificación de correo electrónico a '.$traerUsuario["email"].' '.$mail->ErrorInfo.', por favor inténtelo nuevamente!!</p></div>",
 									showConfirmButton: true,
 									confirmButtonText: "Cerrar",
@@ -1188,7 +1188,7 @@ return $estimate;
 							echo "<script>
 
 								swal.fire({
-									type:'success',
+									icon:'success',
 									html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡SU NUEVA CONTRASEÑA HA SIDO ENVIADA!</h2></div><p class=\"text-primario text-2xl\">¡Por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para tomar la nueva contraseña!</p></div>',
 									showConfirmButton: true,
 									confirmButtonText: 'Cerrar',
@@ -1202,7 +1202,7 @@ return $estimate;
 
 									if(result.value){
 
-										window.location = \"'.$ruta.'ingreso\";
+										window.location = '".$ruta."';
 
 									}
 
@@ -1222,7 +1222,7 @@ return $estimate;
 					echo "<script>
 
 						swal.fire({
-							type:'error',
+							icon:'error',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡El correo no existe en el sistema, puede registrase nuevamente con ese correo!</p></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -1249,7 +1249,7 @@ return $estimate;
 				echo "<script>
 
 					swal.fire({
-						type:'error',
+						icon:'error',
 						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡Error al escribir el correo!</p></div>',
 						showConfirmButton: true,
 						confirmButtonText: 'Cerrar',
@@ -1306,7 +1306,7 @@ return $estimate;
 					echo "<script>
 
 						swal.fire({
-							type:'success',
+							icon:'success',
 							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡CORRECTO!</h2></div><p class=\"text-primario text-2xl\">¡Los datos han sido actualizados!</p></div>',
 							showConfirmButton: true,
 							confirmButtonText: 'Cerrar',
@@ -1334,7 +1334,7 @@ return $estimate;
 
 					swal.fire({
 
-						type:"error",
+						icon: "error",
 						title: "¡CORREGIR!",
 						text: "¡No se permiten caracteres especiales!",
 						showConfirmButton: true,
@@ -1425,7 +1425,7 @@ return $estimate;
 
 	// 						swal.fire({
 
-	// 							type:"success",
+	// 							icon: "success",
 	// 							title: "REGISTRO EXITOSO",
 	// 							text: "¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!",
 	// 							showConfirmButton: true,
@@ -1466,7 +1466,7 @@ return $estimate;
 				echo "<script>
 
 							swal.fire({
-								type:'warning',
+								icon:'warning',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">Atención</h2></div><p class=\"text-orange-100 text-2xl\">¡Ha seleccionado erroneamente, vuelve a intentarlo!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -1539,7 +1539,7 @@ return $estimate;
 				echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">CAMBIO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡EL PATROCINADOR SE HA CAMBIADO CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -1582,7 +1582,7 @@ return $estimate;
 				echo "<script>
 
 							swal.fire({
-								type:'warning',
+								icon:'warning',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">Atención</h2></div><p class=\"text-orange-100 text-2xl\">¡Ha seleccionado erroneamente, vuelve a intentarlo!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -1840,7 +1840,7 @@ return $estimate;
 				echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">CAMBIO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡EL PATROCINADOR SE HA CAMBIADO CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -1888,7 +1888,7 @@ return $estimate;
 				echo "<script>
 
 							swal.fire({
-								type:'warning',
+								icon:'warning',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">Atención</h2></div><p class=\"text-orange-100 text-2xl\">¡Ha seleccionado erroneamente, vuelve a intentarlo!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
@@ -1977,7 +1977,7 @@ return $estimate;
 				echo "<script>
 
 							swal.fire({
-								type:'success',
+								icon:'success',
 								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">CAMBIO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡EL PATROCINADOR SE HA CAMBIADO CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',

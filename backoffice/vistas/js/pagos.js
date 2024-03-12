@@ -878,7 +878,7 @@ $(".tabla-pagar-comisiones tbody").on("click", "button.btnVerComisiones", functi
 					id=c.toString().replaceAll(",",""); 
 
 
-          swal({
+          swal.fire({
             title: 'Ingrese el código de verificación',
             input: 'text',
             inputAttributes: {
@@ -1101,7 +1101,7 @@ $(".btnPagos").click(function () {
 
     enviarCodigoSmsPagos();
 
-  swal({
+  swal.fire({
     title: 'Ingrese el código de verificación',
     input: 'text',
     inputAttributes: {
@@ -1131,8 +1131,8 @@ $(".btnPagos").click(function () {
 
           }else{
 
-            swal({
-              type: "error",
+            swal.fire({
+              icon: "error",
               title: "¡Código Incorrecto!",
               showConfirmButton: true,
               confirmButtonText: "Cerrar",
@@ -1211,8 +1211,8 @@ $(".btnPagos").click(function () {
       
               if (res.trim() == "ok") {
             
-                swal({
-                  type: "success",
+                swal.fire({
+                  icon: "success",
                   title: "¡Los pagos de "+tipoPago+" seleccionados se han realizado correctamente!",
                   allowOutsideClick: false,
                   showConfirmButton: true,
@@ -1225,8 +1225,8 @@ $(".btnPagos").click(function () {
             
               }else{
       
-                swal({
-                  type: "error",
+                swal.fire({
+                  icon: "error",
                   title: "¡Ha ocurrido un error!",
                   text: "¡Contacte con el administrador o vuelve a intentarlo mas tarde!",
                   showConfirmButton: true,
@@ -1249,8 +1249,8 @@ $(".btnPagos").click(function () {
 
       }else{
 
-        swal({
-          type: "warning",
+        swal.fire({
+          icon: "warning",
           title: "¡Advertencia!",
           text: "¡No ha seleccionado ningún pago!",
           showConfirmButton: true,
@@ -1821,7 +1821,7 @@ function alerta(tipo, titulo, mensaje, redireccion, cerrarClick){
 
   if(mensaje!=null){
 
-  swal({
+  swal.fire({
     type: tipo,
     title: titulo,
     text: mensaje,
@@ -1836,7 +1836,7 @@ function alerta(tipo, titulo, mensaje, redireccion, cerrarClick){
 
 }else{
 
-  swal({
+  swal.fire({
     type: tipo,
     title: titulo,
     showConfirmButton: true,

@@ -356,8 +356,8 @@ $(".suscribirse").click(function () {
 
       if (respuesta == "ok") {
 
-        swal({
-          type: "success",
+        swal.fire({
+          icon: "success",
           title: "¡Se ha registrado correctamente!",
           text: "¡Bienvenido a nuestro programa de afiliados, ahora puede comenzar a ganar dinero con nosotros, visite nuestro plan de compensación!",
           allowOutsideClick: false,
@@ -371,8 +371,8 @@ $(".suscribirse").click(function () {
 
       } else {
 
-        swal({
-          type: "error",
+        swal.fire({
+          icon: "error",
           title: "¡Ha ocurrido un error!",
           text: "¡Contacte con el administrador o vuelve a intentarlo mas tarde!",
           showConfirmButton: true,
@@ -466,8 +466,8 @@ $(".suscribirse").click(function () {
 
 //         if (respuesta == "ok") {
 
-//           swal({
-//             type: "success",
+//           swal.fire({
+//             icon: "success",
 //             title: "¡Se ha registrado correctamente!",
 // 			      allowOutsideClick: false,
 //             showConfirmButton: true,
@@ -482,8 +482,8 @@ $(".suscribirse").click(function () {
 
 //           $(".alert").remove();
 
-//           swal({
-//             type: "error",
+//           swal.fire({
+//             icon: "error",
 //             title: "¡Ha ocurrido un error!",
 //             allowOutsideClick: false,
 //             showConfirmButton: true,
@@ -1087,10 +1087,10 @@ $(".tablaUsuarios tbody").on("click", "button.btnEliminarUsuario", function () {
   var datos = new FormData();
   datos.append("idUsuarioEliminar", idUsuario);
 
-  swal({
+  swal.fire({
     title: "¿Está seguro de borrar el usuario?",
     text: "¡Si no lo está puede cancelar la acción!",
-    type: "warning",
+    icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
@@ -1107,8 +1107,8 @@ $(".tablaUsuarios tbody").on("click", "button.btnEliminarUsuario", function () {
         processData: false,
         success: function (respuesta) {
           if (respuesta == "ok") {
-            swal({
-              type: "success",
+            swal.fire({
+              icon: "success",
               title: "¡OK!",
               text: "¡El usuario se ha eliminado correctamente!",
               showConfirmButton: true,
@@ -1212,8 +1212,8 @@ $(".copiarLinkInicio").click(function () {
 
   temporal.remove();
 
-  swal({
-    type: "success",
+  swal.fire({
+    icon: "success",
     title: "¡Enlace Copiado Correctamente!",
     position: "top-right",
     toast: "true",
@@ -1239,8 +1239,8 @@ $(".copiarCodigoInicio").click(function () {
 
   temporal.remove();
 
-  swal({
-    type: "success",
+  swal.fire({
+    icon: "success",
     title: "¡Código Copiado Correctamente!",
     position: "top-right",
     toast: "true",

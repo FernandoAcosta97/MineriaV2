@@ -128,8 +128,8 @@ if(isset($_GET["pagina"])){
 
 			echo'<script>
 
-					swal({
-							type:"success",
+					swal.fire({
+							icon: "success",
 						  	title: "¡CORRECTO!",
 						  	text: "¡Su cuenta ha sido verificada, ya puede ingresar al sistema!",
 						  	showConfirmButton: true,
