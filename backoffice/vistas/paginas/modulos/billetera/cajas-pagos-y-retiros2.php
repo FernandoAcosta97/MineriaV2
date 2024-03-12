@@ -285,9 +285,20 @@ RETIRAR
 
                   <label for="inputMovil" class="control-label">Teléfono</label>
 
-               <div>
+				  <div class="input-group"> 
 
-					<input type="text" class="form-control" id="inputMovil" name="telefono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+				  <?php 
+					   $t = explode(" ", $usuario["telefono_movil"]);
+					   $indicativo = $t[0];
+					   $telefono = $t[1]."".$t[2]; 
+				?>
+
+			   		   <div class="input-group-prepend">
+                        <span class="p-2 bg-info rounded-left dialCode"><?php echo $indicativo ?></span>
+						<input id="indicativo" type="hidden" name="indicativo">
+                       </div>
+
+					   <input type="text" class="form-control" id="inputMovil" name="telefono" data-inputmask="'mask':'(999) 999-9999'" data-mask required readonly value="<?php echo $telefono ?>">
 
                 </div>
 

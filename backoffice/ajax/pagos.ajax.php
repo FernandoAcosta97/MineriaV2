@@ -33,7 +33,7 @@ class AjaxPagos{
 	}
 
 	/*=============================================
-	Cambiar estado pago inversion
+	Cambiar estado pago inversion con codigo sms
 	=============================================*/	
 
 	public $idPagoInversion;
@@ -43,6 +43,64 @@ class AjaxPagos{
 		$estado = 1;
 
 		$id = $this->idPagoInversion;
+
+		$pago = ControladorPagos::ctrMostrarPagos("id", $id);
+
+		if($pago["estado"]==0){
+
+		$comprobante = ControladorComprobantes::ctrMostrarComprobantes("id", $pago["id_comprobante"]);
+
+		$admin = ControladorUsuarios::ctrMostrarUsuarios("id_usuario", 1);
+
+		$usuario = ControladorUsuarios::ctrMostrarUsuarios("doc_usuario", $comprobante[0]["doc_usuario"]);
+
+		$condicion=ControladorPagos::ctrMostrarCodigoVerificacion(1);
+
+		if($condicion["codigo"]==1){
+
+			$telefono=$admin["telefono_movil"];
+			// Eliminar todos los caracteres que no sean números
+			$numero = preg_replace('/[^0-9]/', '', $telefono);
+			// $sms=ControladorPagos::ctrVerificacionSms($numero);
+			$sms="123";
+
+			$encriptarCodigo = crypt($sms, '$2a$07$asxx54ahjppf45sd87a5a4dDDGmineridev$');
+
+			ControladorPagos::ctrRegistrarCodigoSms(0,$encriptarCodigo);
+
+			echo "codigo ".$id.$estado;
+
+		}else{
+
+			$cuenta = ControladorCuentas::ctrMostrarCuentasxEstado("usuario",$usuario["id_usuario"],"estado",1);
+
+			$datos = array("id" => $id,
+			"estado" => $estado,
+			"id_cuenta" => $cuenta["id"]);
+	
+			return ControladorPagos::ctrActualizarPagoInversion($datos);
+				
+		}
+
+		}else{
+			echo "pagado";
+		}
+
+	}
+
+
+
+	/*=============================================
+	Cambiar estado pago inversion sin codigo sms
+	=============================================*/	
+
+	public $idPagoInversion2;
+
+	public function ajaxEstadoPagoInversion2(){
+
+		$estado = 1;
+
+		$id = $this->idPagoInversion2;
 
 		$pago = ControladorPagos::ctrMostrarPagos("id", $id);
 
@@ -271,7 +329,7 @@ class AjaxPagos{
 	public function ajaxEstadoPagos(){
 
 		$estado = 1;
-		$tipoPago=$this->tipoPago;
+		$tipoPago = $this->tipoPago;
 		$total = 0;
 		$referidos_obtenidos = 0;
 
@@ -365,6 +423,57 @@ class AjaxPagos{
 		}
 
 		return $respuesta;
+
+
+	}
+
+
+
+	/*=============================================
+	Enviar codigo sms varios pagos
+	=============================================*/	
+
+	public function ajaxEnviarCodigoSmsPagos(){
+
+		$admin = ControladorUsuarios::ctrMostrarUsuarios("id_usuario",1);
+
+			$telefono=$admin["telefono_movil"];
+			// Eliminar todos los caracteres que no sean números
+			$numero = preg_replace('/[^0-9]/', '', $telefono);
+			// $sms = ControladorPagos::ctrVerificacionSms($numero);
+			$sms="123";
+
+			$encriptarCodigo = crypt($sms, '$2a$07$asxx54ahjppf45sd87a5a4dDDGmineridev$');
+
+			ControladorPagos::ctrRegistrarCodigoSms(0,$encriptarCodigo);
+
+	}
+
+
+
+	/*=============================================
+	Cambiar estado varios pagos
+	=============================================*/	
+
+	public $codigoSms;
+
+	public function ajaxVerificarCodigoSmsPagos(){
+
+		$codigo = $this->codigoSms;
+
+		$sms=ControladorPagos::ctrMostrarCodigoVerificacion(0);
+
+		$encriptar = crypt($codigo, '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+		if($sms && $encriptar==$sms["codigo"]){
+
+			echo "ok";
+
+		}else{
+			echo "error";
+		}
+        
+		ControladorPagos::ctrEliminarCodigoSms(0);
 
 	}
 
@@ -524,6 +633,32 @@ if(isset($_POST["idsPagos"])){
 	$pago -> idsPagos = $_POST["idsPagos"];
 	$pago -> tipoPago = $_POST["tipoPago"];
 	$pago -> ajaxEstadoPagos();
+
+}
+
+
+
+/*=============================================
+Verificar codigo sms
+=============================================*/	
+
+if(isset($_POST["codigoSms"])){
+
+	$pago = new AjaxPagos();
+	$pago -> codigoSms = $_POST["codigoSms"];
+	$pago -> ajaxVerificarCodigoSmsPagos();
+
+}
+
+
+/*=============================================
+Enviar codigo sms
+=============================================*/	
+
+if(isset($_POST["enviarCodigoSmsPagos"])){
+
+	$pago = new AjaxPagos();
+	$pago -> ajaxEnviarCodigoSmsPagos();
 
 }
 

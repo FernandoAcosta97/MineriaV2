@@ -59,7 +59,7 @@ class ModeloPagos
 
 
 
-       /*=============================================
+    /*=============================================
     Mostrar Codigo verificacion
     =============================================*/
 
@@ -73,6 +73,40 @@ class ModeloPagos
             $stmt->execute();
 
             return $stmt->fetch();
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+    /*=============================================
+    Mostrar Funcionalidades
+    =============================================*/
+
+    public static function mdlMostrarFuncionalidades($tabla, $item, $valor)
+    {
+
+        if($item != null && $valor != null){
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+            $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+
+        }else{
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+
+        }
 
         $stmt->close();
 
@@ -1790,11 +1824,11 @@ class ModeloPagos
     public static function mdlActualizarPagoInversion($tabla, $datos)
     {
 
-        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET estado = :estado, id_cuenta = :id_cuenta, fecha = :fecha WHERE id = :id");
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET estado = :estado, id_cuenta = :id_cuenta WHERE id = :id");
 
         $stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_INT);
         $stmt->bindParam(":id_cuenta", $datos["id_cuenta"], PDO::PARAM_INT);
-        $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+        // $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
         if ($stmt->execute()) {

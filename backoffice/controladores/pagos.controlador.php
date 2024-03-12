@@ -15,7 +15,7 @@ class ControladorPagos
 
         if(isset($_POST["telefono"]) && $_POST["telefono"]!=""){
 
-        if(isset($_POST["valor"]) && $_POST["valor"]<=$disponible){
+        if(isset($_POST["valor"]) && $_POST["valor"]<=$disponible && $_POST["valor"]>0){
 
             $usuario=ControladorUsuarios::ctrMostrarUsuarios("id_usuario",$id_usuario);
 
@@ -35,12 +35,12 @@ class ControladorPagos
 
                 echo "<script>
 
-							swal.fire({
-                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-user-secret\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">Ingrese el código de verificación</h2></div></div>',
-                                showConfirmButton: true,
+							swal({
+                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-user-secret\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">Ingrese el código de verificación</h2></div></div>',
+                showConfirmButton: true,
 								showCancelButton: true,
-                                confirmButtonText: 'Aceptar',
-                                buttonsStyling: false,
+                confirmButtonText: 'Aceptar',
+                buttonsStyling: false,
 								showLoaderOnConfirm: true,
 								input: 'text',
 								inputAttributes: {
@@ -80,7 +80,7 @@ class ControladorPagos
 
                 echo "<script>
 
-                            swal.fire({
+                            swal({
                                 type:'success',
                                 html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡Se ha generado su solicitud con éxito!</h2></div></div>',
                                 showConfirmButton: true,
@@ -107,11 +107,12 @@ class ControladorPagos
         
     }else{
 
+
         echo "<script>
 
-        swal.fire({
+        swal({
             type:'warning',
-            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">¡Valor incorrecto!</h2></div></div>',
+            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">¡Saldo Insuficiente!</h2></div></div>',
             showConfirmButton: true,
             confirmButtonText: 'Cerrar',
             buttonsStyling: false,
@@ -310,6 +311,107 @@ class ControladorPagos
 	}
 
 
+
+
+    public function ctrVerificarCodigoIngresadoSmsPagos(){
+
+		if(isset($_GET["codigo"]) && isset($_GET["id"]) && isset($_GET["estado"])){
+
+            $pago = ControladorPagos::ctrMostrarPagos("id", $_GET["id"]);
+
+            $comprobante = ControladorComprobantes::ctrMostrarComprobantes("id", $pago["id_comprobante"]);
+
+            $usu = ControladorUsuarios::ctrMostrarUsuarios("doc_usuario", $comprobante[0]["doc_usuario"]);
+
+			if($usu){
+
+				$sms=ControladorPagos::ctrMostrarCodigoVerificacion(0);
+
+				$encriptar = crypt($_GET["codigo"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+			if($sms && $encriptar==$sms["codigo"]){
+
+                $cuenta = ControladorCuentas::ctrMostrarCuentasxEstado("usuario",$usu["id_usuario"],"estado",1);
+
+                $datos = array("id" => $_GET["id"],
+                "estado" => $_GET["estado"],
+                "id_cuenta" => $cuenta["id"]);
+        
+                $respuesta = ControladorPagos::ctrActualizarPagoInversion($datos); 
+                
+                if($respuesta=="ok" || $respuesta==NULL){
+        
+                    echo '<script>
+        
+                                swal({
+                                      type: "success",
+                                      title: "¡El pago se ha realizado correctamente!",
+                                      showConfirmButton: true,
+                                      confirmButtonText: "Cerrar"
+                                      }).then(function(result){
+                                                if (result.value) {
+            
+                                                window.location="pagos-inversiones"
+                                                }
+                                            })
+            
+                                </script>';
+        
+                }else{
+
+                    echo "<script>
+                    swal({
+                        type:'error',
+                          title: '¡Error!',
+                          text: '¡Contacte con el administrador!',
+                          showConfirmButton: true,
+                        confirmButtonText: 'Cerrar'
+                      
+                }).then(function(result){
+                    window.location='pagos-inversiones';
+                });
+                </script>";
+
+                }
+		
+
+			}else{
+
+				echo "<script>
+				swal({
+					type:'error',
+					  title: '¡Error!',
+					  text: '¡El código es incorrecto!',
+					  showConfirmButton: true,
+					confirmButtonText: 'Cerrar'
+				  
+			}).then(function(result){
+				window.location='pagos-inversiones';
+			});
+			</script>";
+
+			}
+
+		}else{
+			echo "<script>
+			swal({
+				type:'error',
+				  title: '¡Error!',
+				  text: '¡Intentelo de nuevo!',
+				  showConfirmButton: true,
+				confirmButtonText: 'Cerrar'
+			  
+		}).then(function(result){
+			window.location='pagos-inversiones';
+		});
+		</script>";
+		}
+		ControladorPagos::ctrEliminarCodigoSms(0);
+		}
+
+	}
+
+
     /*=============================================
 	Mostrar Codigo Verificacion
 	=============================================*/
@@ -319,6 +421,22 @@ class ControladorPagos
 		$tabla = "verificacion";
 
 		$respuesta = ModeloPagos::mdlMostrarCodigoVerificacion($valor);
+
+		return $respuesta;
+
+	}
+
+
+
+    /*=============================================
+	Mostrar Funcionalidad
+	=============================================*/
+
+	static public function ctrMostrarFuncionalidades($item, $valor){
+	
+		$tabla = "funcionalidades";
+
+		$respuesta = ModeloPagos::mdlMostrarFuncionalidades($tabla, $item, $valor);
 
 		return $respuesta;
 

@@ -72,6 +72,26 @@ class ModeloCampanas
 
 
     /*=============================================
+    Mostrar Solo 3 Campañas Activas
+    =============================================*/
+
+    public static function mdlMostrarCampanasLimitActivas($tabla)
+    {
+
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estado=1 AND tipo=1 ORDER BY 'fecha_inicio' ASC LIMIT 3");
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+        $stmt->close();
+
+        $stmt = null;
+    }
+
+
+
+    /*=============================================
     Mostrar Campanas x Estado
     =============================================*/
 

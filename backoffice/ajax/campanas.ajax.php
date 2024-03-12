@@ -42,16 +42,30 @@ class AjaxCampanas{
 
 		$id = $this->activarIdCampana;
 
-		$inversiones = ControladorCampanas::ctrMostrarComprobantesCampanaDoc("id", $id);
+		$campanas = ControladorCampanas::ctrMostrarCampanasLimitActivas();
+
+		foreach($campanas as $key => $value){
+
+		if((count($campanas)==1 && $valor==0 && $value["id"]==$id) || (count($campanas)==3) && $valor==1){
+
+		echo "error";
+		break;
+
+		}else{
+		
+		// $inversiones = ControladorCampanas::ctrMostrarComprobantesCampanaDoc("id", $id);
 		// print_r($inversiones); 
 
 		$respuesta = ModeloCampanas::mdlActualizarCampana($tabla, $id, $item, $valor);
 
-		foreach($inversiones as $key => $value){
+		echo "ok";
 
-			$usuario = ControladorUsuarios::ctrMostrarUsuarios("doc_usuario",$value["doc_usuario"]);
-			// print_r($usuario); 
-			$comprobantesUsuario = ControladorComprobantes::ctrMostrarComprobantesxEstadoxCampana("doc_usuario",$value["doc_usuario"],"estado",1,"estado",1);
+		// foreach($inversiones as $key => $value){
+
+		// 	$usuario = ControladorUsuarios::ctrMostrarUsuarios("doc_usuario",$value["doc_usuario"]);
+		// 	// print_r($usuario); 
+		// 	$comprobantesUsuario = ControladorComprobantes::ctrMostrarComprobantesxEstadoxCampana("doc_usuario",$value["doc_usuario"],"estado",1,"estado",1);
+
 
 			// if($usuario["operando"]==0 && count($comprobantesUsuario)>0){
 			// 	$operando = ControladorUsuarios::ctrActualizarUsuario($usuario["id_usuario"],"operando",1);
@@ -59,7 +73,10 @@ class AjaxCampanas{
 			// 	$operando = ControladorUsuarios::ctrActualizarUsuario($usuario["id_usuario"],"operando",0);
 			// }
 
-		}
+		// }
+
+	}
+}
 
 	}
 

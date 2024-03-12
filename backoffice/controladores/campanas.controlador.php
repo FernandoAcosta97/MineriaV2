@@ -309,6 +309,22 @@ Class ControladorCampanas{
 	}
 
 
+
+	/*=============================================
+	Mostrar Solo 3 Campañas activas
+	=============================================*/
+
+	static public function ctrMostrarCampanasLimitActivas(){
+	
+		$tabla = "campanas";
+
+		$respuesta = ModeloCampanas::mdlMostrarCampanasLimitActivas($tabla);
+
+		return $respuesta;
+		
+	}
+
+
 	/*=============================================
 	Mostrar Campanas x Estado
 	=============================================*/

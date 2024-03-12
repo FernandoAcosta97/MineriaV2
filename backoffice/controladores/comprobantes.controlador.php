@@ -196,13 +196,13 @@ class ControladorComprobantes
 
         if (isset($_POST["id_campana"])) {
 
-            if($_POST["billeteras"]==1 && $saldo_cop<$_POST["registrarValor"] || $_POST["billeteras"]==2 && $saldo_crypto<$_POST["registrarValor"]){
+            if(($_POST["billeteras"]==1 && $saldo_cop<$_POST["registrarValor"]) || ($_POST["billeteras"]==2 && $saldo_crypto<$_POST["registrarValor"]) || $_POST["registrarValor"] <= 0){
 
                 echo "<script>
 
-                swal.fire({
+                swal({
                     type:'warning',
-                    html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">¡Valor incorrecto!</h2></div></div>',
+                    html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">¡Saldo Insuficiente!</h2></div></div>',
                     showConfirmButton: true,
                     confirmButtonText: 'Cerrar',
                     buttonsStyling: false,
@@ -215,6 +215,7 @@ class ControladorComprobantes
 
                         }
                     })
+
         
                 </script>";
 

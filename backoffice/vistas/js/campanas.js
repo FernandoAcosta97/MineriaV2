@@ -20,10 +20,10 @@ $("#billeteras").on("change",function () {
 	  $(".invertir_transferencia").html("");
 	}
 
-	if(seleccionado==4){
-		$("#registrarValor").css("display","none");
+	// if(seleccionado==4){
+	// 	$("#registrarValor").css("display","none");
 		
-	}
+	// }
 	
 
   
@@ -336,6 +336,29 @@ $(".tablaCampanas tbody").on("change","select.selectActiva",function(){
       processData: false,
       success: function(respuesta){
 
+		if(respuesta=="error"){
+
+			swal({
+
+				type:"warning",
+				title: "¡ADVERTENCIA!",
+				text: "El número de campañas activas debe ser mínimo 1 y máximo 3",
+				showConfirmButton: true,
+				confirmButtonText: "Cerrar"
+
+			}).then(function(result){
+
+				if(result.value){
+
+					window.location="campanas";
+
+				}
+
+
+			});
+
+		}
+
       }
 
   	})
@@ -629,6 +652,14 @@ $(".tablaCampanas").on("click","button.btnInvertir",function(){
 
 	 var idCampana = $(this).attr("idCampana");
 	 $("#id_campana").val(idCampana);
+
+});
+
+
+$(".planesMinado").on("click","button.btnInvertir",function(){
+
+	var idCampana = $(this).attr("idCampana");
+	$("#id_campana").val(idCampana);
 
 });
 

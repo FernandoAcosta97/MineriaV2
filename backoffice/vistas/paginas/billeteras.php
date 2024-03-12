@@ -10,7 +10,7 @@ $retiro -> ctrVerificarCodigoIngresadoSms()
   
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    
+
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
@@ -40,7 +40,7 @@ $retiro -> ctrVerificarCodigoIngresadoSms()
             });
         </script>
 
-        </div>
+      </div>
 
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -64,9 +64,8 @@ $retiro -> ctrVerificarCodigoIngresadoSms()
   </section>
 
   <section class="content">
-    
-    <div class="container-fluid">
 
+  <div class="container-fluid">
       <?php  
 
       include "modulos/billetera/cajas-pagos-y-retiros.php"; 
@@ -75,10 +74,11 @@ $retiro -> ctrVerificarCodigoIngresadoSms()
 
       ?>
 
-    </div>
+</div>
 
   </section>
 
 </div>
+    
 
 
