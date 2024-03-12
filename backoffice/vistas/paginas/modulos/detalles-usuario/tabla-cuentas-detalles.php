@@ -164,8 +164,7 @@ EDITAR CUENTA
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Editar cuenta</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Editar cuenta</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -268,8 +267,7 @@ EDITAR CUENTA
 
         	<div>
 	        	
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>

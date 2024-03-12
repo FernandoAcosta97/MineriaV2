@@ -36,10 +36,10 @@
 
 			<div class="text-center">
 				<!-- <?php if($usuario["perfil"]!="admin"): ?>
-				<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#cambiarFoto">Cambiar foto</button>
+				<button class="btn bg-primario text-white btn-sm" data-toggle="modal" data-target="#cambiarFoto">Cambiar foto</button>
 				<?php endif ?> -->
 				<?php if($usuario["perfil"]!="admin"): ?>
-				<button class="btn btn-primary btn-sm" data-toggle="modal" id="actualizarDatos" data-target="#modalActualizarDatos" idUsuario="<?php echo $usuario["id_usuario"] ?>">Actualizar datos</button>
+				<button class="btn bg-primario text-white btn-sm" data-toggle="modal" id="actualizarDatos" data-target="#modalActualizarDatos" idUsuario="<?php echo $usuario["id_usuario"] ?>">Actualizar datos</button>
 				<?php endif ?>
 				<button class="btn btn-purple btn-sm" data-toggle="modal" data-target="#cambiarPassword">Cambiar contraseña</button>
 
@@ -69,8 +69,7 @@ Cambiar foto perfil
     	<form method="post" enctype="multipart/form-data">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Cambiar imagen</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Cambiar imagen</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -101,8 +100,7 @@ Cambiar foto perfil
 
         	<div>
 	        	
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -133,8 +131,7 @@ Cambiar Contraseña
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Cambiar contraseña</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Cambiar contraseña</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -162,8 +159,7 @@ Cambiar Contraseña
 
         	<div>
 	        	
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -196,8 +192,7 @@ Actualizar Datos nombre y telefono
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Actualizar mis datos</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Actualizar mis datos</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -244,8 +239,7 @@ Actualizar Datos nombre y telefono
 
         	<div>
 	        	
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>

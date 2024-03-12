@@ -173,8 +173,7 @@ EDITAR USUARIO
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Editar usuario</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Editar usuario</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -304,8 +303,7 @@ EDITAR USUARIO
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -335,8 +333,7 @@ VER DETALLES CAMPAÑA RECURRENCIA
     <div class="modal-content">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Afiliados operantes</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Afiliados operantes</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -396,8 +393,7 @@ REGISTRO USUARIO MANUAL
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Registrar Usuario</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Registrar Usuario</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 

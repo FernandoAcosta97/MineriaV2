@@ -57,7 +57,7 @@ foreach ($pagos as $key => $value) {
 
 	</div> -->
 
-	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-primario text-white hover:scale-105 transition inner-shadow">
         <div class="flex justify-end">
             <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
                 <p class="font-bold text-6xl">$</p>
@@ -71,7 +71,7 @@ foreach ($pagos as $key => $value) {
                 </div>
                 <div class="flex justify-center items-center">
                     <div class=" h-[122px]">
-						<i class="fas fa-dollar-sign text-[102px] text-primario"></i>
+						<img src="vistas/img/cajero-automatico.png" alt="retiro de dinero">
 					</div>
                 </div>
             </div>
@@ -102,7 +102,7 @@ foreach ($pagos as $key => $value) {
 
 	</div> -->
 
-	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-[#694ED9] hover:scale-105 transition inner-shadow">
         <div class="flex justify-end">
             <div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
                 <p class="font-bold text-6xl">$</p>
@@ -116,7 +116,7 @@ foreach ($pagos as $key => $value) {
                 </div>
                 <div class="flex justify-center items-center">
                     <div class=" h-[122px]">
-						<i class="fas fa-wallet text-[102px] text-purple-500"></i>
+						<img src="vistas/img/transferencia-de-dinero.png" alt="transferencia de dinero">
 					</div>
                 </div>
             </div>

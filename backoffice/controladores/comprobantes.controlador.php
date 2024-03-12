@@ -198,20 +198,26 @@ class ControladorComprobantes
 
             if(($_POST["billeteras"]==1 && $saldo_cop<$_POST["registrarValor"]) || ($_POST["billeteras"]==2 && $saldo_crypto<$_POST["registrarValor"]) || $_POST["registrarValor"] <= 0){
 
-                echo '<script>
+                echo "<script>
 
                 swal({
-                      type: "warning",
-                      title: "Saldo Insuficiente!",
-                      showConfirmButton: true,
-                      confirmButtonText: "Cerrar"
-                      }).then(function(result){
-                                if (result.value) {
+                    type:'warning',
+                    html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-light fa-brake-warning text-orange-100\"></i><h2 class=\"text-4xl\">¡Saldo Insuficiente!</h2></div></div>',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Cerrar',
+                    buttonsStyling: false,
+                    customClass: {
+                        popup: 'border-orange-100 border-2 p-4 rounded-3xl',
+                        confirmButton: 'text-white bg-orange-100 hover:bg-orange-300 hover:text-white px-4 py-1 border-0 rounded-lg',
+                    }
+                    }).then(function(result){
+                        if (result.value) {
+
+                        }
+                    })
+
         
-                                }
-                            })
-        
-                </script>';
+                </script>";
 
             }else{
 
@@ -328,41 +334,48 @@ class ControladorComprobantes
                     }
 
 
-                        echo '<script>
+                        echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "¡COMPROBANTE REGISTRADO CORRECTAMENTE!",
-								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+							swal.fire({
+                                type:'success',
+                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡COMPROBANTE REGISTRADO CORRECTAMENTE!</h2></div></div>',
+                                showConfirmButton: true,
+                                confirmButtonText: 'Cerrar',
+                                buttonsStyling: false,
+                                customClass: {
+                                    popup: 'border-primario border-2 p-4 rounded-3xl',
+                                    confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                }
 
 							}).then(function(result){
 
 								if(result.value){
 
-                                   window.location = "'.$dir.'";
+                                   window.location = \"'.$dir.'\";
 								}
 
 
 							});
 
-						</script>';
+						</script>";
            
 
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡No se permiten caracteres especiales en ninguno de los campos!",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+					swal.fire({
+                        type:'error',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
 
 					}).then(function(result){
 
@@ -375,7 +388,7 @@ class ControladorComprobantes
 
 					});
 
-				</script>';
+				</script>";
 
             }
         }
@@ -751,37 +764,46 @@ class ControladorComprobantes
                         $dir = "cuentas-bancarias";
 
                     }else if($campana["tipo"]==3){
-                         
                         $dir = "comprobantes-publicidad";
                     }
 
-                    echo '<script>
+                    echo "<script>
 
-                        swal({
-                              type: "success",
-                              title: "El comprobantes ha sido editado correctamente",
-                              showConfirmButton: true,
-                              confirmButtonText: "Cerrar"
-                              }).then(function(result){
+                        swal.fire({
+                            type:'success',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">El comprobantes ha sido editado correctamente</h2></div></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-primario border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
+                            }).then(function(result){
                                         if (result.value) {
     
-                                        window.location = "'.$dir.'";
+                                        window.location = \"'.$dir.'\";
     
                                         }
                                     })
     
-                        </script>';
+                        </script>";
 
             
                 }else{
-                    echo '<script>
+                    echo "<script>
 
-                    swal({
-                          type: "error",
-                          title: "Ha ocurrido un error",
-                          showConfirmButton: true,
-                          confirmButtonText: "Cerrar"
-                          }).then(function(result){
+                    swal.fire({
+                        type:'error',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">Ha ocurrido un error</h2></div></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
+                        }).then(function(result){
                                     if (result.value) {
 
                                     
@@ -789,19 +811,24 @@ class ControladorComprobantes
                                     }
                                 })
 
-                    </script>';
+                    </script>";
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-						  type: "error",
-						  title: "¡El nombre no puede ir vacío o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+					swal.fire({
+                        type:'error',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡El nombre no puede ir vacío o llevar caracteres especiales!</h2></div></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
+						}).then(function(result){
 							if (result.value) {
 
 							
@@ -809,7 +836,7 @@ class ControladorComprobantes
 							}
 						})
 
-			  	</script>';
+			    </script>";
 
             }
 
@@ -855,45 +882,53 @@ class ControladorComprobantes
 
                     if ($respuesta["verificacion"] == 0) {
 
-                        echo '<script>
+                        echo "<script>
 
-							swal({
-									type:"error",
-								  	title: "¡ERROR!",
-								  	text: "¡El correo electrónico aún no ha sido verificado, por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para verificar la cuenta, o contáctese con nuestro soporte admin@trading.com!",
-								  	showConfirmButton: true,
-									confirmButtonText: "Cerrar"
+							swal.fire({
+                                type:'error',
+                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡El correo electrónico aún no ha sido verificado, por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para verificar la cuenta, o contáctese con nuestro soporte admin@trading.com!</p></div>',
+                                showConfirmButton: true,
+                                confirmButtonText: 'Cerrar',
+                                buttonsStyling: false,
+                                customClass: {
+                                    popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                    confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                }
 
 							}).then(function(result){
 
 									if(result.value){
 									    history.back();
-									  }
+									}
 							});
 
-						</script>';
+						</script>";
 
                         return;
 
                     } else if ($respuesta["estado"] == 0) {
 
-                        echo '<script>
+                        echo "<script>
 
-						   swal({
-								   type:"warning",
-									 title: "¡Advertencia!",
-									 text: "¡Su cuenta se encuentra desactivada, contáctese con nuestro soporte admin@trading.com!",
-									 showConfirmButton: true,
-								   confirmButtonText: "Cerrar"
+						    swal.fire({
+                                type:'error',
+                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡Advertencia!</h2></div><p class=\"text-red-500 text-2xl\">¡Su cuenta se encuentra desactivada, contáctese con nuestro soporte admin@trading.com!</p></div>',
+                                showConfirmButton: true,
+                                confirmButtonText: 'Cerrar',
+                                buttonsStyling: false,
+                                customClass: {
+                                    popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                    confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                }
 
-						   }).then(function(result){
+					        }).then(function(result){
 
-								   if(result.value){
-									   history.back();
-									 }
-						   });
+                                    if(result.value){
+                                        history.back();
+									}
+						    });
 
-					   </script>';
+					    </script>";
 
                         return;
 
@@ -914,37 +949,44 @@ class ControladorComprobantes
 
                 } else {
 
-                    echo '<script>
+                    echo "<script>
 
-						swal({
-								type:"error",
-							  	title: "¡ERROR!",
-							  	text: "¡El email o contraseña no coinciden!",
-							  	showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+						swal.fire({
+                            type:'error',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡El email o contraseña no coinciden!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						}).then(function(result){
 
 								if(result.value){
 								    history.back();
-								  }
+								}
 						});
 
-					</script>';
+					</script>";
 
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡No se permiten caracteres especiales en ninguno de los campos!",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+					swal.fire({
+                        type:'error',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
 
 					}).then(function(result){
 
@@ -956,7 +998,7 @@ class ControladorComprobantes
 
 					});
 
-				</script>';
+				</script>";
 
             }
 
@@ -1044,23 +1086,27 @@ class ControladorComprobantes
 
                 } else {
 
-                    echo '<script>
+                    echo "<script>
 
-						swal({
-								type:"error",
-							  	title: "¡CORREGIR!",
-							  	text: "¡No se permiten formatos diferentes a JPG y/o PNG!",
-							  	showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+						swal.fire({
+                            type:'error',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten formatos diferentes a JPG y/o PNG!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						}).then(function(result){
 
 								if(result.value){
 								    history.back();
-								  }
+								}
 						});
 
-					</script>';
+					</script>";
 
                 }
 
@@ -1077,23 +1123,27 @@ class ControladorComprobantes
 
             if ($respuesta == "ok") {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-						type:"success",
-					  	title: "¡CORRECTO!",
-					  	text: "¡La foto de perfil ha sido actualizada!",
-					  	showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+					swal.fire({
+                        type:'success',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡CORRECTO!</h2></div><p class=\"text-primario text-2xl\">¡La foto de perfil ha sido actualizada!</p></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-primario border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
 
 					}).then(function(result){
 
 							if(result.value){
 							    history.back();
-							  }
+							}
 					});
 
-				</script>';
+				</script>";
 
             }
 
@@ -1123,37 +1173,44 @@ class ControladorComprobantes
 
                 if ($respuesta == "ok") {
 
-                    echo '<script>
+                    echo "<script>
 
-						swal({
-							type:"success",
-						  	title: "¡CORRECTO!",
-						  	text: "¡La contraseña ha sido actualizada!",
-						  	showConfirmButton: true,
-							confirmButtonText: "Cerrar"
+						swal.fire({
+                            type:'success',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡CORRECTO!</h2></div><p class=\"text-primario text-2xl\">¡La contraseña ha sido actualizada!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-primario border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						}).then(function(result){
 
 								if(result.value){
 								    history.back();
-								  }
+								}
 						});
 
-					</script>';
+					</script>";
 
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡No se permiten caracteres especiales en la contraseña!",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+					swal.fire({
+                        type:'error',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en la contraseña!</p></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
 
 					}).then(function(result){
 
@@ -1165,7 +1222,7 @@ class ControladorComprobantes
 
 					});
 
-				</script>';
+				</script>";
 
             }
 
@@ -1295,52 +1352,50 @@ class ControladorComprobantes
                         if (!$envio) {
 
                             echo '<script>
-
-								swal({
-
-									type:"error",
-									title: "¡ERROR!",
-									text: "¡¡Ha ocurrido un problema enviando verificación de correo electrónico a ' . $traerUsuario["email"] . ' ' . $mail->ErrorInfo . ', por favor inténtelo nuevamente",
-									showConfirmButton: true,
-									confirmButtonText: "Cerrar"
-
-								}).then(function(result){
-
-									if(result.value){
-
-										history.back();
-
-									}
-
-
-								});
-
-							</script>';
+                                swal.fire({
+                                    type: "error",
+                                    html: "<div class=\'flex flex-col gap-4\'><div><i class=\'fa-solid fa-triangle-exclamation text-red-500 text-6xl\'></i><h2 class=\'text-4xl\'>¡ERROR!</h2></div><p class=\'text-red-500 text-2xl\'>¡¡Ha ocurrido un problema enviando verificación de correo electrónico a ' . $traerUsuario['email'] . ' ' . $mail->ErrorInfo . ', por favor inténtelo nuevamente!!</p></div>",
+                                    showConfirmButton: true,
+                                    confirmButtonText: "Cerrar",
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        popup: "border-red-500 border-2 p-4 rounded-3xl",
+                                        confirmButton: "text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg",
+                                    }
+                                }).then(function(result){
+                                    if(result.value){
+                                        history.back();
+                                    }
+                                });    
+                            </script>';
 
                         } else {
 
-                            echo '<script>
+                            echo "<script>
 
-								swal({
-
-									type:"success",
-									title: "¡SU NUEVA CONTRASEÑA HA SIDO ENVIADA!",
-									text: "¡Por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para tomar la nueva contraseña!",
-									showConfirmButton: true,
-									confirmButtonText: "Cerrar"
+								swal.fire({
+                                    type:'success',
+                                    html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡SU NUEVA CONTRASEÑA HA SIDO ENVIADA!</h2></div><p class=\"text-primario text-2xl\">¡Por favor revise la bandeja de entrada o la carpeta SPAM de su correo electrónico para tomar la nueva contraseña!</p></div>',
+                                    showConfirmButton: true,
+                                    confirmButtonText: 'Cerrar',
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        popup: 'border-primario border-2 p-4 rounded-3xl',
+                                        confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                    }
 
 								}).then(function(result){
 
 									if(result.value){
 
-										window.location = "' . $ruta . 'ingreso";
+										window.location = \"' . $ruta . 'ingreso\";
 
 									}
 
 
 								});
 
-							</script>';
+							</script>";
 
                         }
 
@@ -1348,37 +1403,44 @@ class ControladorComprobantes
 
                 } else {
 
-                    echo '<script>
+                    echo "<script>
 
-						swal({
-							type:"error",
-						  	title: "¡ERROR!",
-						  	text: "¡El correo no existe en el sistema, puede registrase nuevamente con ese correo!",
-						  	showConfirmButton: true,
-							confirmButtonText: "Cerrar"
+						swal.fire({
+                            type:'error',
+                            html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡El correo no existe en el sistema, puede registrase nuevamente con ese correo!</p></div>',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Cerrar',
+                            buttonsStyling: false,
+                            customClass: {
+                                popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                                confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                            }
 
 						}).then(function(result){
 
 								if(result.value){
 								    history.back();
-								  }
+								}
 						});
 
-					</script>';
+					</script>";
 
                 }
 
             } else {
 
-                echo '<script>
+                echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡Error al escribir el correo!",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+					swal.fire({
+                        type:'error',
+                        html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡Error al escribir el correo!</p></div>',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'border-red-500 border-2 p-4 rounded-3xl',
+                            confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                        }
 
 					}).then(function(result){
 
@@ -1390,7 +1452,7 @@ class ControladorComprobantes
 
 					});
 
-				</script>';
+				</script>";
 
             }
 
@@ -1457,28 +1519,31 @@ class ControladorComprobantes
                 $respuesta = ModeloUsuarios::mdlRegistrarCuentaBancaria($tabla, $datos);
 
                 if ($respuesta == "ok") {
-                    echo '<script>
+                    echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "REGISTRO EXITOSO",
-								text: "¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!",
-								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+							swal.fire({
+                                type:'success',
+                                html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">REGISTRO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!</p></div>',
+                                showConfirmButton: true,
+                                confirmButtonText: 'Cerrar',
+                                buttonsStyling: false,
+                                customClass: {
+                                    popup: 'border-primario border-2 p-4 rounded-3xl',
+                                    confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+                                }
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "perfil";
+									window.location = 'perfil';
 
 								}
 
 
 							});
 
-						</script>';
+						</script>";
                 }
 
             }

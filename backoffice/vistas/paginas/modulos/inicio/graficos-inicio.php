@@ -1,12 +1,24 @@
+    <div class="card-header rounded bg-primario text-white text-white mx-[7.5px]">
+        <h3 class="card-title">Mineria de Criptomonedas</h3>
+    </div>
     <section class="content content-inicio">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">Mineria de Criptomonedas</h3>
-                        </div>
-                        <div class="card-body table-responsive p-0">
+                        
+                        <div class="card-body table-responsive p-0 rounded">
+                            <style>
+                                .table-striped tbody tr:nth-child(odd) { 
+                                    background-color: #5EE2FF; 
+                                }
+                                .table-striped tbody tr:nth-child(even) { 
+                                    background-color: #FFFFFF; 
+                                }
+                                .table-striped thead { 
+                                    background-color: #0596f2; /* Cambia esto por el color que prefieras */
+                                }
+                            </style>
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>

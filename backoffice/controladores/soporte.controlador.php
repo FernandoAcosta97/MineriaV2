@@ -116,23 +116,27 @@ class ControladorSoporte{
 
 						else{
 
-							echo'<script>
+							echo"<script>
 
-								swal({
-										type:"error",
-									  	title: "¡CORREGIR!",
-									  	text: "¡No se permiten formatos diferentes a JPG, PNG, EXCEL, WORD o PDF!",
-									  	showConfirmButton: true,
-										confirmButtonText: "Cerrar"
-									  
+								swal.fire({
+									type:'error',
+									html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten formatos diferentes a JPG, PNG, EXCEL, WORD o PDF!</p></div>',
+									showConfirmButton: true,
+									confirmButtonText: 'Cerrar',
+									buttonsStyling: false,
+									customClass: {
+										popup: 'border-red-500 border-2 p-4 rounded-3xl',
+										confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+									}
+									
 								}).then(function(result){
 
 										if(result.value){   
-										    window.location = "'.$url.'backoffice/soporte";
-										  } 
+										    window.location = \"'.$url.'backoffice/soporte\";
+										} 
 								});
 
-							</script>';
+							</script>";
 
 						}
 						
@@ -234,45 +238,52 @@ class ControladorSoporte{
 
 					//notificaciones = "tipo:soporte", "id_user_not:$_POST["receptor"]"
 
-					echo'<script>
+					echo"<script>
 
-						swal({
-								type:"success",
-							  	title: "¡SU TICKET HA SIDO CORRECTAMENTE ENVIADO!",
-							  	text: "¡Muy pronto nos comunicaremos con usted!",
-							  	showConfirmButton: true,
-								confirmButtonText: "Cerrar"
-							  
+						swal.fire({
+							type:'success',
+							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡SU TICKET HA SIDO CORRECTAMENTE ENVIADO!</h2></div><p class=\"text-primario text-2xl\">¡Muy pronto nos comunicaremos con usted!</p></div>',
+							showConfirmButton: true,
+							confirmButtonText: 'Cerrar',
+							buttonsStyling: false,
+							customClass: {
+								popup: 'border-primario border-2 p-4 rounded-3xl',
+								confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+							}
 						}).then(function(result){
 
 								if(result.value){   
-								    window.location = "'.$url.'backoffice/soporte";
-								  } 
+								    window.location = \"'.$url.'backoffice/soporte\";
+								} 
 						});
 
-					</script>';
+					</script>";
 
 				}				
 
 			}else{
 
-				echo'<script>
+				echo"<script>
 
-					swal({
-							type:"error",
-						  	title: "¡CORREGIR!",
-						  	text: "¡No se permiten caracteres especiales en ninguno de los campos!",
-						  	showConfirmButton: true,
-							confirmButtonText: "Cerrar"
-						  
+					swal.fire({
+						type:'error',
+						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
+						showConfirmButton: true,
+						confirmButtonText: 'Cerrar',
+						buttonsStyling: false,
+						customClass: {
+							popup: 'border-red-500 border-2 p-4 rounded-3xl',
+							confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+						}
+						
 					}).then(function(result){
 
 							if(result.value){   
-							    window.location = "'.$url.'backoffice/soporte";
-							  } 
+							    window.location = \"'.$url.'backoffice/soporte\";
+							} 
 					});
 
-				</script>';
+				</script>";
 
 			}
 

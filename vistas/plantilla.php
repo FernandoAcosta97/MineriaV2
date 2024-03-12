@@ -43,6 +43,7 @@ Enlace de afiliado
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://kit.fontawesome.com/22923d6853.js" crossorigin="anonymous"></script>
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -77,7 +78,8 @@ Enlace de afiliado
 
 	<!-- SWEET ALERT 2 -->	
 	<!-- https://sweetalert2.github.io/ -->
-	<script src="js/plugins/sweetalert2.all.js"></script>
+	<!-- <script src="js/plugins/sweetalert2.all.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<script src="https://cdn.tailwindcss.com"></script>
 	<script>
@@ -236,7 +238,7 @@ if(isset($_GET["pagina"])){
 	<p>Este sitio web utiliza cookies para garantizar que obtenga la mejor experiencia al navegar nuestro sitio.
 	<a href="<?php echo $ruta; ?>politicas-de-privacidad.pdf" target="_blank">Leer más</a>
 	</p>
-	<button class="btn btn-info btn-sm px-5">Ok</button>
+	<button class="btn btn-info btn-sm px-5 bg-primario text-white hover:bg-blue-400">Ok</button>
 
 </div>
 

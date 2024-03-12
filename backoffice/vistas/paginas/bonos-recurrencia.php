@@ -112,8 +112,7 @@ EDITAR CAMPAÑA
     	<form class="formularioCrearRecurrenciaEditar" method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Editar campaña</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Editar campaña</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -215,8 +214,7 @@ EDITAR CAMPAÑA
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -251,8 +249,7 @@ REGISTRAR CAMPAÑA
     	<form class="formularioCrearRecurrencia" method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Registrar Bono recurrencia</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Registrar Bono recurrencia</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -354,8 +351,7 @@ REGISTRAR CAMPAÑA
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -388,8 +384,7 @@ VER DETALLES CAMPAÑA RECURRENCIA
     <div class="modal-content">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Detalles Recurrencia</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Detalles Recurrencia</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 

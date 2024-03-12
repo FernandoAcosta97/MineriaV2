@@ -29,7 +29,49 @@ foreach ($pagos as $key => $value) {
 
 <div class="row">
 
-	<div class="col-12 col-sm-6 col-lg-3">
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-primario text-white hover:scale-105 transition inner-shadow">
+		<div class="flex justify-end">
+			<div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
+				<p class="font-bold text-6xl">$</p>
+			</div>
+		</div>
+		<a data-toggle="modal" data-target="#modalRetirar" href="#">
+			<div class="flex justify-between p-4 bg-white rounded-b-lg">
+				<div class="flex flex-col justify-around font-bold text-xl">
+					<p>Bonos extras por pagar</p>
+					<p>$<?php echo number_format($total_a_pagar); ?></p>
+				</div>
+				<div class="flex justify-center items-center">
+					<div class=" h-[122px]">
+						<img src="vistas/img/cajero-automatico.png" alt="retiro de dinero">
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+	<div class="m-6 rounded-xl border-solid border w-full sm:w-[21%] min-w-[300px] border-primario bg-[#694ED9] hover:scale-105 transition inner-shadow">
+		<div class="flex justify-end">
+			<div class="bg-white p-5 rounded-full flex h-[20px] w-[20px] justify-center items-center mx-3 mt-3 mb-6">
+				<p class="font-bold text-6xl">$</p>
+			</div>
+		</div>
+		<a href="ingresos-uninivel">
+			<div class="flex justify-between p-4 bg-white rounded-b-lg">
+				<div class="flex flex-col justify-around font-bold text-xl">
+					<p>Bonos extras pagados</p>
+					<p>$<?php echo number_format($total_pagos); ?></p>
+				</div>
+				<div class="flex justify-center items-center">
+					<div class=" h-[122px]">
+						<img src="vistas/img/transferencia-de-dinero.png" alt="transferencia de dinero">
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+
+	<!-- <div class="col-12 col-sm-6 col-lg-3">
 
 		<div class="small-box bg-info">
 
@@ -75,7 +117,7 @@ foreach ($pagos as $key => $value) {
 			
 		</div>
 
-	</div>
+	</div> -->
 
 
 

@@ -104,6 +104,7 @@ $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://kit.fontawesome.com/22923d6853.js" crossorigin="anonymous"></script>
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -183,7 +184,8 @@ $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
 	<!-- SWEET ALERT 2 -->
 	<!-- https://sweetalert2.github.io/ -->
-	<script src="vistas/js/plugins/sweetalert2.all.js"></script>
+	<!-- <script src="vistas/js/plugins/sweetalert2.all.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<!-- DataTables
 	https://datatables.net/-->

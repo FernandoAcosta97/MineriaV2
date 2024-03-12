@@ -108,7 +108,7 @@ if (count($cuentas) == 0) {
 
         if ($usuario["perfil"] != "admin" && $bono_extra) {
 
-          echo '<div class="alert bg-primario text-white">
+          echo '<div class="alert bg-primario text-white text-white">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
   <h5><i class="icon fas fa-exclamation-triangle"></i> Atención!</h5>
   Invita a mas personas con tu link de referido entre el ' . $bono_extra["fecha_inicio"] . ' y el ' . $bono_extra["fecha_fin"] . ' y recibiras un bono extra de $ ' . number_format($bono_extra["retorno"]) . ' COP por cada persona que se registre e invierta. No dejes pasar esta oportunidad, que esperas para ganar.

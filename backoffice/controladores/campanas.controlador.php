@@ -39,39 +39,46 @@ Class ControladorCampanas{
 				if($respuesta == "ok"){
 
 
-					echo '<script>
+					echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "¡CAMPAÑA CREADA CORRECTAMENTE!",
+							swal.fire({
+								type:'success',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡CAMPAÑA CREADA CORRECTAMENTE!</h2></div></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-primario border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "'.$pagina.'";
+									window.location = \"'.$pagina.'\";
 
 								}
 
 
 							});	
 
-						</script>';
+						</script>";
 
 					
 				}else{
-					echo '<script>
+					echo "<script>
 
-							swal({
-
-								type:"error",
-								title: "¡ERROR!",
-								text: "¡¡Ha ocurrido un problema, por favor inténtelo nuevamente",
+							swal.fire({
+								type:'error',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡¡Ha ocurrido un problema, por favor inténtelo nuevamente!!</p></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-red-500 border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
@@ -84,21 +91,24 @@ Class ControladorCampanas{
 
 							});	
 
-						</script>';
+						</script>";
 
 				}
 
 			}else{
 
-				echo '<script>
+				echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡No se permiten caracteres especiales en ninguno de los campos!",
+					swal.fire({
+						type:'error',
+						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+						confirmButtonText: 'Cerrar',
+						buttonsStyling: false,
+						customClass: {
+							popup: 'border-red-500 border-2 p-4 rounded-3xl',
+							confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+						}
 
 					}).then(function(result){
 
@@ -111,7 +121,7 @@ Class ControladorCampanas{
 
 					});	
 
-				</script>';
+				</script>";
 
 
 			}
@@ -131,22 +141,27 @@ Class ControladorCampanas{
 			}else if($_POST["tipoCampana"]==5 || $_POST["tipoCampana"]==6){
 				if(!isset($_POST["listaRecurrencias"]) || $_POST["listaRecurrencias"]=="" || $_POST["listaRecurrencias"]=="[]"){
  
-					echo'<script>
+					echo"<script>
 
-					swal({
-						  type: "error",
-						  title: "No hay recurrencias creadas",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						swal.fire({
+							type:'error',
+							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">No hay recurrencias creadas</h2></div></div>',
+							showConfirmButton: true,
+							confirmButtonText: 'Cerrar',
+							buttonsStyling: false,
+							customClass: {
+								popup: 'border-red-500 border-2 p-4 rounded-3xl',
+								confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+							}
+						}).then(function(result){
 									if (result.value) {
 	
-									window.location = "bonos-recurrencia";
+									window.location = 'bonos-recurrencia';
 	
 									}
 								})
 	
-					</script>';
+					</script>";
 	
 					return;
 				}
@@ -184,39 +199,46 @@ Class ControladorCampanas{
 				if($respuesta == "ok"){
 
 
-					echo '<script>
+					echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "¡BONO CREADO CORRECTAMENTE!",
+							swal.fire({
+								type:'success',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">¡BONO CREADO CORRECTAMENTE!</h2></div></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-primario border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "'.$direccion.'";
+									window.location = \"'.$direccion.'\";
 
 								}
 
 
 							});	
 
-						</script>';
+						</script>";
 
 					
 				}else{
-					echo '<script>
+					echo "<script>
 
-							swal({
-
-								type:"error",
-								title: "¡ERROR!",
-								text: "¡¡Ha ocurrido un problema, por favor inténtelo nuevamente",
+							swal.fire({
+								type:'error',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡ERROR!</h2></div><p class=\"text-red-500 text-2xl\">¡¡Ha ocurrido un problema, por favor inténtelo nuevamente!!</p></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-red-500 border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
@@ -229,21 +251,24 @@ Class ControladorCampanas{
 
 							});	
 
-						</script>';
+						</script>";
 
 				}
 
 			}else{
 
-				echo '<script>
+				echo "<script>
 
-					swal({
-
-						type:"error",
-						title: "¡CORREGIR!",
-						text: "¡No se permiten caracteres especiales en ninguno de los campos!",
+					swal.fire({
+						type:'error',
+						html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
+						confirmButtonText: 'Cerrar',
+						buttonsStyling: false,
+						customClass: {
+							popup: 'border-red-500 border-2 p-4 rounded-3xl',
+							confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+						}
 
 					}).then(function(result){
 
@@ -256,7 +281,7 @@ Class ControladorCampanas{
 
 					});	
 
-				</script>';
+				</script>";
 
 
 			}
@@ -477,41 +502,47 @@ Class ControladorCampanas{
 		}
 
 		if($respuesta == "ok"){
-			echo '<script>
+			echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "ACTUALIZACIÓN EXITOSA",
-								text: "¡LA CAMPAÑA HA SIDO ACTUALIZADA CORRECTAMENTE!",
+							swal.fire({
+								type:'success',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">ACTUALIZACIÓN EXITOSA</h2></div><p class=\"text-primario text-2xl\">¡LA CAMPAÑA HA SIDO ACTUALIZADA CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-primario border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "'.$pagina.'";
+									window.location = \"'.$pagina.'\";
 
 								}
 
 
 							});	
 
-						</script>';
+						</script>";
 		}
 
 				}else{
 
-					echo '<script>
+					echo "<script>
 	
-						swal({
-	
-							type:"error",
-							title: "¡CORREGIR!",
-							text: "¡No se permiten caracteres especiales en ninguno de los campos!",
+						swal.fire({
+							type:'error',
+							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 							showConfirmButton: true,
-							confirmButtonText: "Cerrar"
+							confirmButtonText: 'Cerrar',
+							buttonsStyling: false,
+							customClass: {
+								popup: 'border-red-500 border-2 p-4 rounded-3xl',
+								confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+							}
 	
 						}).then(function(result){
 	
@@ -524,7 +555,7 @@ Class ControladorCampanas{
 	
 						});	
 	
-					</script>';
+					</script>";
 	
 	
 				}
@@ -567,41 +598,47 @@ Class ControladorCampanas{
 		$respuesta = ModeloCampanas::mdlEditarCampana($tabla, $datos);
 
 		if($respuesta == "ok"){
-			echo '<script>
+			echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "ACTUALIZACIÓN EXITOSA",
-								text: "¡EL BONO HA SIDO ACTUALIZADO CORRECTAMENTE!",
+							swal.fire({
+								type:'success',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">ACTUALIZACIÓN EXITOSA</h2></div><p class=\"text-primario text-2xl\">¡EL BONO HA SIDO ACTUALIZADO CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-primario border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "'.$direccion.'";
+									window.location = \"'.$direccion.'\";
 
 								}
 
 
 							});	
 
-						</script>';
+						</script>";
 		}
 
 				}else{
 
-					echo '<script>
+					echo "<script>
 	
-						swal({
-	
-							type:"error",
-							title: "¡CORREGIR!",
-							text: "¡No se permiten caracteres especiales en ninguno de los campos!",
+						swal.fire({
+							type:'error',
+							html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-solid fa-triangle-exclamation text-red-500 text-6xl\"></i><h2 class=\"text-4xl\">¡CORREGIR!</h2></div><p class=\"text-red-500 text-2xl\">¡No se permiten caracteres especiales en ninguno de los campos!</p></div>',
 							showConfirmButton: true,
-							confirmButtonText: "Cerrar"
+							confirmButtonText: 'Cerrar',
+							buttonsStyling: false,
+							customClass: {
+								popup: 'border-red-500 border-2 p-4 rounded-3xl',
+								confirmButton: 'text-white bg-red-500 hover:bg-red-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+							}
 	
 						}).then(function(result){
 	
@@ -614,7 +651,7 @@ Class ControladorCampanas{
 	
 						});	
 	
-					</script>';
+					</script>";
 	
 	
 				}
@@ -709,28 +746,31 @@ Class ControladorCampanas{
 		$respuesta = ModeloUsuarios::mdlRegistrarCuentaBancaria($tabla, $datos);
 
 		if($respuesta == "ok"){
-			echo '<script>
+			echo "<script>
 
-							swal({
-
-								type:"success",
-								title: "REGISTRO EXITOSO",
-								text: "¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!",
+							swal.fire({
+								type:'success',
+								html: '<div class=\"flex flex-col gap-4\"><div><i class=\"fa-duotone fa-thumbs-up\" style=\"--fa-primary-color: #0066ff; --fa-secondary-color: #00a1ff;\"></i><h2 class=\"text-4xl\">REGISTRO EXITOSO</h2></div><p class=\"text-primario text-2xl\">¡SU CUENTA BANCARIA HA SIDO CREADA CORRECTAMENTE!</p></div>',
 								showConfirmButton: true,
-								confirmButtonText: "Cerrar"
+								confirmButtonText: 'Cerrar',
+								buttonsStyling: false,
+								customClass: {
+									popup: 'border-primario border-2 p-4 rounded-3xl',
+									confirmButton: 'text-white bg-primario hover:bg-blue-600 hover:text-white px-4 py-1 border-0 rounded-lg',
+								}
 
 							}).then(function(result){
 
 								if(result.value){
 
-									window.location = "perfil";
+									window.location = 'perfil';
 
 								}
 
 
 							});	
 
-						</script>';
+						</script>";
 		}
 
 				}

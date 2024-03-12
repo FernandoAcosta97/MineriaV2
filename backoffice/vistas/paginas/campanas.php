@@ -78,6 +78,7 @@ $ingresos=$ingresos+$total_pagos;
       </div>
     </div><!-- /.container-fluid -->
 
+
     <div class="flex flex-wrap w-full bg-white planesMinado">
 
     <?php 
@@ -88,8 +89,8 @@ $ingresos=$ingresos+$total_pagos;
 
         ?>
 
-					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-primario hover:scale-105 transition inner-shadow">
+					    <div class="flex flex-wrap p-4 w-full sm:w-1/3">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-[#694ED9] hover:scale-105 transition inner-shadow">
 							<div class="flex justify-between">
 								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
 									30%
@@ -105,7 +106,7 @@ $ingresos=$ingresos+$total_pagos;
 									<li><?php echo $campanas[0]["fecha_retorno"] ?></li>
 								</ul>
                 <?php if($usuario["perfil"]!="admin"): ?>
-								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+								<button class="btn px-10 mx-auto mb-8 bg-[#694ED9] text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
 									Minar
 								</button>
                 <?php endif ?>
@@ -114,7 +115,7 @@ $ingresos=$ingresos+$total_pagos;
 					</div>
 
 					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-blue-700 hover:scale-105 transition inner-shadow">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-[#B52AF6] hover:scale-105 transition inner-shadow">
 							<div class="flex justify-between">
 								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
 									50%
@@ -129,8 +130,10 @@ $ingresos=$ingresos+$total_pagos;
 									<li>paga el dia:</li>
 									<li><?php echo $campanas[1]["fecha_retorno"] ?></li>
 								</ul>
+
                 <?php if($usuario["perfil"]!="admin"): ?>
-								<button class="btn px-10 mx-auto mb-8 bg-blue-700 text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[1]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+								<button class="btn px-10 mx-auto mb-8 bg-[#B52AF6] text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[1]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+
 									Minar
 								</button>
                 <?php endif ?>
@@ -139,7 +142,7 @@ $ingresos=$ingresos+$total_pagos;
 					</div>
 
 					<div class="flex flex-wrap p-4 w-full sm:w-1/3">
-						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-purple-500 hover:scale-105 transition inner-shadow">
+						<div class="rounded-xl border-solid border w-full min-w-[200px] border-primario bg-[#F22AF6] hover:scale-105 transition inner-shadow">
 							<div class="flex justify-between">
 								<div class="bg-white p-3 rounded-full h-20 w-20 flex items-center font-bold ml-10 my-1 text-3xl justify-center">
 									70%
@@ -241,13 +244,15 @@ $ingresos=$ingresos+$total_pagos;
 									<li><?php echo $campanas[0]["fecha_retorno"] ?></li>
 								</ul>
                 <?php if($usuario["perfil"]!="admin"): ?>
-								<button class="btn px-10 mx-auto mb-8 bg-primario text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+								<button class="btn px-10 mx-auto mb-8 bg-[#F22AF6] text-white hover:border hover:text-blue-900 btnInvertir" idCampana="<?php echo $campanas[0]["id"] ?>" data-toggle='modal' data-target='#modalRegistrarComprobante'>
+
 									Minar
 								</button>
                 <?php endif ?>
 							</div>
 						</div>
 					</div>
+
 
               <?php
             }
@@ -340,8 +345,7 @@ EDITAR CAMPAÑA
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Editar campaña</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Editar campaña</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -440,8 +444,7 @@ EDITAR CAMPAÑA
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -476,8 +479,7 @@ REGISTRAR CAMPAÑA
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Registrar Campaña</h4>
+<div class="modal-header bg-primario text-white">	        <h4 class="modal-title">Registrar Campaña</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 
@@ -578,8 +580,7 @@ REGISTRAR CAMPAÑA
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
@@ -613,7 +614,7 @@ REGISTRAR COMPROBANTE
     	<form method="post" enctype="multipart/form-data">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
+	      <div class="modal-header bg-primario text-white">
 	        <h4 class="modal-title">Realizar Inversión</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
@@ -635,7 +636,7 @@ REGISTRAR COMPROBANTE
 
                 <select class="form-control" id="billeteras" name="billeteras" required>
 
-                  <option value="">SELECCIONAR</option>
+                  <option value="">Seleccionar</option>
                   <option value="1">COP</option>
                   <option value="2">CRYPTO</option>
                   <option value="3">TRANSFERENCIA</option>
@@ -689,8 +690,7 @@ REGISTRAR COMPROBANTE
 
         	<div>
 
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>

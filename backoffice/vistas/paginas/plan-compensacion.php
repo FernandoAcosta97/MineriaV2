@@ -61,8 +61,7 @@ Cambiar Niveles Comisiones
     	<form method="post">
 
 	      <!-- Modal Header -->
-	      <div class="modal-header">
-
+<div class="modal-header bg-primario text-white">
 	        <h4 class="modal-title">Cambiar niveles</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
@@ -95,8 +94,7 @@ Cambiar Niveles Comisiones
 
         	<div>
 	        	
-	        	<button type="submit" class="btn btn-primary">Enviar</button>
-
+	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>
