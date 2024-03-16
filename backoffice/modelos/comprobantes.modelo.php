@@ -5,6 +5,7 @@ require_once "conexion.php";
 class ModeloComprobantes
 {
 
+
     /*=============================================
     Registro de COMPROBANTES
     =============================================*/

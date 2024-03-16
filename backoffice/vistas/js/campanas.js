@@ -4,15 +4,22 @@
 Invertir seleccionar transferencia y valor disponible
 =============================================*/
 $("#billeteras").on("change",function () {
+
 	var seleccionado = $(this).val();
 
 	var saldo_cop = $("#saldo_cop").val();
+
+	$("#btnEnviarInversion").removeAttr("type").attr("type", "submit");
 
 	if(seleccionado==1){
 
 	$(".invertir_transferencia").html('<div class="form-group"><h3>Disponible - $'+saldo_cop+'</h3></h2></div>');
 
 	}else if(seleccionado==3 && seleccionado!=""){
+
+	$("#btnEnviarInversion").removeAttr("type").attr("type", "button");
+	// $(elemento).addClass(nombreClase,function(index,oldclass));
+// $(elemento).removeClass(nombreClase,function(index,oldclass));
 
 	$(".invertir_transferencia").html('<div class="form-group"><input id="registrarFotoComprobante" type="file" class="form-control-file border registrarFotoComprobante" name="registrarFotoComprobante" required><img id="previsualizarRegistrar" src="" class="img-thumbnail previsualizarRegistrar" width="100px"></div>');
 
@@ -1617,3 +1624,129 @@ $(".formularioCrearRecurrenciaAfiliadosEditar").on("click", "button.quitarRecurr
 	listarRecurrenciasAfiliadosEditar();
 
 })
+
+
+
+const showLoading = function() {
+	Swal.fire({
+	  title: 'Cargando...',
+	  allowEscapeKey: false,
+	  allowOutsideClick: false,
+	  target: document.getElementById('modalRegistrarComprobante'),
+	  didOpen: () => {
+		swal.showLoading();
+	  }
+	}).then(
+	  
+	)
+  };
+
+
+
+$("#registrarValor").number(true,0);
+
+
+
+  $(".btnEnviarInversion").click(function(){
+
+	seleccionado = $("#billeteras").val();
+
+	if(seleccionado==3 && seleccionado!=""){
+
+	img=$(".registrarFotoComprobante")[0].files;
+	input=$("#registrarValor").val();
+	doc_usuario=$("#doc_usuario").val();
+	id_campana=$("#id_campana").val();
+
+	
+	if(img.length==0){
+		alert("seleccione una imagen");
+	}else{
+		tipoImg=img[0]["type"];
+	}
+		
+	if(input==""){
+		alert("Registre un valor correcto");
+	}
+
+	if(img.length==1 && input!=""){
+
+		showLoading();
+
+		var datos = new FormData();
+		datos.append("iavalor",input);
+		datos.append("iafoto",img[0]);
+		datos.append("iadoc_usuario",doc_usuario);
+		datos.append("iaid_campana",id_campana);
+		datos.append("tipoImg",tipoImg);
+	  
+		$.ajax({
+	  
+		 url:"ajax/campanas.ajax.php",
+		 method:"POST",
+		 data:datos,
+		 cache:false,
+		 contentType:false,
+		 processData:false,
+		 success:function(respuesta){
+
+			swal.close();
+
+			if(respuesta.trim()=="error"){
+
+				Swal.fire({
+
+					icon:"error",
+					title: "¡Error, vuelve a cargar el comprobante por favor!",
+					showConfirmButton: true,
+					confirmButtonText: "Cerrar",
+					target: document.getElementById('modalRegistrarComprobante'),
+
+				}).then(function(result){
+
+					if(result.value){
+
+					   window.location = "comprobantes";
+					}
+
+
+				});
+				
+
+			}else{
+
+				Swal.fire({
+
+					icon:"success",
+					title: "¡COMPROBANTE REGISTRADO CORRECTAMENTE!",
+					showConfirmButton: true,
+					confirmButtonText: "Cerrar",
+					allowEscapeKey: false,
+					allowOutsideClick: false,
+					target: document.getElementById('modalRegistrarComprobante'),
+
+				}).then(function(result){
+
+					if(result.value){
+
+					   window.location = "comprobantes";
+					}
+
+
+				});
+
+				
+			}
+	
+
+			// $("#formularioRegComprobante").submit();
+         
+		  
+		}
+	  
+	  });
+	}
+
+}
+
+  })

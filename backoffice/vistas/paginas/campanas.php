@@ -622,7 +622,7 @@ REGISTRAR COMPROBANTE
 	      <!-- Modal body -->
 	      <div class="modal-body">
 
-        <input type="hidden" value="<?php echo $usuario["doc_usuario"]; ?>" name="doc_usuario">
+        <input type="hidden" value="<?php echo $usuario["doc_usuario"]; ?>" name="doc_usuario" id="doc_usuario">
         
         <input type="hidden" value="<?php echo ($ingresos-$egresos); ?>" id="saldo_cop">
 
@@ -690,7 +690,7 @@ REGISTRAR COMPROBANTE
 
         	<div>
 
-	        	<button type="submit" class="btn bg-primario text-white">Enviar</button>
+	        	<button type="submit" id="btnEnviarInversion" class="btnEnviarInversion btn bg-primario text-white">Enviar</button>
 	        </div>
 
 	      </div>

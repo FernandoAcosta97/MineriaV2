@@ -187,6 +187,164 @@ class ControladorComprobantes
     }
 
 
+       /*=============================================
+    Registro extraccion ia comprobantes
+    =============================================*/
+
+    public static function ctrRegistrarDatosComprobantes($codigo, $aprobado, $cuenta, $valor, $fecha, $id_comprobante,$detalles)
+    {
+
+            $tabla = "rec_comprobantes";
+            $datos = array("n_recibo" => $codigo,
+                    "n_aprobado" => $aprobado,
+                    "n_cuenta" => $cuenta,
+                    "n_valor" => $valor,
+                    "fecha" => $fecha,
+                    "id_comprobante" => $id_comprobante,
+                    "detalles" => $detalles);
+
+                $respuesta = ModeloComprobantes::mdlRegistrarDatosComprobantes($tabla, $datos);
+
+                
+                if ($respuesta == "ok") {
+
+
+                }
+
+
+
+    }
+
+
+
+      /*=============================================
+    Registro de comprobantes Inversion
+    =============================================*/
+
+    public static function ctrRegistrarComprobantesInversion($img, $valor_comprobante,$doc_usuario, $id_campana,$tipoImg,$estado)
+    {
+
+    
+        if (intval(trim($valor_comprobante))>=1000 || $valor_comprobante==2) {
+
+                /*=============================================
+                VALIDAR IMAGEN
+                =============================================*/
+
+                $ruta = "";
+                $r="";
+
+                if (isset($img)) {
+
+                    list($ancho, $alto) = getimagesize($img);
+
+                    /*=============================================
+                    CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL COMPROBANTE
+                    =============================================*/
+                    $directorio = dirname(__DIR__)."/vistas/img/comprobantes/". $doc_usuario;
+
+                    if(!file_exists($directorio)){
+						mkdir($directorio, 0755);
+					}
+					
+                    /*=============================================
+                    DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+                    =============================================*/
+
+                    if ($tipoImg == "image/jpeg") {
+
+                        /*=============================================
+                        GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+                        =============================================*/
+
+                        $aleatorio = mt_rand(100, 999);
+
+                        $ruta = dirname(__DIR__)."/vistas/img/comprobantes/" . $doc_usuario . "/" . $aleatorio . ".jpg";
+
+                        $r="vistas/img/comprobantes/" . $doc_usuario . "/" . $aleatorio . ".jpg";
+
+                        $origen = imagecreatefromjpeg($img);
+
+                        $destino = imagecreatetruecolor($ancho, $alto);
+
+                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $ancho, $alto, $ancho, $alto);
+
+                        imagejpeg($destino, $ruta);
+
+                    }
+
+                    if ($tipoImg == "image/png") {
+
+                        /*=============================================
+                        GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+                        =============================================*/
+
+                        $aleatorio = mt_rand(100, 999);
+
+                        $ruta = dirname(__DIR__)."/vistas/img/comprobantes/" . $doc_usuario . "/" . $aleatorio . ".png";
+
+                        $r="vistas/img/comprobantes/" . $doc_usuario . "/" . $aleatorio . ".png";
+
+                        $origen = imagecreatefrompng($img);
+
+                        $destino = imagecreatetruecolor($ancho, $alto);
+
+                        imagecopyresized($destino, $origen, 0, 0, 0, 0, $ancho, $alto, $ancho, $alto);
+
+                        imagepng($destino, $ruta);
+
+                    }
+		
+					
+				}
+
+                $respuesta="sin-foto";
+
+                if(!empty($ruta)){
+
+                    if($valor_comprobante==2){
+                        $valor_comprobante=0;
+                    }
+
+                    date_default_timezone_set('America/Bogota');
+                    $fecha_actual = date('Y-m-d H:i:s');
+
+                $tabla = "comprobantes";
+                $datos = array("valor" => $valor_comprobante,
+                    "estado" => $estado,
+                    "foto" => $r,
+                    "fecha" => $fecha_actual,
+                    "doc_usuario" => $doc_usuario,
+                    "campana" => $id_campana);
+
+                $respuesta = ModeloComprobantes::mdlRegistrarComprobantesInversion($tabla, $datos);
+
+                }
+
+                return $respuesta;
+
+            } 
+
+
+    }
+
+
+    /*=============================================
+    Mostrar Comprobantes
+    =============================================*/
+
+    public static function ctrMostrarDatosComprobantes($item, $valor)
+    {
+
+        $tabla = "rec_comprobantes";
+
+        $respuesta = ModeloComprobantes::mdlMostrarDatosComprobantes($tabla, $item, $valor);
+
+        return $respuesta;
+
+    }
+
+
     /*=============================================
     Registro de comprobantes
     =============================================*/
